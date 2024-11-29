@@ -186,10 +186,10 @@
                     <span data-lang-inline="pt">Passeios inesquecíveis de jipe ​​e caminhadas nos locais mais bonitos da natureza</span>
                     <span data-lang-inline="fr">Des visites inoubliables en jeep et à pied dans les plus beaux endroits de la nature</span>
                 </p>
-                <a href="#book" class="bg-green-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-green-700">
+                <a href="#book" class="bg-green-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-green-700" onclick="openBookingModal('jeep')">
                     <span data-lang-inline="en" class="active">Book Your Adventure</span>
                     <span data-lang-inline="es">Reserva Tu Aventura</span>
-                    <button onclick="openBookingModal('jeep')" data-lang-inline="pt">Reserva a tua aventura</button>
+                    <span data-lang-inline="pt">Reserva a tua aventura</span>
                     <span data-lang-inline="fr">Réservez votre aventure</span>
                 </a>
             </div>
@@ -784,12 +784,15 @@
                 elem.classList.toggle('active', elem.getAttribute('data-lang-inline') === lang);
             });
             
-            // Update HTML lang attribute
+            // Update select options in both the main form and modal
+            document.querySelectorAll('select option[data-' + lang + ']').forEach(option => {
+                option.textContent = option.getAttribute('data-' + lang);
+            });
+            
             document.documentElement.lang = lang;
         }
 
-        // Initialize with default language as English
-        changeLanguage('pt');
+
 
         // Define your image paths
         const tourImages = {
@@ -872,8 +875,18 @@
             showSlide(container, newIndex);
         }
 
-        // Initialize carousels when the page loads
-        document.addEventListener('DOMContentLoaded', initializeCarousels);
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial language to Portuguese
+            changeLanguage('pt');
+            
+            // Update select options for the initial language
+            document.querySelectorAll('select option[data-pt]').forEach(option => {
+                option.textContent = option.getAttribute('data-pt');
+            });
+            
+            // Initialize carousels
+            initializeCarousels();
+        });
 
 
         // Tour card toggle functionality
@@ -901,9 +914,18 @@
         function openBookingModal(tourType) {
             const modal = document.getElementById('bookingModal');
             const tourSelect = modal.querySelector('select[name="tourType"]');
+            
+            // Set tour type if provided
             if (tourType) {
                 tourSelect.value = tourType;
             }
+
+            // Update select options based on current language
+            const currentLang = document.documentElement.lang;
+            modal.querySelectorAll('select option[data-' + currentLang + ']').forEach(option => {
+                option.textContent = option.getAttribute('data-' + currentLang);
+            });
+
             modal.classList.remove('hidden');
             modal.classList.add('flex');
         }
@@ -919,6 +941,8 @@
             e.preventDefault();
             
             const formData = new FormData(this);
+            const currentLang = document.documentElement.lang;
+            
             const bookingData = {
                 tourType: formData.get('tourType'),
                 date: formData.get('tourDate'),
@@ -926,16 +950,21 @@
                 numberOfPeople: formData.get('numberOfPeople'),
                 name: formData.get('name'),
                 email: formData.get('email'),
-                phone: formData.get('phone')
+                phone: formData.get('phone'),
+                language: currentLang
             };
 
-            // Send email using a service like EmailJS or your backend
-            // For this example, we'll just log the data
             console.log('Booking data:', bookingData);
             
-            // You would typically make an API call here to send the email
+            // Show success message in current language
+            const successMessages = {
+                en: 'Thank you for your booking! We will contact you shortly.',
+                es: '¡Gracias por su reserva! Nos pondremos en contacto pronto.',
+                pt: 'Obrigado pela sua reserva! Entraremos em contacto em breve.',
+                fr: 'Merci pour votre réservation ! Nous vous contacterons bientôt.'
+            };
             
-            alert('Thank you for your booking! We will contact you shortly.');
+            alert(successMessages[currentLang]);
             closeBookingModal();
         });
 
@@ -968,14 +997,16 @@
                     <span data-lang-inline="fr">Sélectionner l'Expérience</span>
                 </label>
                 <select name="tourType" required class="w-full p-2 border rounded">
-                    <option value="jeep">
-                        <span data-lang-inline="en" class="active">Mountain Jeep Adventure (99€)</span>
-                        <span data-lang-inline="pt">Aventura de Jipe na Serra (99€)</span>
-                    </option>
-                    <option value="walking">
-                        <span data-lang-inline="en" class="active">Forest Walking Tour (49€)</span>
-                        <span data-lang-inline="pt">Passeio Pedestre na Serra (49€)</span>
-                    </option>
+                    <option value="jeep" 
+                        data-en="Mountain Jeep Adventure (99€)"
+                        data-es="Aventura en Jeep por la Montaña (99€)"
+                        data-pt="Aventura de Jipe na Serra (99€)"
+                        data-fr="Aventure en Jeep de Montagne (99€)">Mountain Jeep Adventure (99€)</option>
+                    <option value="walking"
+                        data-en="Forest Walking Tour (49€)"
+                        data-es="Tour de Senderismo por el Bosque (49€)"
+                        data-pt="Passeio Pedestre na Serra (49€)"
+                        data-fr="Randonnée en Forêt (49€)">Forest Walking Tour (49€)</option>
                 </select>
             </div>
 

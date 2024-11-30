@@ -75,15 +75,21 @@
         <div class="container-xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 lg:h-20">
                 <div class="text-xl lg:text-2xl font-bold text-gray-800">
-                    <!--
-                    <span data-lang-inline="en" class="active">Arrábida Green tours</span>
-                    <span data-lang-inline="es">Arrábida Green tours</span>
-                    <span data-lang-inline="pt">Arrábida Green tours</span>
-                    -->
                     <span style="font-family: 'DM Sans', sans-serif; font-weight: 300; font-style: italic;">Arrábida5Senses</span>
                 </div>
-                    <!-- Navigation Links -->
-                    <div class="hidden md:flex space-x-8">
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8">
                         <a href="#tours" class="text-gray-600 hover:text-gray-900">
                             <span data-lang-inline="en" class="active">Tours</span>
                             <span data-lang-inline="es">Visitas</span>
@@ -102,12 +108,11 @@
                             <span data-lang-inline="pt">Contactos</span>
                             <span data-lang-inline="fr">Contact</span>
                         </a>
-                        <a href="#book" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                        <a href="#" onclick="openBookingModal('jeep')" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
                             <span data-lang-inline="en" class="active">Book Now</span>
                             <span data-lang-inline="es">Reservar</span>
                             <span data-lang-inline="pt">Reservar</span>
                             <span data-lang-inline="fr">Réserver</span>
-
                         </a>
                     <!-- Language Dropdown -->
                     <div class="dropdown relative group">
@@ -162,8 +167,46 @@
                                 </div>
                             </a>
                         </div>
-
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#tours" class="block px-3 py-2 text-gray-600 hover:text-gray-900">
+                    <span data-lang-inline="en" class="active">Tours</span>
+                    <span data-lang-inline="es">Visitas</span>
+                    <span data-lang-inline="pt">Tours</span>
+                    <span data-lang-inline="fr">Tournée</span>
+                </a>
+                <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-gray-900">
+                    <span data-lang-inline="en" class="active">About</span>
+                    <span data-lang-inline="es">Sobre Nosotros</span>
+                    <span data-lang-inline="pt">Sobre Nós</span>
+                    <span data-lang-inline="fr">Sur nous</span>
+                </a>
+                <a href="#contact" class="block px-3 py-2 text-gray-600 hover:text-gray-900">
+                    <span data-lang-inline="en" class="active">Contact</span>
+                    <span data-lang-inline="es">Contacto</span>
+                    <span data-lang-inline="pt">Contactos</span>
+                    <span data-lang-inline="fr">Contact</span>
+                </a>
+                <a href="#" onclick="openBookingModal('jeep')" class="block px-3 py-2 text-gray-600 hover:text-gray-900">
+                    <span data-lang-inline="en" class="active">Book Now</span>
+                    <span data-lang-inline="es">Reservar</span>
+                    <span data-lang-inline="pt">Reservar</span>
+                    <span data-lang-inline="fr">Réserver</span>
+                </a>
+                <!-- Language selector for mobile -->
+                <div class="px-3 py-2">
+                    <select onchange="changeLanguage(this.value)" class="w-full p-2 border rounded">
+                        <option value="en">🇬🇧 English</option>
+                        <option value="pt">🇵🇹 Português</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -788,6 +831,12 @@
             document.querySelectorAll('select option[data-' + lang + ']').forEach(option => {
                 option.textContent = option.getAttribute('data-' + lang);
             });
+
+            // Update mobile language selector value
+            const mobileLangSelect = document.querySelector('#mobile-menu select');
+            if (mobileLangSelect) {
+                mobileLangSelect.value = lang;
+            }
             
             document.documentElement.lang = lang;
         }
@@ -876,15 +925,34 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Set initial language to Portuguese
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent event bubbling
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            // Close menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Your existing initialization code
             changeLanguage('pt');
-            
-            // Update select options for the initial language
             document.querySelectorAll('select option[data-pt]').forEach(option => {
                 option.textContent = option.getAttribute('data-pt');
             });
-            
-            // Initialize carousels
             initializeCarousels();
         });
 
@@ -967,6 +1035,12 @@
             alert(successMessages[currentLang]);
             closeBookingModal();
         });
+
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
 
 
     </script>

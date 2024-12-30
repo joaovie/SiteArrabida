@@ -214,8 +214,25 @@
 
     <!-- Hero Section -->
     <div class="relative h-96">
-        <img src="Imagens_tour1/P1510556.jpg" alt="Jeep tour in nature" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div id="hero-carousel" class="w-full h-full">
+            <!-- Images will be inserted here by JavaScript -->
+        </div>
+        <!-- Hero Navigation Dots -->
+        <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10"></div>
+        <!-- Hero Navigation Arrows -->
+        <button onclick="moveHeroSlide(-1)" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <button onclick="moveHeroSlide(1)" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+
+        <!-- <img src="Imagens_tour1/P1510556.jpg" alt="Jeep tour in nature" class="w-full h-full object-cover"> -->
+        <div class="absolute inset-0 bg-black bg-opacity-5 flex items-center justify-center">
             <div class="text-center text-white">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">
                     <span data-lang-inline="en" class="active">Explore the Wilderness</span>
@@ -661,6 +678,285 @@
         </div>
     </section>
 
+    <!-- Terms and Conditions Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <!-- Main Terms and Conditions Button -->
+            <button onclick="toggleMainTerms()" class="w-full bg-white rounded-lg shadow-md px-6 py-4 mb-4 flex justify-between items-center hover:bg-gray-50 focus:outline-none">
+                <h2 class="text-2xl font-bold">
+                    <span data-lang-inline="en" class="active">General Terms and Conditions</span>
+                    <span data-lang-inline="es">Términos y Condiciones Generales</span>
+                    <span data-lang-inline="pt">Termos e Condições Gerais</span>
+                    <span data-lang-inline="fr">Conditions Générales</span>
+                </h2>
+                <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+
+            <!-- Main collapsible container -->
+            <div id="mainTermsContent" class="max-h-0 overflow-hidden transition-all duration-500">
+                <div class="space-y-4">
+                    <!-- Introduction -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none" onclick="toggleTermsSection(this)">
+                            <span>
+                                <span data-lang-inline="en" class="active">1. Introduction</span>
+                                <span data-lang-inline="es">1. Introducción</span>
+                                <span data-lang-inline="pt">1. Introdução</span>
+                                <span data-lang-inline="fr">1. Introduction</span>
+                            </span>
+                            <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="px-6 pb-4 text-gray-600">
+                                <p class="mb-3">
+                                    <span data-lang-inline="en" class="active">This document sets out the Terms and Conditions (hereinafter "Terms") governing the use of the services offered by Arrábida5Senses. By contracting our services, the Traveler agrees to comply with these Terms.</span>
+                                    <span data-lang-inline="es">Este documento establece los Términos y Condiciones (en adelante "Términos") que rigen el uso de los servicios ofrecidos por Arrábida5Senses. Al contratar nuestros servicios, el Viajero acepta cumplir con estos Términos.</span>
+                                    <span data-lang-inline="pt">Este documento estabelece os Termos e Condições (doravante "Termos") que regem a utilização dos serviços oferecidos pela Arrábida5Senses. Ao contratar os nossos serviços, o Viajante concorda em cumprir estes Termos.</span>
+                                    <span data-lang-inline="fr">Ce document établit les Termes et Conditions (ci-après "Conditions") régissant l'utilisation des services proposés par Arrábida5Senses. En contractant nos services, le Voyageur accepte de se conformer à ces Conditions.</span>
+                                </p>
+                                <p class="mb-3">
+                                    <span data-lang-inline="en" class="active">Arrábida5Senses is registered with Turismo de Portugal IP as a tourist entertainment agent and travel and tourism agency.</span>
+                                    <span data-lang-inline="es">Arrábida5Senses está registrada en Turismo de Portugal IP como agente de entretenimiento turístico y agencia de viajes y turismo.</span>
+                                    <span data-lang-inline="pt">A Arrábida5Senses está registada no Turismo de Portugal IP como agente de animação turística e agência de viagens e turismo.</span>
+                                    <span data-lang-inline="fr">Arrábida5Senses est enregistrée auprès de Turismo de Portugal IP en tant qu'agent de divertissement touristique et agence de voyages et de tourisme.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Services -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none" onclick="toggleTermsSection(this)">
+                            <span>
+                                <span data-lang-inline="en" class="active">2. Services Offered</span>
+                                <span data-lang-inline="es">2. Servicios Ofrecidos</span>
+                                <span data-lang-inline="pt">2. Serviços Oferecidos</span>
+                                <span data-lang-inline="fr">2. Services Proposés</span>
+                            </span>
+                            <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="px-6 pb-4 text-gray-600">
+                                <p class="mb-3">
+                                    <span data-lang-inline="en" class="active">Arrábida5Senses organizes group travel experiences to destinations that highlight nature, history and culture. Services include travel arrangements, transport, scheduled activities and assistance throughout the trip.</span>
+                                    <span data-lang-inline="es">Arrábida5Senses organiza experiencias de viaje en grupo a destinos que destacan la naturaleza, la historia y la cultura. Los servicios incluyen arreglos de viaje, transporte, actividades programadas y asistencia durante todo el viaje.</span>
+                                    <span data-lang-inline="pt">A Arrábida5Senses organiza experiências de viagem em grupo para destinos que destacam a natureza, história e cultura. Os serviços incluem organização de viagens, transporte, atividades programadas e assistência durante toda a viagem.</span>
+                                    <span data-lang-inline="fr">Arrábida5Senses organise des expériences de voyage en groupe vers des destinations qui mettent en valeur la nature, l'histoire et la culture. Les services comprennent l'organisation du voyage, le transport, les activités programmées et l'assistance tout au long du voyage.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reservations -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none" onclick="toggleTermsSection(this)">
+                            <span>
+                                <span data-lang-inline="en" class="active">3. Reservations, Price and Payments</span>
+                                <span data-lang-inline="es">3. Reservas, Precio y Pagos</span>
+                                <span data-lang-inline="pt">3. Reservas, Preço e Pagamentos</span>
+                                <span data-lang-inline="fr">3. Réservations, Prix et Paiements</span>
+                            </span>
+                            <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="px-6 pb-4 text-gray-600">
+                                <h4 class="font-semibold mb-2">
+                                    <span data-lang-inline="en" class="active">3.1 All reservations are subject to availability and confirmation by Arrábida5Senses.</span>
+                                    <span data-lang-inline="es">3.1 Todas las reservas están sujetas a disponibilidad y confirmación por parte de Arrábida5Senses.</span>
+                                    <span data-lang-inline="pt">3.1 Todas as reservas estão sujeitas a disponibilidade e confirmação por parte da Arrábida5Senses.</span>
+                                    <span data-lang-inline="fr">3.1 Toutes les réservations sont soumises à disponibilité et confirmation par Arrábida5Senses.</span>
+                                </h4>
+                                <h4 class="font-semibold mb-2">
+                                    <span data-lang-inline="en" class="active">3.2 Payment can be made by ATM reference, MB WAY or other methods agreed in advance.</span>
+                                    <span data-lang-inline="es">3.2 El pago se puede realizar mediante referencia ATM, MB WAY u otros métodos acordados previamente.</span>
+                                    <span data-lang-inline="pt">3.2 O pagamento pode ser efetuado por referência ATM, MB WAY ou outros métodos acordados previamente.</span>
+                                    <span data-lang-inline="fr">3.2 Le paiement peut être effectué par référence ATM, MB WAY ou d'autres méthodes convenues à l'avance.</span>
+                                </p>
+                                <h4 class="font-semibold mb-2">
+                                    <span data-lang-inline="en" class="active">3.3 An initial deposit may be required to guarantee the booking, but this will only be considered confirmed once the full amount has been paid.</span>
+                                    <span data-lang-inline="es">3.3 Se puede requerir un depósito inicial para garantizar la reserva, pero solo se considerará confirmada una vez que se haya pagado el monto total.</span>
+                                    <span data-lang-inline="pt">3.3 Pode ser necessário um depósito inicial para garantir a reserva, mas esta só será considerada confirmada após o pagamento integral do valor.</span>
+                                    <span data-lang-inline="fr">3.3 Un acompte initial peut être requis pour garantir la réservation, mais celle-ci ne sera considérée comme confirmée qu'une fois le montant total payé.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cancellations -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none" onclick="toggleTermsSection(this)">
+                            <span>
+                                <span data-lang-inline="en" class="active">4. Cancellations and Changes</span>
+                                <span data-lang-inline="es">4. Cancelaciones y Cambios</span>
+                                <span data-lang-inline="pt">4. Cancelamentos e Alterações</span>
+                                <span data-lang-inline="fr">4. Annulations et Modifications</span>
+                            </span>
+                            <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="px-6 pb-4 text-gray-600">
+                                <h4 class="font-semibold mb-2">
+                                    <span data-lang-inline="en" class="active">4.1 Cancellations by the Traveler:</span>
+                                    <span data-lang-inline="es">4.1 Cancelaciones por parte del Viajero:</span>
+                                    <span data-lang-inline="pt">4.1 Cancelamentos pelo Viajante:</span>
+                                    <span data-lang-inline="fr">4.1 Annulations par le Voyageur:</span>
+                                </h4>
+                                <p class="mb-3">
+                                    <span data-lang-inline="en" class="active">• Cancellations must be notified in writing.</span>
+                                    <span data-lang-inline="es">• Las cancelaciones deben ser notificadas por escrito.</span>
+                                    <span data-lang-inline="pt">• Os cancelamentos devem ser notificados por escrito.</span>
+                                    <span data-lang-inline="fr">• Les annulations doivent être notifiées par écrit.</span>
+                                </p>
+                                <p class="mb-3">
+                                    <span data-lang-inline="en" class="active">• Cancellations made up to 8 days before trips without organized transport will be entitled to a full refund.</span>
+                                    <span data-lang-inline="es">• Las cancelaciones realizadas hasta 8 días antes de los viajes sin transporte organizado tendrán derecho a un reembolso completo.</span>
+                                    <span data-lang-inline="pt">• Cancelamentos efetuados até 8 dias antes das viagens sem transporte organizado terão direito a reembolso integral.</span>
+                                    <span data-lang-inline="fr">• Les annulations effectuées jusqu'à 8 jours avant les voyages sans transport organisé donneront droit à un remboursement intégral.</span>
+                                </p>
+                                
+                                <h4 class="font-semibold mb-2 mt-4">
+                                    <span data-lang-inline="en" class="active">4.2 Company Cancellations and Changes:</span>
+                                    <span data-lang-inline="es">4.2 Cancelaciones y Cambios por parte de la Empresa:</span>
+                                    <span data-lang-inline="pt">4.2 Cancelamentos e Alterações pela Empresa:</span>
+                                    <span data-lang-inline="fr">4.2 Annulations et Modifications par l'Entreprise:</span>
+                                </h4>
+                                <p class="mb-3">
+                                    <span data-lang-inline="en" class="active">• We reserve the right to cancel the trip at any time for any reason, including lack of participants or safety concerns.</span>
+                                    <span data-lang-inline="es">• Nos reservamos el derecho de cancelar el viaje en cualquier momento por cualquier motivo, incluyendo falta de participantes o preocupaciones de seguridad.</span>
+                                    <span data-lang-inline="pt">• Reservamos o direito de cancelar a viagem a qualquer momento por qualquer motivo, incluindo falta de participantes ou questões de segurança.</span>
+                                    <span data-lang-inline="fr">• Nous nous réservons le droit d'annuler le voyage à tout moment pour quelque raison que ce soit, y compris le manque de participants ou des problèmes de sécurité.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Traveler -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none" onclick="toggleTermsSection(this)">
+                            <span>
+                                <span data-lang-inline="en" class="active">5. Traveler Responsibilities</span>
+                                <span data-lang-inline="es">5. Responsabilidades del Viajero</span>
+                                <span data-lang-inline="pt">5. Responsabilidades do Viajante</span>
+                                <span data-lang-inline="fr">5. Responsabilités du Voyageur</span>
+                            </span>
+                            <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="px-6 pb-4 text-gray-600">
+                                <h4 class="font-semibold mb-2">
+                                    <span data-lang-inline="en" class="active">5.1 The Traveler is responsible for ensuring they have all necessary and valid documentation.</span>
+                                    <span data-lang-inline="es">5.1 El Viajero es responsable de asegurarse de tener toda la documentación necesaria y válida.</span>
+                                    <span data-lang-inline="pt">5.1 O Viajante é responsável por garantir que possui toda a documentação necessária e válida.</span>
+                                    <span data-lang-inline="fr">5.1 Le Voyageur est responsable de s'assurer qu'il dispose de tous les documents nécessaires et valides.</span>
+                                </h4>
+                                <h4 class="font-semibold mb-2">
+                                    <span data-lang-inline="en" class="active">5.2 The Traveler must inform us of any medical conditions or special needs at booking.</span>
+                                    <span data-lang-inline="es">5.2 El Viajero debe informarnos de cualquier condición médica o necesidad especial al momento de la reserva.</span>
+                                    <span data-lang-inline="pt">5.2 O Viajante deve informar-nos sobre quaisquer condições médicas ou necessidades especiais no momento da reserva.</span>
+                                    <span data-lang-inline="fr">5.2 Le Voyageur doit nous informer de toute condition médicale ou besoin spécial lors de la réservation.</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insurance -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none" onclick="toggleTermsSection(this)">
+                            <span>
+                                <span data-lang-inline="en" class="active">6. Insurance</span>
+                                <span data-lang-inline="es">6. Seguro</span>
+                                <span data-lang-inline="pt">6. Seguro</span>
+                                <span data-lang-inline="fr">6. Assurance</span>
+                            </span>
+                            <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="px-6 pb-4 text-gray-600">
+                                <p class="mb-3">
+                                    <span data-lang-inline="en" class="active">6.1 We maintain all compulsory insurance required by national legislation, including civil liability and personal accident insurance.</span>
+                                    <span data-lang-inline="es">6.1 Mantenemos todos los seguros obligatorios requeridos por la legislación nacional, incluidos los seguros de responsabilidad civil y accidentes personales.</span>
+                                    <span data-lang-inline="pt">6.1 Mantemos todos os seguros obrigatórios exigidos pela legislação nacional, incluindo seguros de responsabilidade civil e acidentes pessoais.</span>
+                                    <span data-lang-inline="fr">6.1 Nous maintenons toutes les assurances obligatoires requises par la législation nationale, y compris l'assurance responsabilité civile et accidents personnels.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image and Privacy -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none" onclick="toggleTermsSection(this)">
+                            <span>
+                                <span data-lang-inline="en" class="active">7. Image and Privacy</span>
+                                <span data-lang-inline="es">7. Imagen y Privacidad</span>
+                                <span data-lang-inline="pt">7. Imagem e Privacidade</span>
+                                <span data-lang-inline="fr">7. Image et Confidentialité</span>
+                            </span>
+                            <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="px-6 pb-4 text-gray-600">
+                                <p class="mb-3">
+                                    <span data-lang-inline="en" class="active">7.1 The Traveler assigns to us the rights to use their image for professional purposes.</span>
+                                    <span data-lang-inline="es">7.1 El Viajero nos cede los derechos de uso de su imagen con fines profesionales.</span>
+                                    <span data-lang-inline="pt">7.1 O Viajante cede-nos os direitos de utilização da sua imagem para fins profissionais.</span>
+                                    <span data-lang-inline="fr">7.1 Le Voyageur nous cède les droits d'utilisation de son image à des fins professionnelles.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Complaints -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none" onclick="toggleTermsSection(this)">
+                            <span>
+                                <span data-lang-inline="en" class="active">8. Complaints and Disputes</span>
+                                <span data-lang-inline="es">8. Quejas y Disputas</span>
+                                <span data-lang-inline="pt">8. Reclamações e Disputas</span>
+                                <span data-lang-inline="fr">8. Réclamations et Litiges</span>
+                            </span>
+                            <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="px-6 pb-4 text-gray-600">
+                                <p class="mb-3">
+                                    <span data-lang-inline="en" class="active">8.1 The Traveler may submit written complaints within 20 days of the end of the trip.</span>
+                                    <span data-lang-inline="es">8.1 El Viajero puede presentar quejas por escrito dentro de los 20 días posteriores al final del viaje.</span>
+                                    <span data-lang-inline="pt">8.1 O Viajante pode apresentar reclamações por escrito no prazo de 20 dias após o final da viagem.</span>
+                                    <span data-lang-inline="fr">8.1 Le Voyageur peut soumettre des réclamations écrites dans les 20 jours suivant la fin du voyage.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center text-sm text-gray-500">
+                    <span data-lang-inline="en" class="active">Last updated: December 30, 2024</span>
+                    <span data-lang-inline="es">Última actualización: 30 de diciembre de 2024</span>
+                    <span data-lang-inline="pt">Última atualização: 30 de dezembro de 2024</span>
+                    <span data-lang-inline="fr">Dernière mise à jour: 30 décembre 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-16 max-w-6xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-12">
@@ -841,9 +1137,86 @@
             document.documentElement.lang = lang;
         }
 
+        // Hero carousel images
+        const heroImages = [
+            'Imagens_tour1/P1510576.jpg',
+            'Imagens_tour1/P1510581.jpg',
+            'Imagens_tour1/P1510587.jpg'
+        ];
+
+        let currentHeroSlide = 0;
+        let heroInterval;
+
+        function initializeHeroCarousel() {
+            const carousel = document.getElementById('hero-carousel');
+            const dotsContainer = carousel.parentElement.querySelector('.flex.justify-center');
+            
+            // Clear existing content
+            carousel.innerHTML = '';
+            dotsContainer.innerHTML = '';
+            
+            // Add images
+            heroImages.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `Hero image ${index + 1}`;
+                // Changed from opacity classes to hidden class
+                img.className = `absolute w-full h-full object-cover ${index === 0 ? '' : 'hidden'}`;
+                carousel.appendChild(img);
+            });
+
+            // Add dots
+            heroImages.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = `w-3 h-3 rounded-full bg-white ${index === 0 ? 'bg-opacity-100' : 'bg-opacity-50'} hover:bg-opacity-100 transition-all duration-300`;
+                dot.addEventListener('click', () => showHeroSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            // Start automatic slideshow
+            startHeroSlideshow();
+        }
+
+        function showHeroSlide(index) {
+            const images = document.querySelectorAll('#hero-carousel img');
+            const dots = document.querySelectorAll('#hero-carousel + div button');
+            
+            // Changed from opacity to hidden class
+            images.forEach(img => img.classList.add('hidden'));
+            
+            // Update dots
+            dots.forEach(dot => dot.classList.replace('bg-opacity-100', 'bg-opacity-50'));
+            
+            // Show selected image
+            images[index].classList.remove('hidden');
+            dots[index].classList.replace('bg-opacity-50', 'bg-opacity-100');
+            
+            currentHeroSlide = index;
+        }
+
+        function moveHeroSlide(direction) {
+            // Reset the interval when manually changing slides
+            clearInterval(heroInterval);
+            
+            const newIndex = (currentHeroSlide + direction + heroImages.length) % heroImages.length;
+            showHeroSlide(newIndex);
+            
+            // Restart the slideshow
+            startHeroSlideshow();
+        }
+
+        function startHeroSlideshow() {
+            // Clear any existing interval
+            clearInterval(heroInterval);
+            
+            // Set new interval
+            heroInterval = setInterval(() => {
+                moveHeroSlide(1);
+            }, 5000); // Change slide every 5 seconds
+        }
 
 
-        // Define your image paths
+        // Tour images on the cards
         const tourImages = {
             'tour1': [
                 'Imagens_tour1/P1510576.jpg',
@@ -948,12 +1321,13 @@
                 });
             });
 
-            // Your existing initialization code
+             // Initialize all carousels
             changeLanguage('pt');
             document.querySelectorAll('select option[data-pt]').forEach(option => {
                 option.textContent = option.getAttribute('data-pt');
             });
             initializeCarousels();
+            initializeHeroCarousel();
         });
 
 
@@ -1041,6 +1415,36 @@
             mobileMenu.classList.toggle('hidden');
         });
 
+        // Function to toggle main terms and conditions
+        function toggleMainTerms() {
+            const content = document.getElementById('mainTermsContent');
+            const arrow = content.parentElement.querySelector('button svg');
+            
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                arrow.classList.remove('rotate-180');
+            } else {
+                content.style.maxHeight = content.scrollHeight + 2000 + 'px'; // Adding extra space for nested content
+                arrow.classList.add('rotate-180');
+            }
+        }
+
+        // Function to toggle individual sections
+        function toggleTermsSection(button) {
+            const content = button.nextElementSibling;
+            const arrow = button.querySelector('svg');
+            const mainContent = document.getElementById('mainTermsContent');
+            
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                arrow.classList.remove('rotate-180');
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                arrow.classList.add('rotate-180');
+                // Update main container height
+                mainContent.style.maxHeight = mainContent.scrollHeight + content.scrollHeight + 'px';
+            }
+        }
 
 
     </script>

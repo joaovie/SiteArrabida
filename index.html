@@ -22,6 +22,7 @@
             transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
             visibility: visible;
         }
+        
 
         /* Remove min-height from non-active cards */
         .tour-card {
@@ -405,14 +406,13 @@
                         </div>
                     </div>
 
-                    <div class="flex justify-between items-center">
-                        <span class="text-2xl font-bold text-green-600">99€</span>
-                        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-                            <span data-lang-inline="en" class="active">Book Now</span>
-                            <span data-lang-inline="es">Reservar</span>
-                            <span data-lang-inline="pt">Reservar Agora</span>
-                            <span data-lang-inline="fr">Réserver</span>
-                        </button>
+                    <div class="text-center">
+                        <a href="Tours/jeep-tour-details.html" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 inline-block">
+                            <span data-lang-inline="en" class="active">More Details</span>
+                            <span data-lang-inline="es">Mas Detalles</span>
+                            <span data-lang-inline="pt">Mais Detalhes</span>
+                            <span data-lang-inline="fr">Plus Détails</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -564,6 +564,7 @@
                             <span data-lang-inline="fr">Réserver</span>
                         </button>
                     </div>
+                    
                 </div>
             </div>
 
@@ -1141,7 +1142,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Arrábida5Senses. 
+                <p>&copy; 2025 Arrábida5Senses. 
                     <span data-lang-inline="en" class="active">All rights reserved.</span>
                     <span data-lang-inline="es">Todos los derechos reservados.</span>
                     <span data-lang-inline="pt">Todos os direitos reservados.</span>
@@ -1176,6 +1177,7 @@
 
         // Hero carousel images
         const heroImages = [
+            'Imagens_tour1/IMG_1230 2.jpeg',
             'Imagens_tour1/P1510576.jpg',
             'Imagens_tour1/P1510581.jpg',
             'Imagens_tour1/P1510587.jpg'
@@ -1252,6 +1254,15 @@
             }, 5000); // Change slide every 5 seconds
         }
 
+        document.querySelectorAll('.more-details-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Get current active language
+                const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
+                
+                // Update href with current language
+                this.href = `Tours/jeep-tour-details.html?lang=${currentLang}`;
+            });
+        });
 
         // Tour images on the cards
         const tourImages = {
@@ -1335,6 +1346,18 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+            // Add event listener to all 'More Details' links
+            document.querySelectorAll('a[href="Tours/jeep-tour-details.html"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Find the currently active language
+                    const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
+                    
+                    // Update the href with the current language
+                    this.href = `Tours/jeep-tour-details.html?lang=${currentLang}`;
+                });
+            });
+
+
             // Mobile menu toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');

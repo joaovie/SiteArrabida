@@ -1,0 +1,301 @@
+<div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+    <!-- ===================================================== -->
+    <!-- Rota dos castelos Card -->
+    <div class="tour-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transform transition hover:scale-105 w-full lg:max-w-lg">
+        <!-- Image Carousel Container -->
+        <div class="relative h-72 lg:h-72">
+            <!-- The carousel container will be populated by JavaScript -->
+            <div id="carousel-rota_castelos" class="carousel-container h-full">
+                <!-- Images will be inserted here -->
+            </div>
+            
+            <!-- Arrow Buttons -->
+            <button onclick="moveSlide(this, -1)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button onclick="moveSlide(this, 1)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+            <div class="absolute bottom-2 left-0 right-0 flex justify-center space-x-2"></div>
+        </div>
+
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">
+                <span data-lang-inline="en" class="active">Tour 4x4 Castle Route – Castelo de Palmela, Forte de S. Filipe (Setúbal), Castelo de Sesimbra</span>
+                <span data-lang-inline="es">Tour 4x4 Ruta de los Castillos – Castelo de Palmela, Forte de S. Filipe (Setúbal), Castelo de Sesimbra</span>
+                <span data-lang-inline="pt">Tour 4x4 Rota dos castelos – Castelo de Palmela, Forte de S. Filipe (Setúbal), Castelo de Sesimbra</span>
+                <span data-lang-inline="fr">Tour 4x4 Route des Châteaux – Castelo de Palmela, Forte de S. Filipe (Setúbal), Castelo de Sesimbra</span>
+            </h3>
+            <p class="text-gray-600 mb-4">
+                <span data-lang-inline="en" class="active">4-hour expedition through rugged mountain trails</span>
+                <span data-lang-inline="es">Expedición de 4 horas por senderos escarpados de montaña.</span>
+                <span data-lang-inline="pt">Expedição de 4 horas por trilhos montanhosos acidentados</span>
+                <span data-lang-inline="fr">Expédition de 4 heures sur des sentiers de montagne accidentés</span>
+            </p>
+            
+            <div class="tour-details">
+                <div class="border-t pt-4 mb-4">
+                    <h4 class="font-bold mb-2">
+                        <span data-lang-inline="en" class="active">Tour Highlights:</span>
+                        <span data-lang-inline="es">Aspectos Destacados:</span>
+                        <span data-lang-inline="pt">Destaques do Passeio:</span>
+                        <span data-lang-inline="fr">Points Forts du Circuit:</span>
+                    </h4>
+                    <ul class="list-disc pl-5 mb-4 text-gray-600">
+                        <li>
+                            <span data-lang-inline="en" class="active">Professional off-road driver and guide</span>
+                            <span data-lang-inline="es">Conductor y guía profesional</span>
+                            <span data-lang-inline="pt">Condutor profissional e guia especializado</span>
+                            <span data-lang-inline="fr">Chauffeur et guide professionnel</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Scenic mountain viewpoints</span>
+                            <span data-lang-inline="es">Miradores panorámicos</span>
+                            <span data-lang-inline="pt">Miradouros panorâmicos da serra</span>
+                            <span data-lang-inline="fr">Points de vue panoramiques</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Wildlife spotting opportunities</span>
+                            <span data-lang-inline="es">Avistamiento de fauna</span>
+                            <span data-lang-inline="pt">Oportunidades de observação de fauna</span>
+                            <span data-lang-inline="fr">Observation de la faune</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Photography stops</span>
+                            <span data-lang-inline="es">Paradas para fotografía</span>
+                            <span data-lang-inline="pt">Paragens para fotografias</span>
+                            <span data-lang-inline="fr">Arrêts photos</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Complimentary water and snacks</span>
+                            <span data-lang-inline="es">Agua y aperitivos incluidos</span>
+                            <span data-lang-inline="pt">Água e snacks incluídos</span>
+                            <span data-lang-inline="fr">Eau et collations incluses</span>
+                        </li>
+                    </ul>
+                    
+                    <h4 class="font-bold mb-2">
+                        <span data-lang-inline="en" class="active">Schedule:</span>
+                        <span data-lang-inline="es">Horario:</span>
+                        <span data-lang-inline="pt">Horário:</span>
+                        <span data-lang-inline="fr">Horaire:</span>
+                    </h4>
+                    
+                    <p class="text-gray-600 mb-4">
+                        <span data-lang-inline="en" class="active">Tours depart daily at 8:00 AM and 2:00 PM</span>
+                        <span data-lang-inline="es">Salidas diarias a las 8:00 y 14:00</span>
+                        <span data-lang-inline="pt">Partidas diárias às 8:00 e às 14:00</span>
+                        <span data-lang-inline="fr">Départs quotidiens à 8h00 et 14h00</span>
+                    </p>
+                    
+                    <h4 class="font-bold mb-2">
+                        <span data-lang-inline="en" class="active">What to Bring:</span>
+                        <span data-lang-inline="es">Qué Traer:</span>
+                        <span data-lang-inline="pt">O que Trazer:</span>
+                        <span data-lang-inline="fr">À Apporter:</span>
+                    </h4>
+                    
+                    <ul class="list-disc pl-5 mb-4 text-gray-600">
+                        <li>
+                            <span data-lang-inline="en" class="active">Comfortable clothing</span>
+                            <span data-lang-inline="es">Ropa cómoda</span>
+                            <span data-lang-inline="pt">Roupa confortável</span>
+                            <span data-lang-inline="fr">Vêtements confortables</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Sunscreen and hat</span>
+                            <span data-lang-inline="es">Protector solar y gorra</span>
+                            <span data-lang-inline="pt">Protetor solar e chapéu</span>
+                            <span data-lang-inline="fr">Crème solaire et chapeau</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Camera</span>
+                            <span data-lang-inline="es">Cámara</span>
+                            <span data-lang-inline="pt">Máquina fotográfica</span>
+                            <span data-lang-inline="fr">Appareil photo</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Light jacket (recommended)</span>
+                            <span data-lang-inline="es">Chaqueta ligera (recomendado)</span>
+                            <span data-lang-inline="pt">Casaco leve (recomendado)</span>
+                            <span data-lang-inline="fr">Veste légère (recommandé)</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-sm text-gray-600">
+                            <span data-lang-inline="en" class="active">Suitable for ages 6 and up. Maximum 6 passengers per vehicle.</span>
+                            <span data-lang-inline="es">Apto para mayores de 6 años. Máximo 6 pasajeros.</span>
+                            <span data-lang-inline="pt">Adequado para maiores de 6 anos. Máximo de 6 passageiros por veículo.</span>
+                            <span data-lang-inline="fr">À partir de 6 ans. Maximum 6 passagers par véhicule.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="Tours/rota-castelos.html" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 inline-block">
+                    <span data-lang-inline="en" class="active">More Details</span>
+                    <span data-lang-inline="es">Mas Detalles</span>
+                    <span data-lang-inline="pt">Mais Detalhes</span>
+                    <span data-lang-inline="fr">Plus Détails</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- ===================================================== -->
+    <!-- Walking Tour Card -->
+    <div class="tour-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transform transition hover:scale-105 w-full lg:max-w-lg">
+        <!-- Image Carousel Container -->
+        <div class="relative h-72 lg:h-72">
+            <!-- The carousel container will be populated by JavaScript -->
+            <div id="carousel-tour2" class="carousel-container h-full">
+                <!-- Images will be inserted here -->
+            </div>
+            
+            <!-- Arrow Buttons -->
+            <button onclick="moveSlide(this, -1)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button onclick="moveSlide(this, 1)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+
+            <!-- Dots will be generated by JavaScript -->
+            <div class="absolute bottom-2 left-0 right-0 flex justify-center space-x-2"></div>
+        </div>
+
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">
+                <span data-lang-inline="en" class="active">Forest Walking Tour</span>
+                <span data-lang-inline="es">Tour de Senderismo por el Bosque</span>
+                <span data-lang-inline="pt">Passeio Pedestre na Serra</span>
+                <span data-lang-inline="fr">Randonnée en Forêt</span>
+            </h3>
+            
+            <p class="text-gray-600 mb-4">
+                <span data-lang-inline="en" class="active">3-hour guided nature walk with wildlife spotting</span>
+                <span data-lang-inline="es">Caminata guiada de 3 horas con observación de fauna</span>
+                <span data-lang-inline="pt">Caminhada guiada de 3 horas com observação da fauna</span>
+                <span data-lang-inline="fr">Randonnée guidée de 3 heures avec observation de la faune</span>
+            </p>
+            
+            <div class="tour-details">
+                <div class="border-t pt-4 mb-4">
+                    <h4 class="font-bold mb-2">
+                        <span data-lang-inline="en" class="active">Tour Highlights:</span>
+                        <span data-lang-inline="es">Puntos Destacados:</span>
+                        <span data-lang-inline="pt">Destaques do Passeio:</span>
+                        <span data-lang-inline="fr">Points Forts:</span>
+                    </h4>
+                    <ul class="list-disc pl-5 mb-4 text-gray-600">
+                        <li>
+                            <span data-lang-inline="en" class="active">Expert nature guide</span>
+                            <span data-lang-inline="es">Guía experto en naturaleza</span>
+                            <span data-lang-inline="pt">Guia especializado em natureza</span>
+                            <span data-lang-inline="fr">Guide nature expert</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Bird watching opportunities</span>
+                            <span data-lang-inline="es">Observación de aves</span>
+                            <span data-lang-inline="pt">Observação de aves</span>
+                            <span data-lang-inline="fr">Observation des oiseaux</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Native plant identification</span>
+                            <span data-lang-inline="es">Identificación de plantas nativas</span>
+                            <span data-lang-inline="pt">Identificação de plantas autóctones</span>
+                            <span data-lang-inline="fr">Identification des plantes locales</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Hidden waterfall visit</span>
+                            <span data-lang-inline="es">Visita a cascada escondida</span>
+                            <span data-lang-inline="pt">Visita a cascata escondida</span>
+                            <span data-lang-inline="fr">Visite d'une cascade cachée</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Environmental education</span>
+                            <span data-lang-inline="es">Educación ambiental</span>
+                            <span data-lang-inline="pt">Educação ambiental</span>
+                            <span data-lang-inline="fr">Éducation environnementale</span>
+                        </li>
+                    </ul>
+            
+                    <h4 class="font-bold mb-2">
+                        <span data-lang-inline="en" class="active">Schedule:</span>
+                        <span data-lang-inline="es">Horario:</span>
+                        <span data-lang-inline="pt">Horário:</span>
+                        <span data-lang-inline="fr">Horaire:</span>
+                    </h4>
+                    <p class="text-gray-600 mb-4">
+                        <span data-lang-inline="en" class="active">Tours start daily at 7:00 AM and 3:00 PM</span>
+                        <span data-lang-inline="es">Tours diarios a las 7:00 y 15:00</span>
+                        <span data-lang-inline="pt">Passeios diários às 7:00 e às 15:00</span>
+                        <span data-lang-inline="fr">Départs quotidiens à 7h00 et 15h00</span>
+                    </p>
+            
+                    <h4 class="font-bold mb-2">
+                        <span data-lang-inline="en" class="active">What to Bring:</span>
+                        <span data-lang-inline="es">Qué Traer:</span>
+                        <span data-lang-inline="pt">O que Trazer:</span>
+                        <span data-lang-inline="fr">À Apporter:</span>
+                    </h4>
+                    <ul class="list-disc pl-5 mb-4 text-gray-600">
+                        <li>
+                            <span data-lang-inline="en" class="active">Hiking shoes</span>
+                            <span data-lang-inline="es">Calzado de senderismo</span>
+                            <span data-lang-inline="pt">Calçado de caminhada</span>
+                            <span data-lang-inline="fr">Chaussures de randonnée</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Water bottle</span>
+                            <span data-lang-inline="es">Botella de agua</span>
+                            <span data-lang-inline="pt">Garrafa de água</span>
+                            <span data-lang-inline="fr">Bouteille d'eau</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Weather-appropriate clothing</span>
+                            <span data-lang-inline="es">Ropa adecuada al clima</span>
+                            <span data-lang-inline="pt">Roupa adequada ao tempo</span>
+                            <span data-lang-inline="fr">Vêtements adaptés à la météo</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="en" class="active">Binoculars (optional)</span>
+                            <span data-lang-inline="es">Prismáticos (opcional)</span>
+                            <span data-lang-inline="pt">Binóculos (opcional)</span>
+                            <span data-lang-inline="fr">Jumelles (optionnel)</span>
+                        </li>
+                    </ul>
+            
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-sm text-gray-600">
+                            <span data-lang-inline="en" class="active">Moderate difficulty level. Groups limited to 10 people for optimal experience.</span>
+                            <span data-lang-inline="es">Nivel de dificultad moderado. Grupos limitados a 10 personas para una experiencia óptima.</span>
+                            <span data-lang-inline="pt">Nível de dificuldade moderado. Grupos limitados a 10 pessoas para uma experiência ideal.</span>
+                            <span data-lang-inline="fr">Niveau de difficulté modéré. Groupes limités à 10 personnes pour une expérience optimale.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-green-600">49€</span>
+                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                    <span data-lang-inline="en" class="active">Book Now</span>
+                    <span data-lang-inline="es">Reservar</span>
+                    <span data-lang-inline="pt">Reservar Agora</span>
+                    <span data-lang-inline="fr">Réserver</span>
+                </button>
+            </div>
+            
+        </div>
+    </div>
+</div>

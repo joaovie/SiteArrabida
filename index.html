@@ -69,6 +69,13 @@
             }
         }
 
+        @media (min-width: 768px) {
+        .grid:has(.tour-card:last-child:nth-child(odd)) .tour-card:last-child {
+            grid-column: 1 / -1;
+            justify-self: center;
+        }
+    }
+
         
     </style>
 </head>
@@ -234,7 +241,7 @@
             </svg>
         </button>
 
-        <!-- <img src="Tours/Arrabida/Img_rota_castelos/P1510556.jpg" alt="Jeep tour in nature" class="w-full h-full object-cover"> -->
+        <!-- <img src="Tours/Arrabida/rota-dos-castelos/Img_rota_castelos/P1510556.jpg" alt="Jeep tour in nature" class="w-full h-full object-cover"> -->
         <div class="absolute inset-0 bg-black bg-opacity-5 flex items-center justify-center">
             <div class="text-center text-white">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">
@@ -723,10 +730,10 @@
 
         // Hero carousel images
         const heroImages = [
-            'Tours/Arrabida/Img_rota_castelos/IMG_1230 2.jpeg',
-            'Tours/Arrabida/Img_rota_castelos/P1510576.jpg',
-            'Tours/Arrabida/Img_rota_castelos/P1510581.jpg',
-            'Tours/Arrabida/Img_rota_castelos/P1510587.jpg'
+            'Tours/Arrabida/rota-dos-castelos/Img_rota_castelos/IMG_1230 2.jpeg',
+            'Tours/Arrabida/rota-dos-castelos/Img_rota_castelos/P1510576.jpg',
+            'Tours/Arrabida/rota-dos-castelos/Img_rota_castelos/P1510581.jpg',
+            'Tours/Arrabida/rota-dos-castelos/Img_rota_castelos/P1510587.jpg'
         ];
 
         let currentHeroSlide = 0;
@@ -810,26 +817,26 @@
             });
         });
 
-        // Tour images on the cards
+        // ===== Tour images ======
         const tourImages = {
             'rota_castelos': [
-                'Tours/Arrabida/Img_rota_castelos/P1510576.jpg',
-                'Tours/Arrabida/Img_rota_castelos/P1510556.jpg',
-                'Tours/Arrabida/Img_rota_castelos/P1510581.jpg',
-                'Tours/Arrabida/Img_rota_castelos/P1510587.jpg'
+                'Tours/Arrabida/rota-dos-castelos/Img_rota_castelos/P1510576.jpg',
+                'Tours/Arrabida/rota-dos-castelos/Img_rota_castelos/P1510556.jpg',
+                'Tours/Arrabida/rota-dos-castelos/Img_rota_castelos/P1510581.jpg',
+                'Tours/Arrabida/rota-dos-castelos/Img_rota_castelos/P1510587.jpg'
                 // Add more images as needed
             ],
-            'tour2': [
-                'Imagens_tour2/P1510646.jpg',
-                'Imagens_tour2/P1510523.jpg',
-                'Imagens_tour2/P1510654.jpg'
+            'maravilhas_arrabida': [
+                'Tours/Arrabida/maravilhas-arrabida/Img_maravilhas_arrabida/P1510646.jpg',
+                'Tours/Arrabida/maravilhas-arrabida/Img_maravilhas_arrabida/P1510523.jpg',
+                'Tours/Arrabida/maravilhas-arrabida/Img_maravilhas_arrabida/P1510654.jpg'
                 // Add more images as needed
             ]
             ,
             'tour3': [
-                'Imagens_tour2/P1510646.jpg',
-                'Imagens_tour2/P1510523.jpg',
-                'Imagens_tour2/P1510654.jpg'
+                'Imagens/P1510646.jpg',
+                'Imagens/P1510523.jpg',
+                'Imagens/P1510654.jpg'
                 // Add more images as needed
             ]
         };

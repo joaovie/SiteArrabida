@@ -640,33 +640,42 @@
     <script>
         // Function to include HTML
         function includeHTML() {
-            var z, i, elmnt, file, xhttp;
-            z = document.getElementsByTagName("*");
-            for (i = 0; i < z.length; i++) {
-                elmnt = z[i];
-                file = elmnt.getAttribute("w3-include-html");
-                if (file) {
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4) {
-                            if (this.status == 200) {
-                                elmnt.innerHTML = this.responseText;
-                                elmnt.removeAttribute("w3-include-html");
-                                // Initialize carousels after content is loaded
-                                initializeCarousels();
-                                // Reinitialize other necessary functions
-                                setupTourCardListeners();
-                            }
-                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
-                            includeHTML(); // Continue with next element
-                        }
+    var z, i, elmnt, file, xhttp;
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        elmnt.innerHTML = this.responseText;
+                        elmnt.removeAttribute("w3-include-html");
+                        // Initialize carousels after content is loaded
+                        initializeCarousels();
+                        // Reinitialize other necessary functions
+                        setupTourCardListeners();
+                        
+                        // Get current language and reapply it to new content
+                        const currentLang = document.documentElement.lang || 'pt';
+                        changeLanguage(currentLang);
+                        
+                        // Update select options if they exist
+                        document.querySelectorAll('select option[data-' + currentLang + ']').forEach(option => {
+                            option.textContent = option.getAttribute('data-' + currentLang);
+                        });
                     }
-                    xhttp.open("GET", file, true);
-                    xhttp.send();
-                    return;
+                    if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                    includeHTML(); // Continue with next element
                 }
             }
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            return;
         }
+    }
+}
 
         // Function to setup tour card listeners
         function setupTourCardListeners() {

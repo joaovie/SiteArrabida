@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <script src="http://www.w3schools.com/lib/w3data.js"></script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="favicon/jeep.png">
     <style>
         .tour-details {
@@ -18,13 +21,14 @@
             transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
             visibility: hidden;
         }
+
         .tour-card.active .tour-details {
             max-height: 500px;
             opacity: 1;
             transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
             visibility: visible;
         }
-        
+
 
         /* Remove min-height from non-active cards */
         .tour-card {
@@ -39,15 +43,19 @@
         [data-lang] {
             display: none;
         }
+
         [data-lang].active {
             display: block;
         }
+
         [data-lang-inline] {
             display: none;
         }
+
         [data-lang-inline].active {
             display: inline;
         }
+
         /* Dropdown styles */
         .dropdown-menu {
             z-index: 50;
@@ -56,7 +64,7 @@
             transition: all 0.2s ease-in-out;
             transform: translateY(-10px);
         }
-        
+
         .dropdown:hover .dropdown-menu {
             opacity: 1;
             visibility: visible;
@@ -70,29 +78,30 @@
         }
 
         @media (min-width: 768px) {
-        .grid:has(.tour-card:last-child:nth-child(odd)) .tour-card:last-child {
-            grid-column: 1 / -1;
-            justify-self: center;
+            .grid:has(.tour-card:last-child:nth-child(odd)) .tour-card:last-child {
+                grid-column: 1 / -1;
+                justify-self: center;
+            }
         }
-    }
-
-        
     </style>
 </head>
+
 <body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="bg-white shadow-lg">
         <div class="container-xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 lg:h-20">
                 <div class="text-xl lg:text-2xl font-bold text-gray-800">
-                    <span style="font-family: 'DM Sans', sans-serif; font-weight: 300; font-style: italic;">Arrábida5Senses</span>
+                    <span style="font-family: 'DM Sans', sans-serif; font-weight: 300; font-style: italic;">5Senses
+                        Tours</span>
                 </div>
 
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
@@ -100,30 +109,31 @@
                 <!-- Desktop Navigation -->
                 <!-- Navigation Links -->
                 <div class="hidden md:flex space-x-8">
-                        <a href="#tours" class="text-gray-600 hover:text-gray-900">
-                            <span data-lang-inline="en" class="active">Tours</span>
-                            <span data-lang-inline="es">Visitas</span>
-                            <span data-lang-inline="pt">Tours</span>
-                            <span data-lang-inline="ft">Tournée</span>
-                        </a>
-                        <a href="#about" class="text-gray-600 hover:text-gray-900">
-                            <span data-lang-inline="en" class="active">About</span>
-                            <span data-lang-inline="es">Sobre Nosotros</span>
-                            <span data-lang-inline="pt">Sobre Nós</span>
-                            <span data-lang-inline="fr">Sur nous</span>
-                        </a>
-                        <a href="#contact" class="text-gray-600 hover:text-gray-900">
-                            <span data-lang-inline="en" class="active">Contact</span>
-                            <span data-lang-inline="es">Contacto</span>
-                            <span data-lang-inline="pt">Contactos</span>
-                            <span data-lang-inline="fr">Contact</span>
-                        </a>
-                        <a href="#" onclick="openBookingModal('jeep')" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
-                            <span data-lang-inline="en" class="active">Book Now</span>
-                            <span data-lang-inline="es">Reservar</span>
-                            <span data-lang-inline="pt">Reservar</span>
-                            <span data-lang-inline="fr">Réserver</span>
-                        </a>
+                    <a href="#tours" class="text-gray-600 hover:text-gray-900">
+                        <span data-lang-inline="en" class="active">Tours</span>
+                        <span data-lang-inline="es">Visitas</span>
+                        <span data-lang-inline="pt">Tours</span>
+                        <span data-lang-inline="ft">Tournée</span>
+                    </a>
+                    <a href="#about" class="text-gray-600 hover:text-gray-900">
+                        <span data-lang-inline="en" class="active">About</span>
+                        <span data-lang-inline="es">Sobre Nosotros</span>
+                        <span data-lang-inline="pt">Sobre Nós</span>
+                        <span data-lang-inline="fr">Sur nous</span>
+                    </a>
+                    <a href="#contact" class="text-gray-600 hover:text-gray-900">
+                        <span data-lang-inline="en" class="active">Contact</span>
+                        <span data-lang-inline="es">Contacto</span>
+                        <span data-lang-inline="pt">Contactos</span>
+                        <span data-lang-inline="fr">Contact</span>
+                    </a>
+                    <a href="#" onclick="openBookingModal('jeep')"
+                        class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                        <span data-lang-inline="en" class="active">Book Now</span>
+                        <span data-lang-inline="es">Reservar</span>
+                        <span data-lang-inline="pt">Reservar</span>
+                        <span data-lang-inline="fr">Réserver</span>
+                    </a>
                     <!-- Language Dropdown -->
                     <div class="dropdown relative group">
                         <button class="flex items-center space-x-1 text-gray-600 hover:text-gray-900">
@@ -132,7 +142,8 @@
                             <span data-lang-inline="es" class="active">🇪🇸 ES</span>
                             <span data-lang-inline="fr" class="active">🇫🇷 FR</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
                         <div class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
@@ -142,27 +153,30 @@
                                 <div class="flex items-center space-x-2">
                                     <span class="text-lg">🇵🇹</span>
                                     <div>
-                                        <button onclick="changeLanguage('pt')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">Portugues</button>
+                                        <button onclick="changeLanguage('pt')"
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">Portugues</button>
                                     </div>
                                 </div>
                             </a>
-                            
+
                             <!-- EN -->
                             <a href="#en" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <div class="flex items-center space-x-2">
                                     <span class="text-lg">🇬🇧</span>
                                     <div>
-                                        <button onclick="changeLanguage('en')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">English</button>
+                                        <button onclick="changeLanguage('en')"
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">English</button>
                                     </div>
                                 </div>
                             </a>
-                            
+
                             <!-- ES -->
                             <a href="#location" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <div class="flex items-center space-x-2">
                                     <span class="text-lg">🇪🇸</span>
                                     <div>
-                                        <button onclick="changeLanguage('es')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">Español</button>
+                                        <button onclick="changeLanguage('es')"
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">Español</button>
                                     </div>
                                 </div>
                             </a>
@@ -172,7 +186,8 @@
                                 <div class="flex items-center space-x-2">
                                     <span class="text-lg">🇫🇷</span>
                                     <div>
-                                        <button onclick="changeLanguage('fr')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">Français</button>
+                                        <button onclick="changeLanguage('fr')"
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">Français</button>
                                     </div>
                                 </div>
                             </a>
@@ -203,7 +218,8 @@
                     <span data-lang-inline="pt">Contactos</span>
                     <span data-lang-inline="fr">Contact</span>
                 </a>
-                <a href="#" onclick="openBookingModal('jeep')" class="block px-3 py-2 text-gray-600 hover:text-gray-900">
+                <a href="#" onclick="openBookingModal('jeep')"
+                    class="block px-3 py-2 text-gray-600 hover:text-gray-900">
                     <span data-lang-inline="en" class="active">Book Now</span>
                     <span data-lang-inline="es">Reservar</span>
                     <span data-lang-inline="pt">Reservar</span>
@@ -223,25 +239,26 @@
     </nav>
 
     <!-- Hero Section -->
-    <div class="relative h-96">
+    <div class="relative h-screen">
         <div id="hero-carousel" class="w-full h-full">
             <!-- Images will be inserted here by JavaScript -->
         </div>
         <!-- Hero Navigation Dots -->
         <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10"></div>
         <!-- Hero Navigation Arrows -->
-        <button onclick="moveHeroSlide(-1)" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">
+        <button onclick="moveHeroSlide(-1)"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
         </button>
-        <button onclick="moveHeroSlide(1)" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">
+        <button onclick="moveHeroSlide(1)"
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
         </button>
 
-        <!-- <img src="Tours/Arrabida/rota-dos-castelos/Img_rota_castelos/P1510556.jpg" alt="Jeep tour in nature" class="w-full h-full object-cover"> -->
         <div class="absolute inset-0 bg-black bg-opacity-5 flex items-center justify-center">
             <div class="text-center text-white">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">
@@ -251,12 +268,17 @@
                     <span data-lang-inline="fr">Explorez la nature</span>
                 </h1>
                 <p class="text-xl mb-8">
-                    <span data-lang-inline="en" class="active">Unforgettable jeep and walking tours in nature's most beautiful locations</span>
-                    <span data-lang-inline="es">Tours inolvidables en jeep y caminatas en los lugares más hermosos de la naturaleza</span>
-                    <span data-lang-inline="pt">Passeios inesquecíveis de jipe ​​e caminhadas nos locais mais bonitos da natureza</span>
-                    <span data-lang-inline="fr">Des visites inoubliables en jeep et à pied dans les plus beaux endroits de la nature</span>
+                    <span data-lang-inline="en" class="active">Unforgettable jeep and walking tours in nature's most
+                        beautiful locations</span>
+                    <span data-lang-inline="es">Tours inolvidables en jeep y caminatas en los lugares más hermosos de la
+                        naturaleza</span>
+                    <span data-lang-inline="pt">Passeios inesquecíveis de jipe ​​e caminhadas nos locais mais bonitos da
+                        natureza</span>
+                    <span data-lang-inline="fr">Des visites inoubliables en jeep et à pied dans les plus beaux endroits
+                        de la nature</span>
                 </p>
-                <a href="#book" class="bg-green-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-green-700" onclick="openBookingModal('jeep')">
+                <a href="#book" class="bg-green-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-green-700"
+                    onclick="openBookingModal('jeep')">
                     <span data-lang-inline="en" class="active">Book Your Adventure</span>
                     <span data-lang-inline="es">Reserva Tu Aventura</span>
                     <span data-lang-inline="pt">Reserva a tua aventura</span>
@@ -282,46 +304,67 @@
                 <span data-lang-inline="fr">Tours en Jeep</span>
             </h3>
             <p class="text-gray-600 mb-8">
-                <div data-lang-inline="en" class="active">
-                    <p class="text-justify">
-                        Our tours are either pre-defined circuits or customized routes according to your preferences. You'll have access to a guided tour in an all-terrain vehicle with a guide through the locations of greatest natural, human, and cultural interest in the region.
-                    </p>
-                    <p class="text-justify">
-                        This is an excellent activity to discover the landscapes, history, culture, flora, and fauna in your tour regions, whether with family, as a couple, or with a group of friends.
+            <div data-lang-inline="en" class="active">
+                <p class="text-justify">
+                    Our tours are either pre-defined circuits or customized routes according to your preferences. You'll
+                    have access to a guided tour in an all-terrain vehicle with a guide through the locations of
+                    greatest natural, human, and cultural interest in the region.
+                </p>
+                <p class="text-justify">
+                    This is an excellent activity to discover the landscapes, history, culture, flora, and fauna in your
+                    tour regions, whether with family, as a couple, or with a group of friends.
 
-                        We're ready to provide you with a morning, afternoon, or full day of pure pleasure and joy. We have partnerships with other companies in the areas where we develop our activities to provide additional activities within the Tour if you wish.
-                    </p>
-                </div>
-                <div data-lang-inline="es">
-                    <p class="text-justify">
-                        Nuestros tours son circuitos predefinidos o personalizados según sus preferencias. Tendrá acceso a un recorrido guiado en vehículo todoterreno con guía por los lugares de mayor interés natural, humano y cultural de la región.
-                    </p>
-                    <p class="text-justify">
-                        Esta es una excelente actividad para descubrir los paisajes, la historia, la cultura, la flora y la fauna en las regiones de su tour, en familia, en pareja o con un grupo de amigos.
+                    We're ready to provide you with a morning, afternoon, or full day of pure pleasure and joy. We have
+                    partnerships with other companies in the areas where we develop our activities to provide additional
+                    activities within the Tour if you wish.
+                </p>
+            </div>
+            <div data-lang-inline="es">
+                <p class="text-justify">
+                    Nuestros tours son circuitos predefinidos o personalizados según sus preferencias. Tendrá acceso a
+                    un recorrido guiado en vehículo todoterreno con guía por los lugares de mayor interés natural,
+                    humano y cultural de la región.
+                </p>
+                <p class="text-justify">
+                    Esta es una excelente actividad para descubrir los paisajes, la historia, la cultura, la flora y la
+                    fauna en las regiones de su tour, en familia, en pareja o con un grupo de amigos.
 
-                        Estamos listos para proporcionarle una mañana, una tarde o un día completo de puro placer y alegría. Tenemos alianzas con otras empresas en las áreas donde desarrollamos nuestras actividades para ofrecer actividades adicionales dentro del Tour si lo desea.
-                    </p>
-                </div>
-                <div data-lang-inline="pt">
-                    <p class="text-justify">
-                        Os nossos tours são circuitos pré-definidos ou circuitos personalizados, de acordo com as suas preferências. Terá acesso a um percurso guiado em viatura todo-o-terreno com guia pelos locais de maior interesse natural, humano e cultural da região.
-                    </p>
-                    <p class="text-justify">
-                        Esta é uma excelente atividade para se descobrir as paisagens, a história, a cultura, a flora e a fauna nas regiões do seu tour, em família, a dois ou num grupo de amigos.
+                    Estamos listos para proporcionarle una mañana, una tarde o un día completo de puro placer y alegría.
+                    Tenemos alianzas con otras empresas en las áreas donde desarrollamos nuestras actividades para
+                    ofrecer actividades adicionales dentro del Tour si lo desea.
+                </p>
+            </div>
+            <div data-lang-inline="pt">
+                <p class="text-justify">
+                    Os nossos tours são circuitos pré-definidos ou circuitos personalizados, de acordo com as suas
+                    preferências. Terá acesso a um percurso guiado em viatura todo-o-terreno com guia pelos locais de
+                    maior interesse natural, humano e cultural da região.
+                </p>
+                <p class="text-justify">
+                    Esta é uma excelente atividade para se descobrir as paisagens, a história, a cultura, a flora e a
+                    fauna nas regiões do seu tour, em família, a dois ou num grupo de amigos.
 
-                        Estamos prontos para lhe proporcionar uma manhã, uma tarde ou um dia completo de puro prazer e alegria. Temos parcerias com outras empresas nas áreas em que desenvolvemos as nossas atividades de modo a proporcionar outras atividades inseridas no Tour se o desejar.
-                    </p>
-                </div>
-                <div data-lang-inline="fr">
-                    <p class="text-justify">
-                        Nos circuits sont soit prédéfinis, soit personnalisés selon vos préférences. Vous aurez accès à une visite guidée en véhicule tout-terrain avec un guide à travers les sites d'intérêt naturel, humain et culturel majeur de la région.
-                    </p>
-                    <p class="text-justify">
-                        C'est une excellente activité pour découvrir les paysages, l'histoire, la culture, la flore et la faune des régions de votre circuit, en famille, en couple ou avec un groupe d'amis.
+                    Estamos prontos para lhe proporcionar uma manhã, uma tarde ou um dia completo de puro prazer e
+                    alegria. Temos parcerias com outras empresas nas áreas em que desenvolvemos as nossas atividades de
+                    modo a proporcionar outras atividades inseridas no Tour se o desejar.
+                </p>
+            </div>
+            <div data-lang-inline="fr">
+                <p class="text-justify">
+                    Nos circuits sont soit prédéfinis, soit personnalisés selon vos préférences. Vous aurez accès à une
+                    visite guidée en véhicule tout-terrain avec un guide à travers les sites d'intérêt naturel, humain
+                    et culturel majeur de la région.
+                </p>
+                <p class="text-justify">
+                    C'est une excellente activité pour découvrir les paysages, l'histoire, la culture, la flore et la
+                    faune des régions de votre circuit, en famille, en couple ou avec un groupe d'amis.
 
-                        Nous sommes prêts à vous offrir une matinée, une après-midi ou une journée complète de pur plaisir et de joie. Nous avons des partenariats avec d'autres entreprises dans les zones où nous développons nos activités pour proposer des activités supplémentaires dans le cadre du Tour si vous le souhaitez.
-                    </p>
-                </div>
+                    Nous sommes prêts à vous offrir une matinée, une après-midi ou une journée complète de pur plaisir
+                    et de joie. Nous avons des partenariats avec d'autres entreprises dans les zones où nous développons
+                    nos activités pour proposer des activités supplémentaires dans le cadre du Tour si vous le
+                    souhaitez.
+                </p>
+            </div>
             </p>
         </div>
         <h4 class="text-xl font-semibold mt-8 mb-4" id="arrabida">
@@ -352,16 +395,36 @@
                         <span data-lang-inline="fr">Rencontrez Votre Guide</span>
                     </h2>
                     <p class="text-gray-600 mb-4">
-                        <span data-lang-inline="en" class="active">With over 20 years of experience exploring the Arrábida region, José Amândio brings unparalleled knowledge and passion to every tour. As a certified nature guide and local expert, he's dedicated to sharing the hidden gems and natural wonders of this beautiful area.</span>
-                        <span data-lang-inline="es">Con más de 20 años de experiencia explorando la región de Arrábida, José Amândio aporta un conocimiento y pasión sin igual a cada tour. Como guía certificado de naturaleza y experto local, está dedicado a compartir las joyas ocultas y las maravillas naturales de esta hermosa área.</span>
-                        <span data-lang-inline="pt">Com mais de 20 anos de experiência a explorar a região da Arrábida, José Amândio traz um conhecimento e paixão incomparáveis para cada passeio. Como guia de natureza certificado e especialista local, dedica-se a partilhar as joias escondidas e as maravilhas naturais desta área magnífica.</span>
-                        <span data-lang-inline="fr">Avec plus de 20 ans d'expérience dans l'exploration de la région d'Arrábida, José Amândio apporte une connaissance et une passion inégalées à chaque visite. En tant que guide nature certifié et expert local, il se consacre à partager les joyaux cachés et les merveilles naturelles de cette belle région.</span>
+                        <span data-lang-inline="en" class="active">With over 20 years of experience exploring the
+                            Arrábida region, José Amândio brings unparalleled knowledge and passion to every tour. As a
+                            certified nature guide and local expert, he's dedicated to sharing the hidden gems and
+                            natural wonders of this beautiful area.</span>
+                        <span data-lang-inline="es">Con más de 20 años de experiencia explorando la región de Arrábida,
+                            José Amândio aporta un conocimiento y pasión sin igual a cada tour. Como guía certificado de
+                            naturaleza y experto local, está dedicado a compartir las joyas ocultas y las maravillas
+                            naturales de esta hermosa área.</span>
+                        <span data-lang-inline="pt">Com mais de 20 anos de experiência a explorar a região da Arrábida,
+                            José Amândio traz um conhecimento e paixão incomparáveis para cada passeio. Como guia de
+                            natureza certificado e especialista local, dedica-se a partilhar as joias escondidas e as
+                            maravilhas naturais desta área magnífica.</span>
+                        <span data-lang-inline="fr">Avec plus de 20 ans d'expérience dans l'exploration de la région
+                            d'Arrábida, José Amândio apporte une connaissance et une passion inégalées à chaque visite.
+                            En tant que guide nature certifié et expert local, il se consacre à partager les joyaux
+                            cachés et les merveilles naturelles de cette belle région.</span>
                     </p>
                     <p class="text-gray-600">
-                        <span data-lang-inline="en" class="active">Local to the area and deeply connected to its history and ecology, José ensures each tour is not just an adventure, but an enriching journey through one of Portugal's most stunning natural parks.</span>
-                        <span data-lang-inline="es">Como local del área y profundamente conectado con su historia y ecología, José asegura que cada tour no sea solo una aventura, sino un viaje enriquecedor por uno de los parques naturales más impresionantes de Portugal.</span>
-                        <span data-lang-inline="pt">Natural da região e profundamente ligado à sua história e ecologia, José garante que cada passeio não é apenas uma aventura, mas uma viagem enriquecedora por um dos parques naturais mais deslumbrantes de Portugal.</span>
-                        <span data-lang-inline="fr">Habitant de la région et profondément lié à son histoire et à son écologie, José s'assure que chaque visite n'est pas seulement une aventure, mais un voyage enrichissant à travers l'un des parcs naturels les plus impressionnants du Portugal.</span>
+                        <span data-lang-inline="en" class="active">Local to the area and deeply connected to its history
+                            and ecology, José ensures each tour is not just an adventure, but an enriching journey
+                            through one of Portugal's most stunning natural parks.</span>
+                        <span data-lang-inline="es">Como local del área y profundamente conectado con su historia y
+                            ecología, José asegura que cada tour no sea solo una aventura, sino un viaje enriquecedor
+                            por uno de los parques naturales más impresionantes de Portugal.</span>
+                        <span data-lang-inline="pt">Natural da região e profundamente ligado à sua história e ecologia,
+                            José garante que cada passeio não é apenas uma aventura, mas uma viagem enriquecedora por um
+                            dos parques naturais mais deslumbrantes de Portugal.</span>
+                        <span data-lang-inline="fr">Habitant de la région et profondément lié à son histoire et à son
+                            écologie, José s'assure que chaque visite n'est pas seulement une aventure, mais un voyage
+                            enrichissant à travers l'un des parcs naturels les plus impressionnants du Portugal.</span>
                     </p>
                 </div>
                 <div class="flex justify-center md:justify-end">
@@ -384,7 +447,8 @@
                 <div class="text-center">
                     <div class="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-2">
@@ -400,12 +464,13 @@
                         <span data-lang-inline="fr">Guides professionnels avec des années d'expérience</span>
                     </p>
                 </div>
-    
+
                 <!-- Flexible Schedule -->
                 <div class="text-center">
                     <div class="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-2">
@@ -418,15 +483,17 @@
                         <span data-lang-inline="en" class="active">Multiple daily tours to fit your schedule</span>
                         <span data-lang-inline="es">Múltiples tours diarios para adaptarse a tu horario</span>
                         <span data-lang-inline="pt">Vários passeios diários para se adequar ao seu horário</span>
-                        <span data-lang-inline="fr">Plusieurs départs quotidiens pour s'adapter à votre emploi du temps</span>
+                        <span data-lang-inline="fr">Plusieurs départs quotidiens pour s'adapter à votre emploi du
+                            temps</span>
                     </p>
                 </div>
-    
+
                 <!-- Safety First -->
                 <div class="text-center">
                     <div class="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-2">
@@ -451,95 +518,90 @@
         <div w3-include-html="Terms_and_conditions/Terms.html"></div>
     </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-16 max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12">
-        <span data-lang-inline="en" class="active">Contact Us</span>
-        <span data-lang-inline="es">Contáctenos</span>
-        <span data-lang-inline="pt">Contacte-nos</span>
-        <span data-lang-inline="fr">Contactez-nous</span>
-    </h2>
-    <div class="grid md:grid-cols-2 gap-8">
-        <div>
-            <h3 class="text-xl font-bold mb-4">
-                <span data-lang-inline="en" class="active">Get in Touch</span>
-                <span data-lang-inline="es">Ponte en Contacto</span>
-                <span data-lang-inline="pt">Entre em Contacto</span>
-                <span data-lang-inline="fr">Contactez-nous</span>
-            </h3>
-            
-            <!-- Formspree Form -->
-            <form action="https://formspree.io/f/mwppawjn" 
-                  method="POST" 
-                  class="space-y-4"
-                  id="contactForm">
-                <!-- Name Field -->
-                <div>
-                    <label class="block text-gray-700 mb-2">
-                        <span data-lang-inline="en" class="active">Name</span>
-                        <span data-lang-inline="es">Nombre</span>
-                        <span data-lang-inline="pt">Nome</span>
-                        <span data-lang-inline="fr">Nom</span>
-                    </label>
-                    <input type="text" 
-                           name="name" 
-                           required 
-                           class="w-full p-2 border rounded">
-                </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">
+            <span data-lang-inline="en" class="active">Contact Us</span>
+            <span data-lang-inline="es">Contáctenos</span>
+            <span data-lang-inline="pt">Contacte-nos</span>
+            <span data-lang-inline="fr">Contactez-nous</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4">
+                    <span data-lang-inline="en" class="active">Get in Touch</span>
+                    <span data-lang-inline="es">Ponte en Contacto</span>
+                    <span data-lang-inline="pt">Entre em Contacto</span>
+                    <span data-lang-inline="fr">Contactez-nous</span>
+                </h3>
 
-                <!-- Email Field -->
-                <div>
-                    <label class="block text-gray-700 mb-2">
-                        <span data-lang-inline="en" class="active">Email</span>
-                        <span data-lang-inline="es">Correo electrónico</span>
-                        <span data-lang-inline="pt">Email</span>
-                        <span data-lang-inline="fr">Email</span>
-                    </label>
-                    <input type="email" 
-                           name="email" 
-                           required 
-                           class="w-full p-2 border rounded">
-                </div>
+                <!-- Formspree Form -->
+                <form action="https://formspree.io/f/mwppawjn" method="POST" class="space-y-4" id="contactForm">
+                    <!-- Name Field -->
+                    <div>
+                        <label class="block text-gray-700 mb-2">
+                            <span data-lang-inline="en" class="active">Name</span>
+                            <span data-lang-inline="es">Nombre</span>
+                            <span data-lang-inline="pt">Nome</span>
+                            <span data-lang-inline="fr">Nom</span>
+                        </label>
+                        <input type="text" name="name" required class="w-full p-2 border rounded">
+                    </div>
 
-                <!-- Message Field -->
-                <div>
-                    <label class="block text-gray-700 mb-2">
-                        <span data-lang-inline="en" class="active">Message</span>
-                        <span data-lang-inline="es">Mensaje</span>
-                        <span data-lang-inline="pt">Mensagem</span>
-                        <span data-lang-inline="fr">Message</span>
-                    </label>
-                    <textarea name="message" 
-                              required 
-                              class="w-full p-2 border rounded h-32"></textarea>
-                </div>
+                    <!-- Email Field -->
+                    <div>
+                        <label class="block text-gray-700 mb-2">
+                            <span data-lang-inline="en" class="active">Email</span>
+                            <span data-lang-inline="es">Correo electrónico</span>
+                            <span data-lang-inline="pt">Email</span>
+                            <span data-lang-inline="fr">Email</span>
+                        </label>
+                        <input type="email" name="email" required class="w-full p-2 border rounded">
+                    </div>
 
-                <!-- Submit Button -->
-                <button type="submit" 
-                        class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
-                    <span data-lang-inline="en" class="active">Send Message</span>
-                    <span data-lang-inline="es">Enviar Mensaje</span>
-                    <span data-lang-inline="pt">Enviar Mensagem</span>
-                    <span data-lang-inline="fr">Envoyer le Message</span>
-                </button>
+                    <!-- Message Field -->
+                    <div>
+                        <label class="block text-gray-700 mb-2">
+                            <span data-lang-inline="en" class="active">Message</span>
+                            <span data-lang-inline="es">Mensaje</span>
+                            <span data-lang-inline="pt">Mensagem</span>
+                            <span data-lang-inline="fr">Message</span>
+                        </label>
+                        <textarea name="message" required class="w-full p-2 border rounded h-32"></textarea>
+                    </div>
 
-                <!-- Success/Error Messages -->
-                <div id="submitMessage" class="hidden mt-4 p-4 rounded">
-                    <p class="success-message hidden text-green-700 bg-green-100 p-4 rounded">
-                        <span data-lang-inline="en" class="active">Thank you for your message! We'll get back to you soon.</span>
-                        <span data-lang-inline="es">¡Gracias por tu mensaje! Nos pondremos en contacto pronto.</span>
-                        <span data-lang-inline="pt">Obrigado pela sua mensagem! Entraremos em contacto em breve.</span>
-                        <span data-lang-inline="fr">Merci pour votre message ! Nous vous répondrons bientôt.</span>
-                    </p>
-                    <p class="error-message hidden text-red-700 bg-red-100 p-4 rounded">
-                        <span data-lang-inline="en" class="active">Oops! There was a problem sending your message. Please try again.</span>
-                        <span data-lang-inline="es">¡Ups! Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.</span>
-                        <span data-lang-inline="pt">Ops! Houve um problema ao enviar sua mensagem. Por favor, tente novamente.</span>
-                        <span data-lang-inline="fr">Oups ! Il y a eu un problème lors de l'envoi de votre message. Veuillez réessayer.</span>
-                    </p>
-                </div>
-            </form>
-        </div>
+                    <!-- Submit Button -->
+                    <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+                        <span data-lang-inline="en" class="active">Send Message</span>
+                        <span data-lang-inline="es">Enviar Mensaje</span>
+                        <span data-lang-inline="pt">Enviar Mensagem</span>
+                        <span data-lang-inline="fr">Envoyer le Message</span>
+                    </button>
+
+                    <!-- Success/Error Messages -->
+                    <div id="submitMessage" class="hidden mt-4 p-4 rounded">
+                        <p class="success-message hidden text-green-700 bg-green-100 p-4 rounded">
+                            <span data-lang-inline="en" class="active">Thank you for your message! We'll get back to you
+                                soon.</span>
+                            <span data-lang-inline="es">¡Gracias por tu mensaje! Nos pondremos en contacto
+                                pronto.</span>
+                            <span data-lang-inline="pt">Obrigado pela sua mensagem! Entraremos em contacto em
+                                breve.</span>
+                            <span data-lang-inline="fr">Merci pour votre message ! Nous vous répondrons bientôt.</span>
+                        </p>
+                        <p class="error-message hidden text-red-700 bg-red-100 p-4 rounded">
+                            <span data-lang-inline="en" class="active">Oops! There was a problem sending your message.
+                                Please try again.</span>
+                            <span data-lang-inline="es">¡Ups! Hubo un problema al enviar tu mensaje. Por favor,
+                                inténtalo de nuevo.</span>
+                            <span data-lang-inline="pt">Ops! Houve um problema ao enviar sua mensagem. Por favor, tente
+                                novamente.</span>
+                            <span data-lang-inline="fr">Oups ! Il y a eu un problème lors de l'envoi de votre message.
+                                Veuillez réessayer.</span>
+                        </p>
+                    </div>
+                </form>
+            </div>
             <div>
                 <h3 class="text-xl font-bold mb-4">
                     <span data-lang-inline="en" class="active">Location</span>
@@ -555,7 +617,7 @@
                             <span data-lang-inline="es">Dirección:</span>
                             <span data-lang-inline="pt">Morada:</span>
                             <span data-lang-inline="fr">Adresse:</span>
-                        </strong> 
+                        </strong>
                         <span data-lang-inline="en" class="active">123 Adventure Road, Nature Valley</span>
                         <span data-lang-inline="es">123 Calle Aventura, Valle Natural</span>
                         <span data-lang-inline="pt">Rua Arrábida nº123, Setúbal</span>
@@ -567,7 +629,7 @@
                             <span data-lang-inline="es">Teléfono:</span>
                             <span data-lang-inline="pt">Telefone:</span>
                             <span data-lang-inline="fr">Téléphone:</span>
-                        </strong> 
+                        </strong>
                         <span>+351 935 852 852</span>
                     </p>
                     <p>
@@ -585,9 +647,12 @@
                 <div>
                     <h4 class="text-lg font-bold mb-4">Arrábida5Senses</h4>
                     <p class="text-gray-400">
-                        <span data-lang-inline="en" class="active">Providing unforgettable outdoor experiences since 2024</span>
-                        <span data-lang-inline="es">Proporcionando experiencias al aire libre inolvidables desde 2024</span>
-                        <span data-lang-inline="pt">Proporcionando experiências inesquecíveis ao ar livre desde 2024</span>
+                        <span data-lang-inline="en" class="active">Providing unforgettable outdoor experiences since
+                            2024</span>
+                        <span data-lang-inline="es">Proporcionando experiencias al aire libre inolvidables desde
+                            2024</span>
+                        <span data-lang-inline="pt">Proporcionando experiências inesquecíveis ao ar livre desde
+                            2024</span>
                         <span data-lang-inline="fr">Offrant des expériences inoubliables en plein air depuis 2024</span>
                     </p>
                 </div>
@@ -595,29 +660,29 @@
                     <h4 class="text-lg font-bold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white">
-                            <span data-lang-inline="en" class="active">Home</span>
-                            <span data-lang-inline="es">Inicio</span>
-                            <span data-lang-inline="pt">Início</span>
-                            <span data-lang-inline="fr">Accueil</span>
-                        </a></li>
+                                <span data-lang-inline="en" class="active">Home</span>
+                                <span data-lang-inline="es">Inicio</span>
+                                <span data-lang-inline="pt">Início</span>
+                                <span data-lang-inline="fr">Accueil</span>
+                            </a></li>
                         <li><a href="#tours" class="text-gray-400 hover:text-white">
-                            <span data-lang-inline="en" class="active">Tours</span>
-                            <span data-lang-inline="es">Visitas</span>
-                            <span data-lang-inline="pt">Passeios</span>
-                            <span data-lang-inline="fr">Circuits</span>
-                        </a></li>
+                                <span data-lang-inline="en" class="active">Tours</span>
+                                <span data-lang-inline="es">Visitas</span>
+                                <span data-lang-inline="pt">Passeios</span>
+                                <span data-lang-inline="fr">Circuits</span>
+                            </a></li>
                         <li><a href="#about" class="text-gray-400 hover:text-white">
-                            <span data-lang-inline="en" class="active">About</span>
-                            <span data-lang-inline="es">Sobre Nosotros</span>
-                            <span data-lang-inline="pt">Sobre Nós</span>
-                            <span data-lang-inline="fr">Sur nous</span>
-                        </a></li>
+                                <span data-lang-inline="en" class="active">About</span>
+                                <span data-lang-inline="es">Sobre Nosotros</span>
+                                <span data-lang-inline="pt">Sobre Nós</span>
+                                <span data-lang-inline="fr">Sur nous</span>
+                            </a></li>
                         <li><a href="#contact" class="text-gray-400 hover:text-white">
-                            <span data-lang-inline="en" class="active">Contact</span>
-                            <span data-lang-inline="es">Contacto</span>
-                            <span data-lang-inline="pt">Contactos</span>
-                            <span data-lang-inline="fr">Contact</span>
-                        </a></li>
+                                <span data-lang-inline="en" class="active">Contact</span>
+                                <span data-lang-inline="es">Contacto</span>
+                                <span data-lang-inline="pt">Contactos</span>
+                                <span data-lang-inline="fr">Contact</span>
+                            </a></li>
                     </ul>
                 </div>
                 <div>
@@ -635,7 +700,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Arrábida5Senses. 
+                <p>&copy; 2025 Arrábida5Senses.
                     <span data-lang-inline="en" class="active">All rights reserved.</span>
                     <span data-lang-inline="es">Todos los derechos reservados.</span>
                     <span data-lang-inline="pt">Todos os direitos reservados.</span>
@@ -647,59 +712,88 @@
     <script>
         // Function to include HTML
         function includeHTML() {
-    var z, i, elmnt, file, xhttp;
-    z = document.getElementsByTagName("*");
-    for (i = 0; i < z.length; i++) {
-        elmnt = z[i];
-        file = elmnt.getAttribute("w3-include-html");
-        if (file) {
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        elmnt.innerHTML = this.responseText;
-                        elmnt.removeAttribute("w3-include-html");
-                        // Initialize carousels after content is loaded
-                        initializeCarousels();
-                        // Reinitialize other necessary functions
-                        setupTourCardListeners();
-                        
-                        // Get current language and reapply it to new content
-                        const currentLang = document.documentElement.lang || 'pt';
-                        changeLanguage(currentLang);
-                        
-                        // Update select options if they exist
-                        document.querySelectorAll('select option[data-' + currentLang + ']').forEach(option => {
-                            option.textContent = option.getAttribute('data-' + currentLang);
-                        });
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
+                                elmnt.removeAttribute("w3-include-html");
+
+                                // Initialize carousels after content is loaded
+                                initializeCarousels();
+
+                                // Reinitialize other necessary functions
+                                setupTourCardListeners();
+
+                                // Add event listeners to 'More Details' links in the newly loaded content
+                                setupMoreDetailsLinks();
+
+                                // Get current language and reapply it to new content
+                                const currentLang = document.documentElement.lang || 'pt';
+                                changeLanguage(currentLang);
+
+                                // Update select options if they exist
+                                document.querySelectorAll('select option[data-' + currentLang + ']').forEach(option => {
+                                    option.textContent = option.getAttribute('data-' + currentLang);
+                                });
+                            }
+                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                            includeHTML(); // Continue with next element
+                        }
                     }
-                    if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
-                    includeHTML(); // Continue with next element
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
                 }
             }
-            xhttp.open("GET", file, true);
-            xhttp.send();
-            return;
         }
-    }
-}
+
+        function setupMoreDetailsLinks() {
+            // Select all links that have "details_rota_castelos.html" in the href
+            document.querySelectorAll('a[href*="details_rota_castelos.html"]').forEach(link => {
+                // Remove existing click listeners to avoid duplicates
+                const newLink = link.cloneNode(true);
+                link.parentNode.replaceChild(newLink, link);
+
+                newLink.addEventListener('click', function (e) {
+                    // Prevent the default navigation
+                    e.preventDefault();
+
+                    // Find the currently active language
+                    const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
+
+                    // Get the base URL without any existing parameters
+                    let baseUrl = this.href.split('?')[0];
+
+                    // Navigate to the URL with the language parameter
+                    window.location.href = `${baseUrl}?lang=${currentLang}`;
+                });
+            });
+        }
+
 
         // Function to setup tour card listeners
         function setupTourCardListeners() {
             document.querySelectorAll('.tour-card').forEach(card => {
-                card.addEventListener('click', function(e) {
-                    if (e.target.tagName === 'BUTTON' || 
-                        e.target.closest('button') || 
+                card.addEventListener('click', function (e) {
+                    if (e.target.tagName === 'BUTTON' ||
+                        e.target.closest('button') ||
                         e.target.classList.contains('carousel-dot')) {
                         return;
                     }
-                    
+
                     document.querySelectorAll('.tour-card').forEach(c => {
                         if (c !== card) {
                             c.classList.remove('active');
                         }
                     });
-                    
+
                     card.classList.toggle('active');
                 });
             });
@@ -713,7 +807,7 @@
             document.querySelectorAll('[data-lang-inline]').forEach(elem => {
                 elem.classList.toggle('active', elem.getAttribute('data-lang-inline') === lang);
             });
-            
+
             // Update select options in both the main form and modal
             document.querySelectorAll('select option[data-' + lang + ']').forEach(option => {
                 option.textContent = option.getAttribute('data-' + lang);
@@ -724,7 +818,7 @@
             if (mobileLangSelect) {
                 mobileLangSelect.value = lang;
             }
-            
+
             document.documentElement.lang = lang;
         }
 
@@ -742,11 +836,11 @@
         function initializeHeroCarousel() {
             const carousel = document.getElementById('hero-carousel');
             const dotsContainer = carousel.parentElement.querySelector('.flex.justify-center');
-            
+
             // Clear existing content
             carousel.innerHTML = '';
             dotsContainer.innerHTML = '';
-            
+
             // Add images
             heroImages.forEach((src, index) => {
                 const img = document.createElement('img');
@@ -772,27 +866,27 @@
         function showHeroSlide(index) {
             const images = document.querySelectorAll('#hero-carousel img');
             const dots = document.querySelectorAll('#hero-carousel + div button');
-            
+
             // Changed from opacity to hidden class
             images.forEach(img => img.classList.add('hidden'));
-            
+
             // Update dots
             dots.forEach(dot => dot.classList.replace('bg-opacity-100', 'bg-opacity-50'));
-            
+
             // Show selected image
             images[index].classList.remove('hidden');
             dots[index].classList.replace('bg-opacity-50', 'bg-opacity-100');
-            
+
             currentHeroSlide = index;
         }
 
         function moveHeroSlide(direction) {
             // Reset the interval when manually changing slides
             clearInterval(heroInterval);
-            
+
             const newIndex = (currentHeroSlide + direction + heroImages.length) % heroImages.length;
             showHeroSlide(newIndex);
-            
+
             // Restart the slideshow
             startHeroSlideshow();
         }
@@ -800,22 +894,12 @@
         function startHeroSlideshow() {
             // Clear any existing interval
             clearInterval(heroInterval);
-            
+
             // Set new interval
             heroInterval = setInterval(() => {
                 moveHeroSlide(1);
             }, 5000); // Change slide every 5 seconds
         }
-
-        document.querySelectorAll('.more-details-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Get current active language
-                const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
-                
-                // Update href with current language
-                this.href = `Tours/rota-dos-castelos/details_rota_castelos.html?lang=${currentLang}`;
-            });
-        });
 
         // ===== Tour images ======
         const tourImages = {
@@ -850,7 +934,7 @@
 
                 // Clear existing content
                 carouselContainer.innerHTML = '';
-                
+
                 // Add images
                 tourImages[tourId].forEach((src, index) => {
                     const img = document.createElement('img');
@@ -879,14 +963,14 @@
         function showSlide(container, index) {
             const images = container.querySelectorAll('.carousel-image');
             const dots = container.parentElement.querySelectorAll('.carousel-dot');
-            
+
             // Hide all images and reset dots
             images.forEach(img => img.classList.add('hidden'));
             dots.forEach(dot => {
                 dot.classList.remove('bg-opacity-100');
                 dot.classList.add('bg-opacity-50');
             });
-            
+
             // Show selected image and dot
             images[index].classList.remove('hidden');
             dots[index].classList.remove('bg-opacity-50');
@@ -896,40 +980,52 @@
         // Function to move slides
         function moveSlide(button, direction) {
             event.stopPropagation();
-            
+
             const container = button.closest('.relative').querySelector('.carousel-container');
             const images = container.querySelectorAll('.carousel-image');
             const currentIndex = Array.from(images).findIndex(img => !img.classList.contains('hidden'));
             const newIndex = (currentIndex + direction + images.length) % images.length;
-            
+
             showSlide(container, newIndex);
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.more-details-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                // Get current active language
+                const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
+
+                // Update href with current language
+                this.href = `Tours/Arrabida/rota-dos-castelos/details_rota_castelos.html?lang=${currentLang}`;
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
             includeHTML();
             // Add event listener to all 'More Details' links
-            document.querySelectorAll('a[href="Tours/rota-dos-castelos/details_rota_castelos.html"]').forEach(link => {
-                link.addEventListener('click', function(e) {
+            document.querySelectorAll('a[href="Tours/Arrabida/rota-dos-castelos/details_rota_castelos.html"]').forEach(link => {
+                link.addEventListener('click', function (e) {
                     // Find the currently active language
                     const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
-                    
+
                     // Update the href with the current language
-                    this.href = `Tours/rota-dos-castelos/details_rota_castelos.html?lang=${currentLang}`;
+                    this.href = `Tours/Arrabida/rota-dos-castelos/details_rota_castelos.html?lang=${currentLang}`;
                 });
             });
+
+            setupMoreDetailsLinks();
 
 
             // Mobile menu toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
-            mobileMenuButton.addEventListener('click', function(e) {
+            mobileMenuButton.addEventListener('click', function (e) {
                 e.stopPropagation(); // Prevent event bubbling
                 mobileMenu.classList.toggle('hidden');
             });
 
             // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', function (e) {
                 if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
                     mobileMenu.classList.add('hidden');
                 }
@@ -937,12 +1033,12 @@
 
             // Close menu when clicking a link
             mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', function () {
                     mobileMenu.classList.add('hidden');
                 });
             });
 
-             // Initialize all carousels
+            // Initialize all carousels
             changeLanguage('pt');
             document.querySelectorAll('select option[data-pt]').forEach(option => {
                 option.textContent = option.getAttribute('data-pt');
@@ -954,21 +1050,21 @@
 
         // Tour card toggle functionality
         document.querySelectorAll('.tour-card').forEach(card => {
-            card.addEventListener('click', function(e) {
+            card.addEventListener('click', function (e) {
                 // Don't toggle if clicking buttons, arrows, or dots
-                if (e.target.tagName === 'BUTTON' || 
-                    e.target.closest('button') || 
+                if (e.target.tagName === 'BUTTON' ||
+                    e.target.closest('button') ||
                     e.target.classList.contains('carousel-dot')) {
                     return;
                 }
-                
+
                 // Remove active class from all cards except the clicked one
                 document.querySelectorAll('.tour-card').forEach(c => {
                     if (c !== card) {
                         c.classList.remove('active');
                     }
                 });
-                
+
                 // Toggle active class on clicked card
                 card.classList.toggle('active');
             });
@@ -977,7 +1073,7 @@
         function openBookingModal(tourType) {
             const modal = document.getElementById('bookingModal');
             const tourSelect = modal.querySelector('select[name="tourType"]');
-            
+
             // Set tour type if provided
             if (tourType) {
                 tourSelect.value = tourType;
@@ -1000,12 +1096,12 @@
         }
 
         // Form submission handler
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const formData = new FormData(this);
             const currentLang = document.documentElement.lang;
-            
+
             const bookingData = {
                 tourType: formData.get('tourType'),
                 date: formData.get('tourDate'),
@@ -1018,7 +1114,7 @@
             };
 
             console.log('Booking data:', bookingData);
-            
+
             // Show success message in current language
             const successMessages = {
                 en: 'Thank you for your booking! We will contact you shortly.',
@@ -1026,12 +1122,12 @@
                 pt: 'Obrigado pela sua reserva! Entraremos em contacto em breve.',
                 fr: 'Merci pour votre réservation ! Nous vous contacterons bientôt.'
             };
-            
+
             alert(successMessages[currentLang]);
             closeBookingModal();
         });
 
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
@@ -1040,7 +1136,7 @@
         function toggleMainTerms() {
             const content = document.getElementById('mainTermsContent');
             const arrow = content.parentElement.querySelector('button svg');
-            
+
             if (content.style.maxHeight && content.style.maxHeight !== '0px') {
                 content.style.maxHeight = '0px';
                 arrow.classList.remove('rotate-180');
@@ -1055,7 +1151,7 @@
             const content = button.nextElementSibling;
             const arrow = button.querySelector('svg');
             const mainContent = document.getElementById('mainTermsContent');
-            
+
             if (content.style.maxHeight && content.style.maxHeight !== '0px') {
                 content.style.maxHeight = '0px';
                 arrow.classList.remove('rotate-180');
@@ -1074,7 +1170,7 @@
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             try {
                 const response = await fetch(form.action, {
                     method: 'POST',
@@ -1083,13 +1179,13 @@
                         'Accept': 'application/json'
                     }
                 });
-                
+
                 if (response.ok) {
                     // Show success message
                     form.reset();
                     successMessage.classList.remove('hidden');
                     errorMessage.classList.add('hidden');
-                    
+
                     // Hide success message after 5 seconds
                     setTimeout(() => {
                         successMessage.classList.add('hidden');
@@ -1101,7 +1197,7 @@
                 // Show error message
                 errorMessage.classList.remove('hidden');
                 successMessage.classList.add('hidden');
-                
+
                 // Hide error message after 5 seconds
                 setTimeout(() => {
                     errorMessage.classList.add('hidden');
@@ -1112,122 +1208,121 @@
 
     </script>
 
-<!-- Booking Modal -->
-<div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-lg p-8 max-w-md w-full max-h-90vh overflow-y-auto m-4">
-        <div class="flex justify-between items-center mb-6">
-            <h3 class="text-xl font-bold">
-                <span data-lang-inline="en" class="active">Book Your Tour</span>
-                <span data-lang-inline="es">Reserva Tu Tour</span>
-                <span data-lang-inline="pt">Reserva o Teu Tour</span>
-                <span data-lang-inline="fr">Réservez Votre Circuit</span>
-            </h3>
-            <button onclick="closeBookingModal()" class="text-gray-500 hover:text-gray-700">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full max-h-90vh overflow-y-auto m-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold">
+                    <span data-lang-inline="en" class="active">Book Your Tour</span>
+                    <span data-lang-inline="es">Reserva Tu Tour</span>
+                    <span data-lang-inline="pt">Reserva o Teu Tour</span>
+                    <span data-lang-inline="fr">Réservez Votre Circuit</span>
+                </h3>
+                <button onclick="closeBookingModal()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <form id="bookingForm" class="space-y-4">
+                <!-- Tour Selection -->
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        <span data-lang-inline="en" class="active">Select Experience</span>
+                        <span data-lang-inline="es">Seleccionar Experiencia</span>
+                        <span data-lang-inline="pt">Selecionar Experiência</span>
+                        <span data-lang-inline="fr">Sélectionner l'Expérience</span>
+                    </label>
+                    <select name="tourType" required class="w-full p-2 border rounded">
+                        <option value="jeep" data-en="Mountain Jeep Adventure (99€)"
+                            data-es="Aventura en Jeep por la Montaña (99€)" data-pt="Aventura de Jipe na Serra (99€)"
+                            data-fr="Aventure en Jeep de Montagne (99€)">Mountain Jeep Adventure (99€)</option>
+                        <option value="walking" data-en="Forest Walking Tour (49€)"
+                            data-es="Tour de Senderismo por el Bosque (49€)" data-pt="Passeio Pedestre na Serra (49€)"
+                            data-fr="Randonnée en Forêt (49€)">Forest Walking Tour (49€)</option>
+                    </select>
+                </div>
+
+                <!-- Date Selection -->
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        <span data-lang-inline="en" class="active">Select Date</span>
+                        <span data-lang-inline="es">Seleccionar Fecha</span>
+                        <span data-lang-inline="pt">Selecionar Data</span>
+                        <span data-lang-inline="fr">Sélectionner la Date</span>
+                    </label>
+                    <input type="date" name="tourDate" required class="w-full p-2 border rounded">
+                </div>
+
+                <!-- Time Selection -->
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        <span data-lang-inline="en" class="active">Select Time</span>
+                        <span data-lang-inline="es">Seleccionar Hora</span>
+                        <span data-lang-inline="pt">Selecionar Hora</span>
+                        <span data-lang-inline="fr">Sélectionner l'Heure</span>
+                    </label>
+                    <select name="tourTime" required class="w-full p-2 border rounded">
+                        <option value="morning">08:00</option>
+                        <option value="afternoon">14:00</option>
+                    </select>
+                </div>
+
+                <!-- Number of People -->
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        <span data-lang-inline="en" class="active">Number of People</span>
+                        <span data-lang-inline="es">Número de Personas</span>
+                        <span data-lang-inline="pt">Número de Pessoas</span>
+                        <span data-lang-inline="fr">Nombre de Personnes</span>
+                    </label>
+                    <input type="number" name="numberOfPeople" min="1" max="10" required
+                        class="w-full p-2 border rounded">
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        <span data-lang-inline="en" class="active">Name</span>
+                        <span data-lang-inline="es">Nombre</span>
+                        <span data-lang-inline="pt">Nome</span>
+                        <span data-lang-inline="fr">Nom</span>
+                    </label>
+                    <input type="text" name="name" required class="w-full p-2 border rounded">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        <span data-lang-inline="en" class="active">Email</span>
+                        <span data-lang-inline="es">Correo Electrónico</span>
+                        <span data-lang-inline="pt">Email</span>
+                        <span data-lang-inline="fr">Email</span>
+                    </label>
+                    <input type="email" name="email" required class="w-full p-2 border rounded">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        <span data-lang-inline="en" class="active">Phone</span>
+                        <span data-lang-inline="es">Teléfono</span>
+                        <span data-lang-inline="pt">Telefone</span>
+                        <span data-lang-inline="fr">Téléphone</span>
+                    </label>
+                    <input type="tel" name="phone" required class="w-full p-2 border rounded">
+                </div>
+
+                <button type="submit" class="w-full bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+                    <span data-lang-inline="en" class="active">Book Now</span>
+                    <span data-lang-inline="es">Reservar Ahora</span>
+                    <span data-lang-inline="pt">Reservar Agora</span>
+                    <span data-lang-inline="fr">Réserver Maintenant</span>
+                </button>
+            </form>
         </div>
-        <form id="bookingForm" class="space-y-4">
-            <!-- Tour Selection -->
-            <div>
-                <label class="block text-gray-700 mb-2">
-                    <span data-lang-inline="en" class="active">Select Experience</span>
-                    <span data-lang-inline="es">Seleccionar Experiencia</span>
-                    <span data-lang-inline="pt">Selecionar Experiência</span>
-                    <span data-lang-inline="fr">Sélectionner l'Expérience</span>
-                </label>
-                <select name="tourType" required class="w-full p-2 border rounded">
-                    <option value="jeep" 
-                        data-en="Mountain Jeep Adventure (99€)"
-                        data-es="Aventura en Jeep por la Montaña (99€)"
-                        data-pt="Aventura de Jipe na Serra (99€)"
-                        data-fr="Aventure en Jeep de Montagne (99€)">Mountain Jeep Adventure (99€)</option>
-                    <option value="walking"
-                        data-en="Forest Walking Tour (49€)"
-                        data-es="Tour de Senderismo por el Bosque (49€)"
-                        data-pt="Passeio Pedestre na Serra (49€)"
-                        data-fr="Randonnée en Forêt (49€)">Forest Walking Tour (49€)</option>
-                </select>
-            </div>
-
-            <!-- Date Selection -->
-            <div>
-                <label class="block text-gray-700 mb-2">
-                    <span data-lang-inline="en" class="active">Select Date</span>
-                    <span data-lang-inline="es">Seleccionar Fecha</span>
-                    <span data-lang-inline="pt">Selecionar Data</span>
-                    <span data-lang-inline="fr">Sélectionner la Date</span>
-                </label>
-                <input type="date" name="tourDate" required class="w-full p-2 border rounded">
-            </div>
-
-            <!-- Time Selection -->
-            <div>
-                <label class="block text-gray-700 mb-2">
-                    <span data-lang-inline="en" class="active">Select Time</span>
-                    <span data-lang-inline="es">Seleccionar Hora</span>
-                    <span data-lang-inline="pt">Selecionar Hora</span>
-                    <span data-lang-inline="fr">Sélectionner l'Heure</span>
-                </label>
-                <select name="tourTime" required class="w-full p-2 border rounded">
-                    <option value="morning">08:00</option>
-                    <option value="afternoon">14:00</option>
-                </select>
-            </div>
-
-            <!-- Number of People -->
-            <div>
-                <label class="block text-gray-700 mb-2">
-                    <span data-lang-inline="en" class="active">Number of People</span>
-                    <span data-lang-inline="es">Número de Personas</span>
-                    <span data-lang-inline="pt">Número de Pessoas</span>
-                    <span data-lang-inline="fr">Nombre de Personnes</span>
-                </label>
-                <input type="number" name="numberOfPeople" min="1" max="10" required class="w-full p-2 border rounded">
-            </div>
-
-            <!-- Contact Information -->
-            <div>
-                <label class="block text-gray-700 mb-2">
-                    <span data-lang-inline="en" class="active">Name</span>
-                    <span data-lang-inline="es">Nombre</span>
-                    <span data-lang-inline="pt">Nome</span>
-                    <span data-lang-inline="fr">Nom</span>
-                </label>
-                <input type="text" name="name" required class="w-full p-2 border rounded">
-            </div>
-
-            <div>
-                <label class="block text-gray-700 mb-2">
-                    <span data-lang-inline="en" class="active">Email</span>
-                    <span data-lang-inline="es">Correo Electrónico</span>
-                    <span data-lang-inline="pt">Email</span>
-                    <span data-lang-inline="fr">Email</span>
-                </label>
-                <input type="email" name="email" required class="w-full p-2 border rounded">
-            </div>
-
-            <div>
-                <label class="block text-gray-700 mb-2">
-                    <span data-lang-inline="en" class="active">Phone</span>
-                    <span data-lang-inline="es">Teléfono</span>
-                    <span data-lang-inline="pt">Telefone</span>
-                    <span data-lang-inline="fr">Téléphone</span>
-                </label>
-                <input type="tel" name="phone" required class="w-full p-2 border rounded">
-            </div>
-
-            <button type="submit" class="w-full bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
-                <span data-lang-inline="en" class="active">Book Now</span>
-                <span data-lang-inline="es">Reservar Ahora</span>
-                <span data-lang-inline="pt">Reservar Agora</span>
-                <span data-lang-inline="fr">Réserver Maintenant</span>
-            </button>
-        </form>
     </div>
-</div>
 
 
 </body>
+
 </html>

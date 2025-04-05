@@ -377,8 +377,14 @@
             <span>Peninsula de Troia</span>
         </h4>
         <hr class="border-gray-600 mb-8">
-        <!-- Cards Arrabida -->
+        <!-- Cards Peninsula de Troia-->
         <div w3-include-html="Tours/Troia/cards_troia.html"></div>
+        <h4 class="text-xl font-semibold mt-8 mb-4">
+            <span>Sintra</span>
+        </h4>
+        <hr class="border-gray-600 mb-8">
+        <!-- Cards Sintra -->
+        <div w3-include-html="Tours/Sintra/cards_sintra.html"></div>
 
     </section>
 
@@ -428,7 +434,7 @@
                     </p>
                 </div>
                 <div class="flex justify-center md:justify-end">
-                    <img src="gui.jpg" alt="José Amândio - Guia" class="rounded-lg shadow-lg w-full max-w-md h-auto">
+                    <img src="Imagens/guia.jpeg" alt="José Amândio - Guia" class="rounded-lg shadow-lg w-full max-w-md h-auto">
                 </div>
             </div>
         </div>
@@ -526,7 +532,7 @@
             <span data-lang-inline="pt">Contacte-nos</span>
             <span data-lang-inline="fr">Contactez-nous</span>
         </h2>
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-1 gap-8">
             <div>
                 <h3 class="text-xl font-bold mb-4">
                     <span data-lang-inline="en" class="active">Get in Touch</span>
@@ -536,7 +542,14 @@
                 </h3>
 
                 <!-- Formspree Form -->
-                <form action="https://formspree.io/f/mwppawjn" method="POST" class="space-y-4" id="contactForm">
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4" id="contactForm">
+                    <input type="hidden" name="access_key" value="34405e88-cd9d-46b6-8430-51fe4eba1ee4">
+                    <!-- Honeypot Spam Protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
+                    <!-- Custom Confirmation / Success Page -->
+                    <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
+
                     <!-- Name Field -->
                     <div>
                         <label class="block text-gray-700 mb-2">
@@ -570,13 +583,15 @@
                         <textarea name="message" required class="w-full p-2 border rounded h-32"></textarea>
                     </div>
 
-                    <!-- Submit Button -->
-                    <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
-                        <span data-lang-inline="en" class="active">Send Message</span>
-                        <span data-lang-inline="es">Enviar Mensaje</span>
-                        <span data-lang-inline="pt">Enviar Mensagem</span>
-                        <span data-lang-inline="fr">Envoyer le Message</span>
-                    </button>
+                    <div class="flex justify-center">
+                        <!-- Submit Button -->
+                        <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+                            <span data-lang-inline="en" class="active">Send Message</span>
+                            <span data-lang-inline="es">Enviar Mensaje</span>
+                            <span data-lang-inline="pt">Enviar Mensagem</span>
+                            <span data-lang-inline="fr">Envoyer le Message</span>
+                        </button>
+                    </div>
 
                     <!-- Success/Error Messages -->
                     <div id="submitMessage" class="hidden mt-4 p-4 rounded">
@@ -602,41 +617,6 @@
                     </div>
                 </form>
             </div>
-            <div>
-                <h3 class="text-xl font-bold mb-4">
-                    <span data-lang-inline="en" class="active">Location</span>
-                    <span data-lang-inline="es">Ubicación</span>
-                    <span data-lang-inline="pt">Localização</span>
-                    <span data-lang-inline="fr">Emplacement</span>
-                </h3>
-                <img src="/api/placeholder/600/300" alt="Map" class="w-full rounded-lg">
-                <div class="mt-4">
-                    <p class="mb-2">
-                        <strong>
-                            <span data-lang-inline="en" class="active">Address:</span>
-                            <span data-lang-inline="es">Dirección:</span>
-                            <span data-lang-inline="pt">Morada:</span>
-                            <span data-lang-inline="fr">Adresse:</span>
-                        </strong>
-                        <span data-lang-inline="en" class="active">123 Adventure Road, Nature Valley</span>
-                        <span data-lang-inline="es">123 Calle Aventura, Valle Natural</span>
-                        <span data-lang-inline="pt">Rua Arrábida nº123, Setúbal</span>
-                        <span data-lang-inline="fr">123 Route de l'Aventure, Vallée Nature</span>
-                    </p>
-                    <p class="mb-2">
-                        <strong>
-                            <span data-lang-inline="en" class="active">Phone:</span>
-                            <span data-lang-inline="es">Teléfono:</span>
-                            <span data-lang-inline="pt">Telefone:</span>
-                            <span data-lang-inline="fr">Téléphone:</span>
-                        </strong>
-                        <span>+351 935 852 852</span>
-                    </p>
-                    <p>
-                        <strong>Email:</strong> info@arrabida5senses.com
-                    </p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -645,7 +625,7 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-8">
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Arrábida5Senses</h4>
+                    <h4 class="text-lg font-bold mb-4">5SensesTours</h4>
                     <p class="text-gray-400">
                         <span data-lang-inline="en" class="active">Providing unforgettable outdoor experiences since
                             2024</span>
@@ -699,8 +679,25 @@
                     </div>
                 </div>
             </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 pb-2">
+                <!-- 
+                <h4 class="text-center text-lg mb-4">
+                    <span data-lang-inline="en" class="active">Our Partners</span>
+                    <span data-lang-inline="es">Nuestros Socios</span>
+                    <span data-lang-inline="pt">Nossos Parceiros</span>
+                    <span data-lang-inline="fr">Nos Partenaires</span>
+                </h4>
+                -->
+                <div class="flex flex-wrap justify-center items-center gap-4 md:gap-10">
+                    <!-- Replace these with your actual logo files -->
+                    <img src="Imagens/logos/turismo-de-portugal.png" alt="Turismo de Portugal Logo" class="h-12 w-auto">
+                    <img src="Imagens/logos/Governo.png" alt="ICNF Logo" class="h-14 w-auto">
+                    <img src="Imagens/logos/icnf.png" alt="ICNF Logo" class="h-14 w-auto">
+                </div>
+            </div>
+
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Arrábida5Senses.
+                <p>&copy; 2025 5SensesTours.
                     <span data-lang-inline="en" class="active">All rights reserved.</span>
                     <span data-lang-inline="es">Todos los derechos reservados.</span>
                     <span data-lang-inline="pt">Todos os direitos reservados.</span>
@@ -757,6 +754,25 @@
         function setupMoreDetailsLinks() {
             // Select all links that have "details_rota_castelos.html" in the href
             document.querySelectorAll('a[href*="details_rota_castelos.html"]').forEach(link => {
+                // Remove existing click listeners to avoid duplicates
+                const newLink = link.cloneNode(true);
+                link.parentNode.replaceChild(newLink, link);
+
+                newLink.addEventListener('click', function (e) {
+                    // Prevent the default navigation
+                    e.preventDefault();
+
+                    // Find the currently active language
+                    const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
+
+                    // Get the base URL without any existing parameters
+                    let baseUrl = this.href.split('?')[0];
+
+                    // Navigate to the URL with the language parameter
+                    window.location.href = `${baseUrl}?lang=${currentLang}`;
+                });
+            });
+            document.querySelectorAll('a[href*="details_terras_do_cabo_espichel.html"]').forEach(link => {
                 // Remove existing click listeners to avoid duplicates
                 const newLink = link.cloneNode(true);
                 link.parentNode.replaceChild(newLink, link);
@@ -1012,6 +1028,16 @@
                 });
             });
 
+            document.querySelectorAll('a[href="Tours/Arrabida/terras-do-cabo-espichel/details_terras_do_cabo_espichel.html"]').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    // Find the currently active language
+                    const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
+
+                    // Update the href with the current language
+                    this.href = `Tours/Arrabida/terras-do-cabo-espichel/details_terras_do_cabo_espichel.html?lang=${currentLang}`;
+                });
+            });
+
             setupMoreDetailsLinks();
 
 
@@ -1096,35 +1122,46 @@
         }
 
         // Form submission handler
-        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+        document.getElementById('bookingForm').addEventListener('submit', async function (e) {
             e.preventDefault();
 
-            const formData = new FormData(this);
-            const currentLang = document.documentElement.lang;
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-            const bookingData = {
-                tourType: formData.get('tourType'),
-                date: formData.get('tourDate'),
-                time: formData.get('tourTime'),
-                numberOfPeople: formData.get('numberOfPeople'),
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                language: currentLang
-            };
+                if (response.ok) {
+                    // Show success message
+                    const currentLang = document.documentElement.lang;
+                    const successMessages = {
+                        en: 'Thank you for your booking! We will contact you shortly.',
+                        es: '¡Gracias por su reserva! Nos pondremos en contacto pronto.',
+                        pt: 'Obrigado pela sua reserva! Entraremos em contacto em breve.',
+                        fr: 'Merci pour votre réservation ! Nous vous contacterons bientôt.'
+                    };
 
-            console.log('Booking data:', bookingData);
+                    alert(successMessages[currentLang]);
+                    this.reset();
+                    closeBookingModal();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                // Show error message
+                const currentLang = document.documentElement.lang;
+                const errorMessages = {
+                    en: 'There was a problem submitting your booking. Please try again.',
+                    es: 'Hubo un problema al enviar su reserva. Por favor, inténtelo de nuevo.',
+                    pt: 'Houve um problema ao enviar sua reserva. Por favor, tente novamente.',
+                    fr: 'Un problème est survenu lors de l\'envoi de votre réservation. Veuillez réessayer.'
+                };
 
-            // Show success message in current language
-            const successMessages = {
-                en: 'Thank you for your booking! We will contact you shortly.',
-                es: '¡Gracias por su reserva! Nos pondremos en contacto pronto.',
-                pt: 'Obrigado pela sua reserva! Entraremos em contacto em breve.',
-                fr: 'Merci pour votre réservation ! Nous vous contacterons bientôt.'
-            };
-
-            alert(successMessages[currentLang]);
-            closeBookingModal();
+                alert(errorMessages[currentLang]);
+            }
         });
 
         document.getElementById('mobile-menu-button').addEventListener('click', function () {
@@ -1208,6 +1245,7 @@
 
     </script>
 
+
     <!-- Booking Modal -->
     <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-white rounded-lg p-8 max-w-md w-full max-h-90vh overflow-y-auto m-4">
@@ -1225,7 +1263,15 @@
                     </svg>
                 </button>
             </div>
-            <form id="bookingForm" class="space-y-4">
+
+            <!-- Updated form with web3forms action -->
+            <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                <input type="hidden" name="access_key" value="34405e88-cd9d-46b6-8430-51fe4eba1ee4">
+                <!-- Honeypot Spam Protection -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <!-- Custom Confirmation / Success Page -->
+                <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
+
                 <!-- Tour Selection -->
                 <div>
                     <label class="block text-gray-700 mb-2">
@@ -1236,10 +1282,12 @@
                     </label>
                     <select name="tourType" required class="w-full p-2 border rounded">
                         <option value="jeep" data-en="Mountain Jeep Adventure (99€)"
-                            data-es="Aventura en Jeep por la Montaña (99€)" data-pt="Aventura de Jipe na Serra (99€)"
+                            data-es="Aventura en Jeep por la Montaña (99€)" 
+                            data-pt="Aventura de Jipe na Serra (99€)"
                             data-fr="Aventure en Jeep de Montagne (99€)">Mountain Jeep Adventure (99€)</option>
                         <option value="walking" data-en="Forest Walking Tour (49€)"
-                            data-es="Tour de Senderismo por el Bosque (49€)" data-pt="Passeio Pedestre na Serra (49€)"
+                            data-es="Tour de Senderismo por el Bosque (49€)" 
+                            data-pt="Passeio Pedestre na Serra (49€)"
                             data-fr="Randonnée en Forêt (49€)">Forest Walking Tour (49€)</option>
                     </select>
                 </div>
@@ -1264,8 +1312,8 @@
                         <span data-lang-inline="fr">Sélectionner l'Heure</span>
                     </label>
                     <select name="tourTime" required class="w-full p-2 border rounded">
-                        <option value="morning">08:00</option>
-                        <option value="afternoon">14:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="14:00">14:00</option>
                     </select>
                 </div>
 
@@ -1312,12 +1360,36 @@
                     <input type="tel" name="phone" required class="w-full p-2 border rounded">
                 </div>
 
+                <!-- Add hidden field for language -->
+                <input type="hidden" name="language" id="bookingLanguage">
+
                 <button type="submit" class="w-full bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
                     <span data-lang-inline="en" class="active">Book Now</span>
                     <span data-lang-inline="es">Reservar Ahora</span>
                     <span data-lang-inline="pt">Reservar Agora</span>
                     <span data-lang-inline="fr">Réserver Maintenant</span>
                 </button>
+
+                <!-- Success/Error Messages -->
+                <div id="bookingSubmitMessage" class="hidden mt-4">
+                    <p class="booking-success-message hidden text-green-700 bg-green-100 p-4 rounded">
+                        <span data-lang-inline="en" class="active">Thank you for your booking! We'll get back to you
+                            soon.</span>
+                        <span data-lang-inline="es">¡Gracias por tu reserva! Nos pondremos en contacto pronto.</span>
+                        <span data-lang-inline="pt">Obrigado pela sua reserva! Entraremos em contacto em breve.</span>
+                        <span data-lang-inline="fr">Merci pour votre réservation ! Nous vous répondrons bientôt.</span>
+                    </p>
+                    <p class="booking-error-message hidden text-red-700 bg-red-100 p-4 rounded">
+                        <span data-lang-inline="en" class="active">Oops! There was a problem sending your booking.
+                            Please try again.</span>
+                        <span data-lang-inline="es">¡Ups! Hubo un problema al enviar tu reserva. Por favor, inténtalo de
+                            nuevo.</span>
+                        <span data-lang-inline="pt">Ops! Houve um problema ao enviar sua reserva. Por favor, tente
+                            novamente.</span>
+                        <span data-lang-inline="fr">Oups ! Il y a eu un problème lors de l'envoi de votre réservation.
+                            Veuillez réessayer.</span>
+                    </p>
+                </div>
             </form>
         </div>
     </div>

@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5Senses Tours - Maravilhas da Arrábida<title>
+    <title>5Senses Tours - Maravilhas da Arrábida</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="../favicon/jeep.png">
     <style>
         [data-lang] {
             display: none;
         }
+
         [data-lang].active {
             display: block;
         }
+
         [data-lang-inline] {
             display: none;
         }
+
         [data-lang-inline].active {
             display: inline;
         }
     </style>
 </head>
+
 <body class="bg-gray-50 font-sans">
     <div class="max-w-4xl mx-auto px-4 py-12">
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
@@ -31,293 +38,396 @@
                 <!-- Image Gallery -->
                 <div class="relative">
                     <div id="imageGallery" class="relative w-full h-full">
-                        <img src="./Img_maravilhas_arrabida/P1510556.jpg" alt="Jipe a Explorar o Terreno" class="w-full h-full object-cover gallery-image hidden">
-                        <img src="./Img_maravilhas_arrabida/P1510576.jpg" alt="Paisagem do Passeio de Jipe" class="w-full h-full object-cover gallery-image">
-                        <img src="./Img_maravilhas_arrabida/P1510581.jpg" alt="Vista da Montanha" class="w-full h-full object-cover gallery-image hidden">
-                        <img src="./Img_maravilhas_arrabida/P1510587.jpg" alt="Trilho da Natureza" class="w-full h-full object-cover gallery-image hidden">
+                        <img src="./Img_maravilhas_arrabida/P1510556.jpg" alt="Jipe a Explorar o Terreno"
+                            class="w-full h-full object-cover gallery-image hidden">
+                        <img src="./Img_maravilhas_arrabida/P1510576.jpg" alt="Paisagem do Passeio de Jipe"
+                            class="w-full h-full object-cover gallery-image">
+                        <img src="./Img_maravilhas_arrabida/P1510581.jpg" alt="Vista da Montanha"
+                            class="w-full h-full object-cover gallery-image hidden">
+                        <img src="./Img_maravilhas_arrabida/P1510587.jpg" alt="Trilho da Natureza"
+                            class="w-full h-full object-cover gallery-image hidden">
                     </div>
                     <!-- Gallery Navigation -->
                     <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
                         <button onclick="changeImage(-1)" class="bg-black bg-opacity-50 text-white p-2 rounded-full">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
                             </svg>
                         </button>
                         <button onclick="changeImage(1)" class="bg-black bg-opacity-50 text-white p-2 rounded-full">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
                             </svg>
                         </button>
                     </div>
                 </div>
 
-        <!-- Tour Details -->
-        <div class="p-8">
-            <h1 class="text-3xl font-bold mb-4 text-gray-800">
-                <span data-lang="pt" class="active">Aventura de Jipe na Serra</span>
-                <span data-lang="en">Tour 4x4 Wonders of Arrábida</span>
-                <span data-lang="es">Aventura en Jeep de Montaña</span>
-                <span data-lang="fr">Aventure en Jeep de Montagne</span>
-            </h1>
-            <div class="mb-6">
-                <div class="flex items-center mb-2">
-                    <svg class="w-6 h-6 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span class="text-gray-600">
-                        <span data-lang-inline="pt" class="active">4 Horas | Passeios Diários</span>
-                        <span data-lang-inline="en">4 Hours | Daily Tours</span>
-                        <span data-lang-inline="es">4 Horas | Tours Diarios</span>
-                        <span data-lang-inline="fr">4 Heures | Circuits Quotidiens</span>
-                    </span>
-                </div>
-                <div class="flex items-center mb-2">
-                    <svg class="w-6 h-6 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <span class="text-gray-600">
-                        <span data-lang-inline="pt" class="active">Parque Natural da Arrábida</span>
-                        <span data-lang-inline="en">Arrábida Natural Park</span>
-                        <span data-lang-inline="es">Parque Natural de Arrábida</span>
-                        <span data-lang-inline="fr">Parc Naturel d'Arrábida</span>
-                    </span>
-                </div>
-                <div class="flex items-center">
-                    <svg class="w-6 h-6 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.768-.231-1.482-.634-2.139M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.768.231-1.482.634-2.139M14 7a3 3 0 11-6 0 3 3 0 016 0zm-3 4a5 5 0 00-5 5v2a2 2 0 002 2h10a2 2 0 002-2v-2a5 5 0 00-5-5z" />
-                    </svg>
-                    <span class="text-gray-600">
-                        <span data-lang-inline="pt" class="active">Máximo 6 Passageiros</span>
-                        <span data-lang-inline="en">Max 6 Passengers</span>
-                        <span data-lang-inline="es">Máximo 6 Pasajeros</span>
-                        <span data-lang-inline="fr">Max 6 Passagers</span>
-                    </span>
-                </div>
-            </div>
-
-            <p class="text-gray-700 mb-6">
-                <span data-lang="pt" class="active">Embarque numa expedição emocionante de 4 horas através do deslumbrante Parque Natural da Arrábida. Os nossos condutores profissionais de off-road guiar-lo-ão por trilhos de montanha acidentados, oferecendo vistas panorâmicas deslumbrantes e oportunidades únicas de observação de fauna selvagem.</span>
-                <span data-lang="en">Embark on an exhilarating 4-hour expedition through the breathtaking Arrábida Natural Park. Our professional off-road drivers will guide you through rugged mountain trails, offering stunning panoramic views and unique wildlife spotting opportunities.</span>
-                <span data-lang="es">Embárquese en una emocionante expedición de 4 horas a través del impresionante Parque Natural de Arrábida. Nuestros conductores profesionales de off-road lo guiarán por senderos de montaña escarpados, ofreciendo impresionantes vistas panorámicas y oportunidades únicas de avistamiento de fauna.</span>
-                <span data-lang="fr">Embarquez pour une expédition passionnante de 4 heures à travers le magnifique Parc Naturel d'Arrábida. Nos conducteurs professionnels hors route vous guideront sur des sentiers de montagne escarpés, vous offrant des vues panoramiques à couper le souffle et des opportunités uniques d'observation de la faune.</span>
-            </p>
-
-            <div class="bg-green-50 p-4 rounded-lg mb-6">
-                <h3 class="text-xl font-semibold mb-3 text-green-800">
-                    <span data-lang-inline="pt" class="active">Incluído no Passeio</span>
-                    <span data-lang-inline="en">Included in the Tour</span>
-                    <span data-lang-inline="es">Incluido en el Tour</span>
-                    <span data-lang-inline="fr">Inclus dans le Circuit</span>
-                </h3>
-                <ul class="space-y-2">
-                    <li class="flex items-center">
-                        <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span data-lang-inline="pt" class="active">Condutor profissional off-road</span>
-                        <span data-lang-inline="en">Professional off-road driver</span>
-                        <span data-lang-inline="es">Conductor profesional off-road</span>
-                        <span data-lang-inline="fr">Conducteur professionnel hors route</span>
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span data-lang-inline="pt" class="active">Água e snacks incluídos</span>
-                        <span data-lang-inline="en">Complimentary water and snacks</span>
-                        <span data-lang-inline="es">Agua y snacks incluidos</span>
-                        <span data-lang-inline="fr">Eau et collations offerts</span>
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span data-lang-inline="pt" class="active">Paragens fotográficas em locais panorâmicos</span>
-                        <span data-lang-inline="en">Photography stops at scenic locations</span>
-                        <span data-lang-inline="es">Paradas fotográficas en lugares pintorescos</span>
-                        <span data-lang-inline="fr">Arrêts photo dans des lieux pittoresques</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="flex justify-center items-center">
-                <button onclick="window.location.href='#booking'" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
-                    <span data-lang-inline="pt" class="active">Reservar Agora</span>
-                    <span data-lang-inline="en">Book Now</span>
-                    <span data-lang-inline="es">Reservar Ahora</span>
-                    <span data-lang-inline="fr">Réserver Maintenant</span>
-                </button>
-            </div>
-        </div>
-        </div>
-
-        <!-- Detailed Information Sections -->
-        <div class="p-8 bg-gray-50">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-2xl font-bold mb-6 text-gray-800">
-                <span data-lang-inline="pt" class="active">Informação Detalhada do Passeio</span>
-                <span data-lang-inline="en">Detailed Tour Information</span>
-                <span data-lang-inline="es">Información Detallada del Tour</span>
-                <span data-lang-inline="fr">Informations Détaillées du Circuit</span>
-            </h2>
-            
-            <div class="mb-8" style="display: block; text-align: justify">
-                <h3 class="text-xl font-semibold mb-4 text-green-800">
-                    <span data-lang-inline="pt" class="active">Pontos Altos do Itinerário</span>
-                    <span data-lang-inline="en">Itinerary Highlights</span>
-                    <span data-lang-inline="es">Puntos Destacados del Itinerario</span>
-                    <span data-lang-inline="fr">Points Forts de l'Itinéraire</span>
-                </h3>
-                <p class="text-gray-600" style="display: block; text-align: justify">
-                    <span data-lang-inline="pt" class="active" style="display: block; text-align: justify">
-                        <p style="text-indent: 2em">Entre picos majestosos e vales profundos, desdobra-se um tapete de verde intenso onde a natureza dita seu ritmo ancestral. A brisa marinha mescla-se ao aroma de terra molhada, enquanto mirantes estratégicos revelam panoramas que desafiam a compreensão humana da grandiosidade natural.</p>
-                    
-                        <p style="text-indent: 2em">No encontro entre rocha e oceano, falésias esculpidas pelo tempo erguem-se como guardiãs de segredos milenares. A cada curva da serra, novas perspectivas emergem - enseadas douradas, colinas ondulantes e o infinito azul que se perde no horizonte, convidando à contemplação silenciosa.</p>
-                    
-                        <p style="text-indent: 2em">Da altitude privilegiada, observa-se o ballet das nuvens acariciando os cumes montanhosos enquanto raios de sol tecem padrões efêmeros na vegetação tropical. Trilhas sinuosas sugerem aventuras escondidas, prometendo recompensas visuais para os que ousam explorar além dos mirantes convencionais.</p>
-                    
-                        <p style="text-indent: 2em">Este diálogo entre elementos - a imponência geológica, a força oceânica e a vitalidade da mata - cria uma sinfonia visual que se transforma a cada estação. Nas terras altas, onde a terra encontra o céu, repousa uma beleza primordial que transcende tempo e linguagem.</p>
-                    </span>                  
-                    <span data-lang-inline="en">Visit stunning viewpoints offering 360-degree views of the surrounding mountains, coastline, and lush vegetation.</span>
-                    <span data-lang-inline="es">Visite impresionantes miradores que ofrecen vistas de 360 grados de las montañas circundantes, la costa y la vegetación exuberante.</span>
-                    <span data-lang-inline="fr">Visitez des points de vue à couper le souffle offrant une vue à 360 degrés des montagnes environnantes, de la côte et de la végétation luxuriante.</span>
-                </p>
-            </div>
-
-            <div class="mb-8">
-                <h3 class="text-xl font-semibold mb-4 text-green-800">
-                    <span data-lang-inline="pt" class="active">O que Trazer</span>
-                    <span data-lang-inline="en">What to Bring</span>
-                    <span data-lang-inline="es">Qué Traer</span>
-                    <span data-lang-inline="fr">Que Rapporter</span>
-                </h3>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="bg-white p-4 rounded-lg shadow-md">
-                        <h4 class="font-bold mb-2">
-                            <span data-lang-inline="pt" class="active">Equipamento Recomendado</span>
-                            <span data-lang-inline="en">Recommended Gear</span>
-                            <span data-lang-inline="es">Equipo Recomendado</span>
-                            <span data-lang-inline="fr">Équipement Recommandé</span>
-                        </h4>
-                        <ul class="space-y-2">
-                            <li>✔️ 
-                                <span data-lang-inline="pt" class="active">Roupa confortável em camadas</span>
-                                <span data-lang-inline="en">Comfortable, layered clothing</span>
-                                <span data-lang-inline="es">Ropa cómoda en capas</span>
-                                <span data-lang-inline="fr">Vêtements confortables en couches</span>
-                            </li>
-                            <li>✔️ 
-                                <span data-lang-inline="pt" class="active">Sapatos de caminhada ou confortáveis</span>
-                                <span data-lang-inline="en">Hiking or comfortable shoes</span>
-                                <span data-lang-inline="es">Zapatos de senderismo o cómodos</span>
-                                <span data-lang-inline="fr">Chaussures de randonnée ou confortables</span>
-                            </li>
-                            <li>✔️ 
-                                <span data-lang-inline="pt" class="active">Protetor solar e chapéu</span>
-                                <span data-lang-inline="en">Sunscreen and hat</span>
-                                <span data-lang-inline="es">Protector solar y sombrero</span>
-                                <span data-lang-inline="fr">Crème solaire et chapeau</span>
-                            </li>
-                            <li>✔️ 
-                                <span data-lang-inline="pt" class="active">Câmara ou smartphone</span>
-                                <span data-lang-inline="en">Camera or smartphone</span>
-                                <span data-lang-inline="es">Cámara o smartphone</span>
-                                <span data-lang-inline="fr">Appareil photo ou smartphone</span>
-                            </li>
-                        </ul>
+                <!-- Tour Details -->
+                <div class="p-8">
+                    <h1 class="text-3xl font-bold mb-4 text-gray-800 text-center mx-auto">
+                        <span data-lang="pt" class="active">Tour 4x4 Maravilhas da Arrábida</span>
+                        <span data-lang="en">Tour 4x4 Wonders of Arrábida</span>
+                        <span data-lang="es">Tour 4x4 Maravillas de Arrábida</span>
+                        <span data-lang="fr">Tour 4x4 Merveilles d'Arrábida</span>
+                    </h1>
+                    <div class="mb-6">
+                        <div class="flex items-center mb-2">
+                            <svg class="w-6 h-6 text-green-600 mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-gray-600">
+                                <span data-lang-inline="pt" class="active">4 Horas | Passeios Diários</span>
+                                <span data-lang-inline="en">4 Hours | Daily Tours</span>
+                                <span data-lang-inline="es">4 Horas | Tours Diarios</span>
+                                <span data-lang-inline="fr">4 Heures | Circuits Quotidiens</span>
+                            </span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <svg class="w-6 h-6 text-green-600 mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="text-gray-600">
+                                <span data-lang-inline="pt" class="active">Parque Natural da Arrábida</span>
+                                <span data-lang-inline="en">Arrábida Natural Park</span>
+                                <span data-lang-inline="es">Parque Natural de Arrábida</span>
+                                <span data-lang-inline="fr">Parc Naturel d'Arrábida</span>
+                            </span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-green-600 mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.768-.231-1.482-.634-2.139M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.768.231-1.482.634-2.139M14 7a3 3 0 11-6 0 3 3 0 016 0zm-3 4a5 5 0 00-5 5v2a2 2 0 002 2h10a2 2 0 002-2v-2a5 5 0 00-5-5z" />
+                            </svg>
+                            <span class="text-gray-600">
+                                <span data-lang-inline="pt" class="active">Máximo 6 Passageiros</span>
+                                <span data-lang-inline="en">Max 6 Passengers</span>
+                                <span data-lang-inline="es">Máximo 6 Pasajeros</span>
+                                <span data-lang-inline="fr">Max 6 Passagers</span>
+                            </span>
+                        </div>
                     </div>
-                    <div class="bg-white p-4 rounded-lg shadow-md">
-                        <h4 class="font-bold mb-2">
-                            <span data-lang-inline="pt" class="active">Não Recomendado</span>
-                            <span data-lang-inline="en">Not Recommended</span>
-                            <span data-lang-inline="es">No Recomendado</span>
-                            <span data-lang-inline="fr">Non Recommandé</span>
-                        </h4>
+
+                    <div class="bg-green-50 p-4 rounded-lg mb-6">
+                        <h3 class="text-xl font-semibold mb-3 text-green-800">
+                            <span data-lang-inline="pt" class="active">Incluído no Passeio</span>
+                            <span data-lang-inline="en">Included in the Tour</span>
+                            <span data-lang-inline="es">Incluido en el Tour</span>
+                            <span data-lang-inline="fr">Inclus dans le Circuit</span>
+                        </h3>
                         <ul class="space-y-2">
-                            <li>❌ 
-                                <span data-lang-inline="pt" class="active">Saltos altos</span>
-                                <span data-lang-inline="en">High heels</span>
-                                <span data-lang-inline="es">Tacones altos</span>
-                                <span data-lang-inline="fr">Talons hauts</span>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span data-lang-inline="pt" class="active">Condutor profissional off-road</span>
+                                <span data-lang-inline="en">Professional off-road driver</span>
+                                <span data-lang-inline="es">Conductor profesional off-road</span>
+                                <span data-lang-inline="fr">Conducteur professionnel hors route</span>
                             </li>
-                            <li>❌ 
-                                <span data-lang-inline="pt" class="active">Roupa formal</span>
-                                <span data-lang-inline="en">Formal clothing</span>
-                                <span data-lang-inline="es">Ropa formal</span>
-                                <span data-lang-inline="fr">Vêtements formels</span>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span data-lang-inline="pt" class="active">Água e snacks incluídos</span>
+                                <span data-lang-inline="en">Complimentary water and snacks</span>
+                                <span data-lang-inline="es">Agua y snacks incluidos</span>
+                                <span data-lang-inline="fr">Eau et collations offerts</span>
                             </li>
-                            <li>❌ 
-                                <span data-lang-inline="pt" class="active">Joias pesadas</span>
-                                <span data-lang-inline="en">Heavy jewelry</span>
-                                <span data-lang-inline="es">Joyas pesadas</span>
-                                <span data-lang-inline="fr">Bijoux lourds</span>
-                            </li>
-                            <li>❌ 
-                                <span data-lang-inline="pt" class="active">Roupa restritiva</span>
-                                <span data-lang-inline="en">Restrictive clothing</span>
-                                <span data-lang-inline="es">Ropa restrictiva</span>
-                                <span data-lang-inline="fr">Vêtements restrictifs</span>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span data-lang-inline="pt" class="active">Paragens fotográficas em locais
+                                    panorâmicos</span>
+                                <span data-lang-inline="en">Photography stops at scenic locations</span>
+                                <span data-lang-inline="es">Paradas fotográficas en lugares pintorescos</span>
+                                <span data-lang-inline="fr">Arrêts photo dans des lieux pittoresques</span>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-        </div>
-        </div>
 
-                    <script>
-                        // Detect language from main page
-                        document.addEventListener('DOMContentLoaded', function() {
-                            // Function to get language from URL or parent document
-                            function getLanguage() {
-                                // First, check URL parameter
-                                const urlParams = new URLSearchParams(window.location.search);
-                                const urlLang = urlParams.get('lang');
+            <!-- Detailed Information Sections -->
+            <div class="p-8 bg-gray-50">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                        <span data-lang-inline="pt" class="active">Informação Detalhada do Passeio</span>
+                        <span data-lang-inline="en">Detailed Tour Information</span>
+                        <span data-lang-inline="es">Información Detallada del Tour</span>
+                        <span data-lang-inline="fr">Informations Détaillées du Circuit</span>
+                    </h2>
 
-                                if (urlLang && ['pt', 'en', 'es', 'fr'].includes(urlLang)) {
-                                    return urlLang;
-                                }
+                    <div class="mb-8" style="display: block; text-align: justify">
+                        <p class="text-gray-600" style="display: block; text-align: justify">
+                            <span data-lang-inline="pt" class="active" style="display: block; text-align: justify">
+                                <p style="text-indent: 2em">
+                                    Arrábida, onde a montanha se encontra com o oceano. Um santuário natural
+                                    deslumbrante que cobre o lado sul da península com cristas subindo e descendo até um
+                                    mar incrivelmente imaculado. Você pensa que lugares como este só existem em sonhos.
+                                    Esta reserva natural imaculada, este refúgio glorioso, este pequeno pedaço de
+                                    paraíso é bom demais para ser verdade. Um espetáculo da natureza que está ao seu
+                                    alcance. Esta é a Arrábida, um pedaço de paraíso na terra com 40 milhas quadradas
+                                    que fica a apenas uma hora de Lisboa. Um sem número de enseadas e praias
+                                    paradisíacas para relaxar ao sol, imponentes fortes e altaneiros castelos para
+                                    visitar, misteriosas grutas e ruínas para explorar, e uma mão cheia de miradouros
+                                    que o vão brindar com algumas das paisagens mais deslumbrantes da costa portuguesa.
+                                </p>
+                            </span>
+                            <span data-lang-inline="en">
+                                <p style="text-indent: 2em">
+                                    Arrábida, where the mountain meets the ocean. A stunning natural sanctuary that
+                                    covers the southern side of the peninsula with ridges rising and falling to an
+                                    incredibly pristine sea. You think places like this only exist in dreams. This
+                                    unspoiled natural reserve, this glorious refuge, this little piece of paradise is
+                                    too good to be true. A spectacle of nature that is within your reach. This is
+                                    Arrábida, a piece of paradise on earth with 40 square miles that is just an hour
+                                    from Lisbon. A myriad of coves and paradisiacal beaches to relax in the sun,
+                                    imposing forts and lofty castles to visit, mysterious caves and ruins to explore,
+                                    and a handful of viewpoints that will reward you with some of the most stunning
+                                    landscapes on the Portuguese coast.
+                                </p>
+                            </span>
+                            <span data-lang-inline="es">
+                                <p style="text-indent: 2em">
+                                    Arrábida, donde la montaña se encuentra con el océano. Un impresionante santuario
+                                    natural que cubre el lado sur de la península con crestas que suben y bajan hasta un
+                                    mar increíblemente puro. Piensas que lugares como este solo existen en sueños. Esta
+                                    reserva natural virgen, este glorioso refugio, este pequeño trozo de paraíso es
+                                    demasiado bueno para ser verdad. Un espectáculo de la naturaleza que está al alcance
+                                    de su mano. Esta es Arrábida, un trozo de paraíso en la tierra con 40 millas cuadradas
+                                    que está a solo una hora de Lisboa. Un sinfín de calas y playas paradisíacas para
+                                    relajarse al sol, imponentes fuertes y castillos altivos para visitar, misteriosas
+                                    cuevas y ruinas para explorar, y un puñado de miradores que lo recompensarán con
+                                    algunos de los paisajes más impresionantes de la costa portuguesa.
+                                </p>
+                            </span>
+                            <span data-lang-inline="fr">
+                                <p style="text-indent: 2em">
+                                    Arrábida, où la montagne rencontre l'océan. Un sanctuaire naturel époustouflant qui
+                                    couvre le côté sud de la péninsule avec des crêtes montant et descendant vers une mer
+                                    incroyablement immaculée. Vous pensez que des endroits comme celui-ci n'existent que
+                                    dans des rêves. Cette réserve naturelle vierge, ce refuge glorieux, ce petit coin de
+                                    paradis est trop beau pour être vrai. Un spectacle de la nature à votre portée. C'est
+                                    Arrábida, un morceau de paradis sur terre de 40 milles carrés à seulement une heure de
+                                    Lisbonne. Une myriade de criques et de plages paradisiaques pour se détendre au soleil,
+                                    d'imposants forts et de châteaux majestueux à visiter, des grottes mystérieuses et des
+                                    ruines à explorer, et une poignée de points de vue qui vous récompenseront par certains
+                                    des paysages les plus époustouflants de la côte portugaise.
+                                </p>
+                            </span>
+                        </p>
+                        <br>
+                        <h3 class="text-xl font-semibold mb-4 text-green-800">
+                            <span data-lang-inline="pt" class="active">Este tour pode incorporar outras atividades no módulo de meio dia ou dia inteiro:</span>
+                            <span data-lang-inline="en">
+                                This tour can incorporate other activities in the half-day or full-day module:
+                            </span>
+                            <span data-lang-inline="es">
+                                Esta gira puede incorporar otras actividades en el módulo de medio día o día completo:
+                            </span>
+                            <span data-lang-inline="fr">
+                                Cette visite peut incorporer d'autres activités dans le module demi-journée ou journée
+                                complète :
+                            </span>
+                        </h3>
+                        <li>
+                            <span data-lang-inline="pt" class="active">
+                                Visita a adegas e prova de vinhos;
+                            </span>
+                            <span data-lang-inline="en">
+                                Visit to wineries and wine tasting;
+                            </span>
+                            <span data-lang-inline="es">
+                                Visita a bodegas y cata de vinos;
+                            </span>
+                            <span data-lang-inline="fr">
+                                Visite de caves et dégustation de vins;
+                            </span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="pt" class="active">Passeios a cavalo ou aula de equitação;</span>
+                            <span data-lang-inline="en">Horseback riding or riding lesson;</span>
+                            <span data-lang-inline="es">Paseos a caballo o clase de equitación;</span>
+                            <span data-lang-inline="fr">Balades à cheval ou cours d'équitation;</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="pt" class="active">Passeio de kayak;</span>
+                            <span data-lang-inline="en">Kayak tour;</span>
+                            <span data-lang-inline="es">Paseo en kayak;</span>
+                            <span data-lang-inline="fr">Excursion en kayak;</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="pt" class="active">Observação de golfinhos;</span>
+                            <span data-lang-inline="en">Dolphin watching;</span>
+                            <span data-lang-inline="es">Avistamiento de delfines;</span>
+                            <span data-lang-inline="fr">Observation des dauphins;</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="pt" class="active">Coasteering;</span>
+                            <span data-lang-inline="en">Coasteering;</span>
+                            <span data-lang-inline="es">Coasteering;</span>
+                            <span data-lang-inline="fr">Coasteering;</span>
+                        </li>
+                        <li>
+                            <span data-lang-inline="pt" class="active">Via Ferrata;</span>
+                            <span data-lang-inline="en">Via Ferrata;</span>
+                            <span data-lang-inline="es">Via Ferrata;</span>
+                            <span data-lang-inline="fr">Via Ferrata;</span>
+                        </li>
 
-                                // If no URL parameter, try parent document
-                                try {
-                                    const activeLanguageElem = window.parent.document.querySelector('[data-lang-inline].active');
-                                    if (activeLanguageElem) {
-                                        return activeLanguageElem.getAttribute('data-lang-inline');
-                                    }
-                                } catch (error) {
-                                    console.warn('Could not access parent document language:', error);
-                                }
-                                
-                                // Fallback to Portuguese
-                                return 'pt';
-                            }
+                    </div>
 
-                            // Set language
-                            const currentLang = getLanguage();
-                            changeLanguage(currentLang);
-                        });
-
-                        // Image gallery functionality
-                        let currentImageIndex = 0;
-                        const images = document.querySelectorAll('.gallery-image');
-
-                        function changeImage(direction) {
-                            // Hide current image
-                            images[currentImageIndex].classList.add('hidden');
-
-                            // Update index
-                            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
-
-                            // Show new image
-                            images[currentImageIndex].classList.remove('hidden');
-                        }
-                    </script>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4 text-green-800">
+                            <span data-lang-inline="pt" class="active">O que Trazer</span>
+                            <span data-lang-inline="en">What to Bring</span>
+                            <span data-lang-inline="es">Qué Traer</span>
+                            <span data-lang-inline="fr">Que Rapporter</span>
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <h4 class="font-bold mb-2">
+                                    <span data-lang-inline="pt" class="active">Equipamento Recomendado</span>
+                                    <span data-lang-inline="en">Recommended Gear</span>
+                                    <span data-lang-inline="es">Equipo Recomendado</span>
+                                    <span data-lang-inline="fr">Équipement Recommandé</span>
+                                </h4>
+                                <ul class="space-y-2">
+                                    <li>✔️
+                                        <span data-lang-inline="pt" class="active">Roupa confortável em camadas</span>
+                                        <span data-lang-inline="en">Comfortable, layered clothing</span>
+                                        <span data-lang-inline="es">Ropa cómoda en capas</span>
+                                        <span data-lang-inline="fr">Vêtements confortables en couches</span>
+                                    </li>
+                                    <li>✔️
+                                        <span data-lang-inline="pt" class="active">Sapatos de caminhada ou
+                                            confortáveis</span>
+                                        <span data-lang-inline="en">Hiking or comfortable shoes</span>
+                                        <span data-lang-inline="es">Zapatos de senderismo o cómodos</span>
+                                        <span data-lang-inline="fr">Chaussures de randonnée ou confortables</span>
+                                    </li>
+                                    <li>✔️
+                                        <span data-lang-inline="pt" class="active">Protetor solar e chapéu</span>
+                                        <span data-lang-inline="en">Sunscreen and hat</span>
+                                        <span data-lang-inline="es">Protector solar y sombrero</span>
+                                        <span data-lang-inline="fr">Crème solaire et chapeau</span>
+                                    </li>
+                                    <li>✔️
+                                        <span data-lang-inline="pt" class="active">Câmara ou smartphone</span>
+                                        <span data-lang-inline="en">Camera or smartphone</span>
+                                        <span data-lang-inline="es">Cámara o smartphone</span>
+                                        <span data-lang-inline="fr">Appareil photo ou smartphone</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <h4 class="font-bold mb-2">
+                                    <span data-lang-inline="pt" class="active">Não Recomendado</span>
+                                    <span data-lang-inline="en">Not Recommended</span>
+                                    <span data-lang-inline="es">No Recomendado</span>
+                                    <span data-lang-inline="fr">Non Recommandé</span>
+                                </h4>
+                                <ul class="space-y-2">
+                                    <li>❌
+                                        <span data-lang-inline="pt" class="active">Saltos altos</span>
+                                        <span data-lang-inline="en">High heels</span>
+                                        <span data-lang-inline="es">Tacones altos</span>
+                                        <span data-lang-inline="fr">Talons hauts</span>
+                                    </li>
+                                    <li>❌
+                                        <span data-lang-inline="pt" class="active">Roupa formal</span>
+                                        <span data-lang-inline="en">Formal clothing</span>
+                                        <span data-lang-inline="es">Ropa formal</span>
+                                        <span data-lang-inline="fr">Vêtements formels</span>
+                                    </li>
+                                    <li>❌
+                                        <span data-lang-inline="pt" class="active">Joias pesadas</span>
+                                        <span data-lang-inline="en">Heavy jewelry</span>
+                                        <span data-lang-inline="es">Joyas pesadas</span>
+                                        <span data-lang-inline="fr">Bijoux lourds</span>
+                                    </li>
+                                    <li>❌
+                                        <span data-lang-inline="pt" class="active">Roupa restritiva</span>
+                                        <span data-lang-inline="en">Restrictive clothing</span>
+                                        <span data-lang-inline="es">Ropa restrictiva</span>
+                                        <span data-lang-inline="fr">Vêtements restrictifs</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Detect language from main page
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to get language from URL or parent document
+            function getLanguage() {
+                // First, check URL parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlLang = urlParams.get('lang');
+
+                if (urlLang && ['pt', 'en', 'es', 'fr'].includes(urlLang)) {
+                    return urlLang;
+                }
+
+                // If no URL parameter, try parent document
+                try {
+                    const activeLanguageElem = window.parent.document.querySelector('[data-lang-inline].active');
+                    if (activeLanguageElem) {
+                        return activeLanguageElem.getAttribute('data-lang-inline');
+                    }
+                } catch (error) {
+                    console.warn('Could not access parent document language:', error);
+                }
+
+                // Fallback to Portuguese
+                return 'pt';
+            }
+
+            // Set language
+            const currentLang = getLanguage();
+            changeLanguage(currentLang);
+        });
+
+        // Image gallery functionality
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.gallery-image');
+
+        function changeImage(direction) {
+            // Hide current image
+            images[currentImageIndex].classList.add('hidden');
+
+            // Update index
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+
+            // Show new image
+            images[currentImageIndex].classList.remove('hidden');
+        }
+    </script>
+    </div>
+    </div>
+    </div>
+    </div>
 </body>
+
 </html>

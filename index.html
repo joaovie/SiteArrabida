@@ -379,12 +379,17 @@
         <hr class="border-gray-600 mb-8">
         <!-- Cards Peninsula de Troia-->
         <div w3-include-html="Tours/Troia/cards_troia.html"></div>
+        <!--
         <h4 class="text-xl font-semibold mt-8 mb-4">
             <span>Sintra</span>
         </h4>
         <hr class="border-gray-600 mb-8">
+        -->
+
         <!-- Cards Sintra -->
+        <!--
         <div w3-include-html="Tours/Sintra/cards_sintra.html"></div>
+        -->
 
     </section>
 
@@ -434,7 +439,8 @@
                     </p>
                 </div>
                 <div class="flex justify-center md:justify-end">
-                    <img src="Imagens/guia.jpeg" alt="José Amândio - Guia" class="rounded-lg shadow-lg w-full max-w-md h-auto">
+                    <img src="Imagens/guia.jpeg" alt="José Amândio - Guia"
+                        class="rounded-lg shadow-lg w-full max-w-md h-auto">
                 </div>
             </div>
         </div>
@@ -546,7 +552,7 @@
                     <input type="hidden" name="access_key" value="34405e88-cd9d-46b6-8430-51fe4eba1ee4">
                     <!-- Honeypot Spam Protection -->
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                    
+
                     <!-- Custom Confirmation / Success Page -->
                     <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
 
@@ -667,15 +673,31 @@
                 </div>
                 <div>
                     <h4 class="text-lg font-bold mb-4">
-                        <span data-lang-inline="en" class="active">Follow Us</span>
-                        <span data-lang-inline="es">Síguenos</span>
-                        <span data-lang-inline="pt">Siga-nos</span>
-                        <span data-lang-inline="fr">Suivez-nous</span>
+                        <span data-lang-inline="en" class="active">Contact Us</span>
+                        <span data-lang-inline="es">Contáctenos</span>
+                        <span data-lang-inline="pt">Contacte-nos</span>
+                        <span data-lang-inline="fr">Contactez-nous</span>
                     </h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
-                        <a href="#" class="text-gray-400 hover:text-white">Instagram</a>
-                        <a href="#" class="text-gray-400 hover:text-white">Twitter</a>
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <a href="tel:+351912345678" class="text-gray-400 hover:text-white">+351 918 302 714</a>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                            </svg>
+                            <a href="mailto:info@5sensestours.pt" class="text-gray-400 hover:text-white">info@5sensestours.pt</a>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="text-gray-400">Setúbal, Portugal</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -691,7 +713,6 @@
                 <div class="flex flex-wrap justify-center items-center gap-4 md:gap-10">
                     <!-- Replace these with your actual logo files -->
                     <img src="Imagens/logos/turismo-de-portugal.png" alt="Turismo de Portugal Logo" class="h-12 w-auto">
-                    <img src="Imagens/logos/Governo.png" alt="ICNF Logo" class="h-14 w-auto">
                     <img src="Imagens/logos/icnf.png" alt="ICNF Logo" class="h-14 w-auto">
                 </div>
             </div>
@@ -706,6 +727,7 @@
             </div>
         </div>
     </footer>
+
     <script>
         // Function to include HTML
         function includeHTML() {
@@ -715,6 +737,7 @@
                 elmnt = z[i];
                 file = elmnt.getAttribute("w3-include-html");
                 if (file) {
+                    console.log("Loading: " + file); // Debug line
                     xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4) {
@@ -800,7 +823,8 @@
                 card.addEventListener('click', function (e) {
                     if (e.target.tagName === 'BUTTON' ||
                         e.target.closest('button') ||
-                        e.target.classList.contains('carousel-dot')) {
+                        e.target.classList.contains('carousel-dot') ||
+                        e.target.tagName === 'A') {
                         return;
                     }
 
@@ -931,12 +955,15 @@
                 'Tours/Arrabida/maravilhas-arrabida/Img_maravilhas_arrabida/P1510523.jpg',
                 'Tours/Arrabida/maravilhas-arrabida/Img_maravilhas_arrabida/P1510654.jpg'
                 // Add more images as needed
-            ]
-            ,
-            'tour3': [
-                'Imagens/P1510646.jpg',
-                'Imagens/P1510523.jpg',
-                'Imagens/P1510654.jpg'
+            ],
+            'comporta_carrasqueira': [
+                // Add some image paths for this tour
+                'Tours/Troia/Comporta-Carrasqueira/Img_comporta_carrasqueira/comporta.jpeg',
+                'Tours/Troia/Comporta-Carrasqueira/Img_comporta_carrasqueira/Drone_troia.png'
+            ],
+            'terras_do_cabo_espichel': [
+                'Imagens/P1510523.jpg'
+                //'Imagens/P1510654.jpg'
                 // Add more images as needed
             ]
         };
@@ -947,6 +974,8 @@
             Object.keys(tourImages).forEach(tourId => {
                 const carouselContainer = document.getElementById(`carousel-${tourId}`);
                 if (!carouselContainer) return;
+
+                console.log(`Initializing carousel for ${tourId}`); // Debug line
 
                 // Clear existing content
                 carouselContainer.innerHTML = '';
@@ -962,6 +991,8 @@
 
                 // Generate dots
                 const dotsContainer = carouselContainer.parentElement.querySelector('.flex.justify-center');
+                if (!dotsContainer) return;
+
                 dotsContainer.innerHTML = '';
                 tourImages[tourId].forEach((_, index) => {
                     const dot = document.createElement('button');
@@ -1025,6 +1056,26 @@
 
                     // Update the href with the current language
                     this.href = `Tours/Arrabida/rota-dos-castelos/details_rota_castelos.html?lang=${currentLang}`;
+                });
+            });
+
+            document.querySelectorAll('a[href="Tours/Arrabida/maravilhas-arrabida/details_maravilhas_arrabida.html"]').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    // Find the currently active language
+                    const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
+
+                    // Update the href with the current language
+                    this.href = `Tours/Arrabida/maravilhas-arrabida/details_maravilhas_arrabida.html?lang=${currentLang}`;
+                });
+            });
+
+            document.querySelectorAll('a[href="Tours/Troia/Comporta-Carrasqueira/details_comporta_carrasqueira.html"]').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    // Find the currently active language
+                    const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
+
+                    // Update the href with the current language
+                    this.href = `Tours/Troia/Comporta-Carrasqueira/details_comporta_carrasqueira.html?lang=${currentLang}`;
                 });
             });
 
@@ -1281,14 +1332,34 @@
                         <span data-lang-inline="fr">Sélectionner l'Expérience</span>
                     </label>
                     <select name="tourType" required class="w-full p-2 border rounded">
-                        <option value="jeep" data-en="Mountain Jeep Adventure (99€)"
-                            data-es="Aventura en Jeep por la Montaña (99€)" 
-                            data-pt="Aventura de Jipe na Serra (99€)"
-                            data-fr="Aventure en Jeep de Montagne (99€)">Mountain Jeep Adventure (99€)</option>
-                        <option value="walking" data-en="Forest Walking Tour (49€)"
-                            data-es="Tour de Senderismo por el Bosque (49€)" 
-                            data-pt="Passeio Pedestre na Serra (49€)"
-                            data-fr="Randonnée en Forêt (49€)">Forest Walking Tour (49€)</option>
+                        <option value="Rota dos castelos"
+                            data-pt="Tour 4x4 Rota dos castelos" 
+                            data-en="4x4 Tour Castle Route"
+                            data-es="Tour 4x4 Ruta de los Castillos"
+                            data-fr="Visite 4x4 Route des Châteaux">
+                            Tour 4x4 Rota dos castelos
+                        </option>
+                        <option value="Maravilhas da Arrábida"
+                            data-pt="Tour 4x4 Maravilhas da Arrábida"
+                            data-en="4x4 Tour Wonders of Arrábida"
+                            data-es="Tour 4x4 Maravillas de Arrábida"
+                            data-fr="Visite 4x4 Merveilles d'Arrábida">
+                            Tour 4x4 Maravilhas da Arrábida
+                        </option>
+                        <option value="Terras do Cabo Espichel"
+                            data-pt="Tour 4x4 Terras do Cabo Espichel"
+                            data-en="4x4 Tour Lands of Cabo Espichel"
+                            data-es="Tour 4x4 Tierras del Cabo Espichel"
+                            data-fr="Visite 4x4 Terres du Cap Espichel">
+                            Tour 4x4 Terras do Cabo Espichel
+                        </option>
+                        <option value="Maravilhas da Comporta e Carrasqueira"
+                            data-pt="Tour 4x4 Maravilhas da Comporta e Carrasqueira"
+                            data-en="4x4 Tour Wonders of Comporta and Carrasqueira"
+                            data-es="Tour 4x4 Maravillas de Comporta y Carrasqueira"
+                            data-fr="Visite 4x4 Merveilles de Comporta et Carrasqueira">
+                            Tour 4x4 Maravilhas da Comporta e Carrasqueira
+                        </option>
                     </select>
                 </div>
 
@@ -1311,10 +1382,7 @@
                         <span data-lang-inline="pt">Selecionar Hora</span>
                         <span data-lang-inline="fr">Sélectionner l'Heure</span>
                     </label>
-                    <select name="tourTime" required class="w-full p-2 border rounded">
-                        <option value="08:00">08:00</option>
-                        <option value="14:00">14:00</option>
-                    </select>
+                    <input type="time" name="tourTime" required class="w-full p-2 border rounded">
                 </div>
 
                 <!-- Number of People -->

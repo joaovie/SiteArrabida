@@ -61,6 +61,25 @@ function setupMoreDetailsLinks() {
             window.location.href = `${baseUrl}?lang=${currentLang}`;
         });
     });
+    document.querySelectorAll('a[href*="details_maravilhas_arrabida.html"]').forEach(link => {
+        // Remove existing click listeners to avoid duplicates
+        const newLink = link.cloneNode(true);
+        link.parentNode.replaceChild(newLink, link);
+
+        newLink.addEventListener('click', function (e) {
+            // Prevent the default navigation
+            e.preventDefault();
+
+            // Find the currently active language
+            const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
+
+            // Get the base URL without any existing parameters
+            let baseUrl = this.href.split('?')[0];
+
+            // Navigate to the URL with the language parameter
+            window.location.href = `${baseUrl}?lang=${currentLang}`;
+        });
+    });
     document.querySelectorAll('a[href*="details_terras_do_cabo_espichel.html"]').forEach(link => {
         // Remove existing click listeners to avoid duplicates
         const newLink = link.cloneNode(true);
@@ -83,7 +102,7 @@ function setupMoreDetailsLinks() {
 }
 
 
-// Function to setup tour card listeners
+//Function to setup tour card listeners
 function setupTourCardListeners() {
     document.querySelectorAll('.tour-card').forEach(card => {
         card.addEventListener('click', function (e) {
@@ -278,6 +297,26 @@ document.querySelectorAll('.more-details-link').forEach(link => {
     });
 });
 
+document.querySelectorAll('.more-details-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+        // Get current active language
+        const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
+
+        // Update href with current language
+        this.href = `Tours/Arrabida/maravilhas-arrabida/details_maravilhas_arrabida.html?lang=${currentLang}`;
+    });
+});
+
+document.querySelectorAll('.more-details-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+        // Get current active language
+        const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
+
+        // Update href with current language
+        this.href = `Tours/Arrabida/terras-do-cabo-espichel/details_terras_do_cabo_espichel.html?lang=${currentLang}`;
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     includeHTML();
     // Add event listener to all 'More Details' links
@@ -300,17 +339,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.href = `Tours/Arrabida/maravilhas-arrabida/details_maravilhas_arrabida.html?lang=${currentLang}`;
         });
     });
-
-    document.querySelectorAll('a[href="Tours/Troia/Comporta-Carrasqueira/details_comporta_carrasqueira.html"]').forEach(link => {
-        link.addEventListener('click', function (e) {
-            // Find the currently active language
-            const currentLang = document.querySelector('[data-lang-inline].active').getAttribute('data-lang-inline');
-
-            // Update the href with the current language
-            this.href = `Tours/Troia/Comporta-Carrasqueira/details_comporta_carrasqueira.html?lang=${currentLang}`;
-        });
-    });
-
+    
     document.querySelectorAll('a[href="Tours/Arrabida/terras-do-cabo-espichel/details_terras_do_cabo_espichel.html"]').forEach(link => {
         link.addEventListener('click', function (e) {
             // Find the currently active language
@@ -525,7 +554,7 @@ form.addEventListener('submit', async (e) => {
     }
 });
 
-
+//function responsible for the dropdown feature of the cards
 function reinitializeTourCards() {
     console.log("Reinitializing tour cards");
     // Setup tour card listeners
@@ -544,15 +573,15 @@ function reinitializeTourCards() {
                 return;
             }
 
-            // Remove active class from all cards except the clicked one
-            document.querySelectorAll('.tour-card').forEach(c => {
-                if (c !== newCard) {
-                    c.classList.remove('active');
-                }
-            });
-
-            // Toggle active class on clicked card
-            newCard.classList.toggle('active');
+            //// Remove active class from all cards except the clicked one
+            //document.querySelectorAll('.tour-card').forEach(c => {
+            //    if (c !== newCard) {
+            //        c.classList.remove('active');
+            //    }
+            //});
+//
+            //// Toggle active class on clicked card
+            //newCard.classList.toggle('active');
         });
     });
 

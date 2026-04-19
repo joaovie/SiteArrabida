@@ -1,44 +1,4 @@
-// Function to include HTML
-function includeHTML() {
-    var z, i, elmnt, file, xhttp;
-    z = document.getElementsByTagName("*");
-    for (i = 0; i < z.length; i++) {
-        elmnt = z[i];
-        file = elmnt.getAttribute("w3-include-html");
-        if (file) {
-            console.log("Loading: " + file); // Debug line
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        elmnt.innerHTML = this.responseText;
-                        elmnt.removeAttribute("w3-include-html");
-
-                        // Initialize carousels after content is loaded
-                        initializeCarousels();
-
-                        // Call the new function to ensure all tour cards work
-                        reinitializeTourCards();
-
-                        // Get current language and reapply it to new content
-                        const currentLang = document.documentElement.lang || 'pt';
-                        changeLanguage(currentLang);
-
-                        // Update select options if they exist
-                        document.querySelectorAll('select option[data-' + currentLang + ']').forEach(option => {
-                            option.textContent = option.getAttribute('data-' + currentLang);
-                        });
-                    }
-                    if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
-                    includeHTML(); // Continue with next element
-                }
-            }
-            xhttp.open("GET", file, true);
-            xhttp.send();
-            return;
-        }
-    }
-}
+// HTML includes are now inlined — includeHTML() is no longer needed
 
 function setupMoreDetailsLinks() {
     // Select all links that have "details_rota_castelos.html" in the href
@@ -102,27 +62,6 @@ function setupMoreDetailsLinks() {
 }
 
 
-//Function to setup tour card listeners
-function setupTourCardListeners() {
-    document.querySelectorAll('.tour-card').forEach(card => {
-        card.addEventListener('click', function (e) {
-            if (e.target.tagName === 'BUTTON' ||
-                e.target.closest('button') ||
-                e.target.classList.contains('carousel-dot') ||
-                e.target.tagName === 'A') {
-                return;
-            }
-
-            document.querySelectorAll('.tour-card').forEach(c => {
-                if (c !== card) {
-                    c.classList.remove('active');
-                }
-            });
-
-            card.classList.toggle('active');
-        });
-    });
-}
 
 // Language switching functionality without using localStorage
 function changeLanguage(lang) {
@@ -152,28 +91,18 @@ let heroInterval;
 
 function initializeHeroCarousel() {
     const carousel = document.getElementById('hero-carousel');
-    const dotsContainer = carousel.parentElement.querySelector('.flex.justify-center');
 
     // Clear existing content
     carousel.innerHTML = '';
-    dotsContainer.innerHTML = '';
 
-    // Add images
+    // Add images — first is eager (preloaded), rest are lazy
     heroImages.forEach((src, index) => {
         const img = document.createElement('img');
         img.src = src;
         img.alt = `Hero image ${index + 1}`;
-        // Changed from opacity classes to hidden class
+        img.loading = index === 0 ? 'eager' : 'lazy';
         img.className = `absolute w-full h-full object-cover ${index === 0 ? '' : 'hidden'}`;
         carousel.appendChild(img);
-    });
-
-    // Add dots
-    heroImages.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.className = `w-3 h-3 rounded-full bg-white ${index === 0 ? 'bg-opacity-100' : 'bg-opacity-50'} hover:bg-opacity-100 transition-all duration-300`;
-        dot.addEventListener('click', () => showHeroSlide(index));
-        dotsContainer.appendChild(dot);
     });
 
     // Start automatic slideshow
@@ -182,18 +111,8 @@ function initializeHeroCarousel() {
 
 function showHeroSlide(index) {
     const images = document.querySelectorAll('#hero-carousel img');
-    const dots = document.querySelectorAll('#hero-carousel + div button');
-
-    // Changed from opacity to hidden class
     images.forEach(img => img.classList.add('hidden'));
-
-    // Update dots
-    dots.forEach(dot => dot.classList.replace('bg-opacity-100', 'bg-opacity-50'));
-
-    // Show selected image
     images[index].classList.remove('hidden');
-    dots[index].classList.replace('bg-opacity-50', 'bg-opacity-100');
-
     currentHeroSlide = index;
 }
 
@@ -226,16 +145,15 @@ function initializeCarousels() {
         const carouselContainer = document.getElementById(`carousel-${tourId}`);
         if (!carouselContainer) return;
 
-        console.log(`Initializing carousel for ${tourId}`); // Debug line
-
         // Clear existing content
         carouselContainer.innerHTML = '';
 
-        // Add images
+        // Add images — first visible immediately, rest lazy
         tourImages[tourId].forEach((src, index) => {
             const img = document.createElement('img');
             img.src = src;
             img.alt = `Tour image ${index + 1}`;
+            img.loading = index === 0 ? 'eager' : 'lazy';
             img.className = `carousel-image w-full h-full object-cover ${index === 0 ? '' : 'hidden'}`;
             carouselContainer.appendChild(img);
         });
@@ -318,7 +236,6 @@ document.querySelectorAll('.more-details-link').forEach(link => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    includeHTML();
     // Add event listener to all 'More Details' links
     document.querySelectorAll('a[href="Tours/Arrabida/rota-dos-castelos/details_rota_castelos.html"]').forEach(link => {
         link.addEventListener('click', function (e) {
@@ -386,95 +303,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Tour card toggle functionality
-document.querySelectorAll('.tour-card').forEach(card => {
-    card.addEventListener('click', function (e) {
-        // Don't toggle if clicking buttons, arrows, or dots
-        if (e.target.tagName === 'BUTTON' ||
-            e.target.closest('button') ||
-            e.target.classList.contains('carousel-dot')) {
-            return;
-        }
 
-        // Remove active class from all cards except the clicked one
-        document.querySelectorAll('.tour-card').forEach(c => {
-            if (c !== card) {
-                c.classList.remove('active');
-            }
-        });
-
-        // Toggle active class on clicked card
-        card.classList.toggle('active');
-    });
-});
-
-function openBookingModal(tourType) {
-    const modal = document.getElementById('bookingModal');
-    const tourSelect = modal.querySelector('select[name="tourType"]');
-
-    // Set tour type if provided
-    if (tourType) {
-        tourSelect.value = tourType;
-    }
-
-    // Update select options based on current language
-    const currentLang = document.documentElement.lang;
-    modal.querySelectorAll('select option[data-' + currentLang + ']').forEach(option => {
-        option.textContent = option.getAttribute('data-' + currentLang);
-    });
-
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-}
-
-function closeBookingModal() {
-    const modal = document.getElementById('bookingModal');
-    modal.classList.remove('flex');
-    modal.classList.add('hidden');
-}
-
-// Form submission handler
-document.getElementById('bookingForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    try {
-        const response = await fetch(this.action, {
-            method: 'POST',
-            body: new FormData(this),
-            headers: {
-                'Accept': 'application/json'
-            }
-        });
-
-        if (response.ok) {
-            // Show success message
-            const currentLang = document.documentElement.lang;
-            const successMessages = {
-                en: 'Thank you for your booking! We will contact you shortly.',
-                es: '¡Gracias por su reserva! Nos pondremos en contacto pronto.',
-                pt: 'Obrigado pela sua reserva! Entraremos em contacto em breve.',
-                fr: 'Merci pour votre réservation ! Nous vous contacterons bientôt.'
-            };
-
-            alert(successMessages[currentLang]);
-            this.reset();
-            closeBookingModal();
-        } else {
-            throw new Error('Network response was not ok');
-        }
-    } catch (error) {
-        // Show error message
-        const currentLang = document.documentElement.lang;
-        const errorMessages = {
-            en: 'There was a problem submitting your booking. Please try again.',
-            es: 'Hubo un problema al enviar su reserva. Por favor, inténtelo de nuevo.',
-            pt: 'Houve um problema ao enviar sua reserva. Por favor, tente novamente.',
-            fr: 'Un problème est survenu lors de l\'envoi de votre réservation. Veuillez réessayer.'
-        };
-
-        alert(errorMessages[currentLang]);
-    }
-});
 
 document.getElementById('mobile-menu-button').addEventListener('click', function () {
     const mobileMenu = document.getElementById('mobile-menu');
@@ -556,7 +385,6 @@ form.addEventListener('submit', async (e) => {
 
 //function responsible for the dropdown feature of the cards
 function reinitializeTourCards() {
-    console.log("Reinitializing tour cards");
     // Setup tour card listeners
     document.querySelectorAll('.tour-card').forEach(card => {
         // Remove any existing event listeners to avoid duplicates

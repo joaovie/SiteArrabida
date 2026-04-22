@@ -517,13 +517,19 @@
 
         <!-- Hero Section -->
         <div class="relative" style="height: 100svh; min-height: 560px;">
-            <div id="hero-carousel" class="w-full h-full">
-                <!-- Images will be inserted here by JavaScript -->
-            </div>
+            <!-- Hero Video Background -->
+            <video
+                autoplay muted playsinline loop
+                class="absolute inset-0 w-full h-full"
+                style="object-fit: cover; z-index: 0;"
+            >
+                <source src="Videos/hero.mp4" type="video/mp4">
+            </video>
 
             <!-- Hero Content -->
             <div
-                class="hero-overlay absolute inset-0 flex items-center justify-center z-10"
+                class="hero-overlay absolute inset-0 flex items-center justify-center"
+                style="z-index: 1;"
             >
                 <div
                     class="text-center text-white px-6"
@@ -2632,7 +2638,7 @@
                             letter-spacing: -0.01em;
                         "
                     >
-                        &copy; 2025 Arrábida Land Stories.
+                        &copy; 2026 Arrábida Land Stories.
                         <span data-lang-inline="en" class="active"
                             >All rights reserved.</span
                         >

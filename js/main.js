@@ -84,13 +84,59 @@ function changeLanguage(lang) {
     }
 
     document.documentElement.lang = lang;
+
+    // Tab labels change width per language — reposition the sliding indicator
+    updateTourTabIndicator();
 }
+
+// ─── Tour type tabs (Jeep / Van) ────────────────────────────
+let currentTourTab = 'jeep';
+
+function updateTourTabIndicator() {
+    const activeBtn = document.querySelector('.tour-tab.active');
+    const indicator = document.querySelector('.tour-tab-indicator');
+    if (!activeBtn || !indicator) return;
+
+    indicator.style.width = `${activeBtn.offsetWidth}px`;
+    indicator.style.transform = `translateX(${activeBtn.offsetLeft}px)`;
+}
+
+function switchTourTab(tab) {
+    if (tab === currentTourTab) return;
+    currentTourTab = tab;
+
+    document.querySelectorAll('.tour-tab').forEach(btn => {
+        const isActive = btn.dataset.tab === tab;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', String(isActive));
+    });
+    updateTourTabIndicator();
+
+    const nextPanel = document.getElementById(`tab-panel-${tab}`);
+    const currentPanel = document.querySelector('.tab-panel:not(.tab-hidden)');
+
+    if (currentPanel && currentPanel !== nextPanel) {
+        currentPanel.classList.add('tab-fade');
+        setTimeout(() => currentPanel.classList.add('tab-hidden'), 220);
+    }
+
+    if (nextPanel) {
+        nextPanel.classList.add('tab-fade');
+        nextPanel.classList.remove('tab-hidden');
+        // Force reflow so the transition triggers instead of jump-cutting
+        void nextPanel.offsetWidth;
+        requestAnimationFrame(() => nextPanel.classList.remove('tab-fade'));
+    }
+}
+
+window.addEventListener('resize', updateTourTabIndicator);
 
 let currentHeroSlide = 0;
 let heroInterval;
 
 function initializeHeroCarousel() {
     const carousel = document.getElementById('hero-carousel');
+    if (!carousel) return;
 
     // Clear existing content
     carousel.innerHTML = '';
@@ -137,6 +183,64 @@ function startHeroSlideshow() {
     }, 5000); // Change slide every 5 seconds
 }
 
+
+// ─── Tour cards row (click-and-drag horizontal scroll) ──────
+function initializeDraggableRows() {
+    document.querySelectorAll('.tour-cards-row').forEach(row => {
+        let isDown = false;
+        let moved = false;
+        let startX = 0;
+        let startScrollLeft = 0;
+
+        row.addEventListener('dragstart', e => e.preventDefault());
+
+        row.addEventListener('mousedown', e => {
+            // Let clicks on buttons/links (carousel arrows, dots, "More Details") behave normally
+            if (e.target.closest('button, a')) return;
+            isDown = true;
+            moved = false;
+            row.classList.add('dragging');
+            startX = e.pageX;
+            startScrollLeft = row.scrollLeft;
+        });
+
+        window.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            const delta = e.pageX - startX;
+            if (Math.abs(delta) > 4) moved = true;
+            row.scrollLeft = startScrollLeft - delta;
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDown = false;
+            row.classList.remove('dragging');
+        });
+
+        // Prevent the drag release from being interpreted as a card click
+        row.addEventListener(
+            'click',
+            e => {
+                if (moved) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    moved = false;
+                }
+            },
+            true
+        );
+
+        // Let a vertical mouse wheel scroll the row horizontally
+        row.addEventListener(
+            'wheel',
+            e => {
+                if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+                row.scrollLeft += e.deltaY;
+                e.preventDefault();
+            },
+            { passive: false }
+        );
+    });
+}
 
 // Function to initialize carousels
 function initializeCarousels() {
@@ -300,6 +404,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     initializeCarousels();
     initializeHeroCarousel();
+    initializeDraggableRows();
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(updateTourTabIndicator);
+    }
 });
 
 

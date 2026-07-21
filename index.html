@@ -169,7 +169,8 @@
 
             /* ─── Tour Cards ─────────────────────────────────────── */
             .tour-card {
-                height: fit-content;
+                display: flex;
+                flex-direction: column;
                 background: var(--white);
                 border-radius: 12px;
                 border: 1px solid var(--border);
@@ -184,6 +185,119 @@
                 box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
                 transform: translateY(-3px);
                 border-color: transparent;
+            }
+
+            /* Content area grows to fill the stretched card height, pinning
+               the button to the bottom regardless of title length */
+            .tour-card > .p-6 {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+
+            .tour-card > .p-6 > .text-center:last-child {
+                margin-top: auto;
+            }
+
+            /* ─── Tour Cards Row (horizontal drag-scroll) ────────── */
+            .tour-cards-row {
+                display: flex;
+                gap: 32px;
+                overflow-x: auto;
+                cursor: grab;
+                padding-bottom: 14px;
+                margin-bottom: -14px;
+                scrollbar-width: thin;
+                scrollbar-color: var(--border) transparent;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .tour-cards-row.dragging {
+                cursor: grabbing;
+                user-select: none;
+            }
+
+            .tour-cards-row::-webkit-scrollbar {
+                height: 6px;
+            }
+            .tour-cards-row::-webkit-scrollbar-thumb {
+                background: var(--border);
+                border-radius: 3px;
+            }
+            .tour-cards-row::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .tour-cards-row img {
+                -webkit-user-drag: none;
+                user-select: none;
+            }
+
+            .tour-card-item {
+                flex: 0 0 auto;
+                width: min(82vw, 380px);
+            }
+
+            /* ─── Tour Tabs ──────────────────────────────────────── */
+            .tour-tabs {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                gap: 36px;
+                border-bottom: 1px solid var(--border);
+                margin-bottom: 40px;
+            }
+
+            .tour-tab {
+                position: relative;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0 2px 16px;
+                font-family: var(--font-sans);
+                font-size: 1.0625rem;
+                font-weight: 500;
+                letter-spacing: -0.01em;
+                color: var(--muted);
+                transition: color 0.2s ease;
+            }
+
+            .tour-tab:hover {
+                color: var(--black);
+            }
+
+            .tour-tab.active {
+                color: var(--black);
+                font-weight: 600;
+            }
+
+            .tour-tab-indicator {
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                height: 2px;
+                background: var(--brand);
+                border-radius: 2px;
+                transition:
+                    transform 0.32s cubic-bezier(0.65, 0, 0.35, 1),
+                    width 0.32s cubic-bezier(0.65, 0, 0.35, 1);
+            }
+
+            .tab-panel {
+                opacity: 1;
+                transform: translateY(0);
+                transition:
+                    opacity 0.22s ease,
+                    transform 0.22s ease;
+            }
+
+            .tab-panel.tab-fade {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            .tab-panel.tab-hidden {
+                display: none;
             }
 
             /* ─── Language system ────────────────────────────────── */
@@ -286,13 +400,6 @@
                 }
             }
 
-            @media (min-width: 768px) {
-                .grid:has(.tour-card:last-child:nth-child(odd))
-                    .tour-card:last-child {
-                    grid-column: 1 / -1;
-                    justify-self: center;
-                }
-            }
         </style>
     </head>
 
@@ -580,20 +687,20 @@
                         "
                     >
                         <span data-lang-inline="en" class="active"
-                            >Unforgettable jeep tours in nature's most beautiful
-                            locations</span
+                            >Unforgettable jeep and van tours in nature's most
+                            beautiful locations</span
                         >
                         <span data-lang-inline="es"
-                            >Tours inolvidables en jeep en los lugares más
-                            hermosos de la naturaleza</span
+                            >Tours inolvidables en jeep y furgoneta en los
+                            lugares más hermosos de la naturaleza</span
                         >
                         <span data-lang-inline="pt"
-                            >Passeios inesquecíveis de jipe nos locais mais
-                            bonitos da natureza</span
+                            >Passeios inesquecíveis de jipe e de van nos locais
+                            mais bonitos da natureza</span
                         >
                         <span data-lang-inline="fr"
-                            >Des visites inoubliables en jeep dans les plus
-                            beaux endroits de la nature</span
+                            >Des visites inoubliables en jeep et en van dans
+                            les plus beaux endroits de la nature</span
                         >
                     </p>
                     <div
@@ -668,15 +775,52 @@
                         <span data-lang-inline="fr">Nos circuits</span>
                     </h2>
                 </div>
-                <div class="mb-12">
-                    <h3
-                        style="
-                            font-size: 1.25rem;
-                            font-weight: 600;
-                            letter-spacing: -0.02em;
-                            margin-bottom: 16px;
-                        "
+
+                <!-- Tour Type Tabs -->
+                <div class="tour-tabs" role="tablist">
+                    <button
+                        type="button"
+                        class="tour-tab active"
+                        data-tab="jeep"
+                        role="tab"
+                        aria-selected="true"
+                        onclick="switchTourTab('jeep')"
                     >
+                        <span data-lang-inline="en" class="active"
+                            >Jeep Tours</span
+                        >
+                        <span data-lang-inline="es">Tours en Jeep</span>
+                        <span data-lang-inline="pt">Tours de Jipe</span>
+                        <span data-lang-inline="fr">Tours en Jeep</span>
+                    </button>
+                    <button
+                        type="button"
+                        class="tour-tab"
+                        data-tab="van"
+                        role="tab"
+                        aria-selected="false"
+                        onclick="switchTourTab('van')"
+                    >
+                        <span data-lang-inline="en" class="active"
+                            >Van Tours</span
+                        >
+                        <span data-lang-inline="es">Tours en Furgoneta</span>
+                        <span data-lang-inline="pt">Tours de Van</span>
+                        <span data-lang-inline="fr">Tours en Van</span>
+                    </button>
+                    <span class="tour-tab-indicator"></span>
+                </div>
+
+                <div id="tab-panel-jeep" class="tab-panel">
+                    <div class="mb-12">
+                        <h3
+                            style="
+                                font-size: 1.25rem;
+                                font-weight: 600;
+                                letter-spacing: -0.02em;
+                                margin-bottom: 16px;
+                            "
+                        >
                         <span data-lang-inline="en" class="active"
                             >Jeep Tours</span
                         >
@@ -805,11 +949,11 @@
                 </div>
                 <!-- Cards Arrabida (inlined) -->
                 <div
-                    class="grid grid-cols-1 md:grid-cols-2 gap-8 md:[&>*:last-child:nth-child(odd)]:col-span-2 md:[&>*:last-child:nth-child(odd)]:mx-auto"
+                    class="tour-cards-row"
                 >
                     <!-- Rota dos castelos Card -->
                     <div
-                        class="tour-card w-full lg:max-w-lg"
+                        class="tour-card tour-card-item"
                         style="cursor: pointer"
                     >
                         <div class="relative" style="height: 288px">
@@ -931,7 +1075,7 @@
                     </div>
                     <!-- Maravilhas da Arrábida Card -->
                     <div
-                        class="tour-card w-full lg:max-w-lg"
+                        class="tour-card tour-card-item"
                         style="cursor: pointer"
                     >
                         <div class="relative" style="height: 288px">
@@ -1045,7 +1189,7 @@
                     </div>
                     <!-- Terras do Cabo Espichel Card -->
                     <div
-                        class="tour-card w-full lg:max-w-lg"
+                        class="tour-card tour-card-item"
                         style="cursor: pointer"
                     >
                         <div class="relative" style="height: 288px">
@@ -1158,6 +1302,276 @@
                         </div>
                     </div>
                 </div>
+                </div>
+                <!-- /tab-panel-jeep -->
+
+                <div id="tab-panel-van" class="tab-panel tab-hidden">
+                    <div class="mb-12">
+                        <h3
+                            style="
+                                font-size: 1.25rem;
+                                font-weight: 600;
+                                letter-spacing: -0.02em;
+                                margin-bottom: 16px;
+                            "
+                        >
+                        <span data-lang-inline="en" class="active"
+                            >Van Tours</span
+                        >
+                        <span data-lang-inline="es">Tours en Furgoneta</span>
+                        <span data-lang-inline="pt">Tours de Van</span>
+                        <span data-lang-inline="fr">Tours en Van</span>
+                    </h3>
+                    <div
+                        style="
+                            color: var(--muted);
+                            font-size: 0.9375rem;
+                            font-weight: 350;
+                            letter-spacing: -0.01em;
+                            line-height: 1.65;
+                        "
+                    >
+                        <div data-lang-inline="pt">
+                            <p style="margin-bottom: 12px">
+                                Para quem prefere o conforto sem abdicar da
+                                descoberta, os nossos tours de van levam-no
+                                pelas mesmas paisagens inesquecíveis da região,
+                                numa Mercedes-Benz Vito espaçosa e com ar
+                                condicionado. Ideal para grupos maiores,
+                                famílias e viajantes que preferem estradas
+                                asfaltadas, os nossos tours de van guiados
+                                combinam conforto com as experiências
+                                autênticas que definem a Arrábida Land Stories.
+                            </p>
+                            <p style="margin-bottom: 12px">
+                                Escolha entre os mesmos percursos dos nossos
+                                tours de jipe, adaptados para viagem de van, ou
+                                deixe-nos construir um itinerário personalizado
+                                para o seu grupo. Estamos prontos para o
+                                acompanhar numa manhã, tarde ou dia completo
+                                pelas riquezas naturais, culturais e
+                                gastronómicas da região.
+                            </p>
+                        </div>
+                        <div data-lang-inline="en" class="active">
+                            <p style="margin-bottom: 12px">
+                                For those who prefer comfort without giving up
+                                discovery, our van tours take you through the
+                                same unforgettable landscapes of the region in
+                                a spacious, air-conditioned Mercedes-Benz Vito.
+                                Ideal for larger groups, families, and
+                                travelers who prefer paved roads, our guided
+                                van tours combine comfort with the authentic
+                                experiences that define Arrábida Land Stories.
+                            </p>
+                            <p style="margin-bottom: 12px">
+                                Choose from the same routes as our jeep tours,
+                                adapted for van travel, or let us build a
+                                personalized itinerary for your group. We are
+                                ready to accompany you on a morning, an
+                                afternoon, or a full day through the natural,
+                                cultural, and gastronomic riches of the
+                                region.
+                            </p>
+                        </div>
+                        <div data-lang-inline="es">
+                            <p style="margin-bottom: 12px">
+                                Para quienes prefieren la comodidad sin
+                                renunciar al descubrimiento, nuestros tours en
+                                furgoneta le llevan por los mismos paisajes
+                                inolvidables de la región, en una Mercedes-Benz
+                                Vito espaciosa y con aire acondicionado. Ideal
+                                para grupos más grandes, familias y viajeros
+                                que prefieren carreteras asfaltadas, nuestros
+                                tours guiados en furgoneta combinan comodidad
+                                con las experiencias auténticas que definen a
+                                Arrábida Land Stories.
+                            </p>
+                            <p style="margin-bottom: 12px">
+                                Elija entre las mismas rutas de nuestros tours
+                                en jeep, adaptadas para viaje en furgoneta, o
+                                déjenos crear un itinerario personalizado para
+                                su grupo. Estamos listos para acompañarle en
+                                una mañana, una tarde o un día completo por las
+                                riquezas naturales, culturales y gastronómicas
+                                de la región.
+                            </p>
+                        </div>
+                        <div data-lang-inline="fr">
+                            <p style="margin-bottom: 12px">
+                                Pour ceux qui préfèrent le confort sans
+                                renoncer à la découverte, nos circuits en van
+                                vous emmènent à travers les mêmes paysages
+                                inoubliables de la région, dans un
+                                Mercedes-Benz Vito spacieux et climatisé. Idéal
+                                pour les grands groupes, les familles et les
+                                voyageurs qui préfèrent les routes asphaltées,
+                                nos circuits guidés en van allient confort et
+                                expériences authentiques qui définissent
+                                Arrábida Land Stories.
+                            </p>
+                            <p style="margin-bottom: 12px">
+                                Choisissez parmi les mêmes itinéraires que nos
+                                circuits en jeep, adaptés au van, ou laissez-
+                                nous créer un itinéraire personnalisé pour
+                                votre groupe. Nous sommes prêts à vous
+                                accompagner pour une matinée, une après-midi ou
+                                une journée complète à travers les richesses
+                                naturelles, culturelles et gastronomiques de la
+                                région.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style="
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                        margin-bottom: 32px;
+                    "
+                >
+                    <h4
+                        style="
+                            font-size: 0.8rem;
+                            font-family: var(--font-mono);
+                            text-transform: uppercase;
+                            letter-spacing: 0.1em;
+                            color: var(--muted);
+                            white-space: nowrap;
+                        "
+                        id="arrabida-van"
+                    >
+                        Arrábida
+                    </h4>
+                    <hr class="section-divider" style="flex: 1" />
+                </div>
+                <!-- Cards Van Tours (inlined) -->
+                <div
+                    class="tour-cards-row"
+                >
+                    <!-- Van Arrábida Card -->
+                    <div
+                        class="tour-card tour-card-item"
+                        style="cursor: pointer"
+                    >
+                        <div class="relative" style="height: 288px">
+                            <div
+                                id="carousel-van_arrabida"
+                                class="carousel-container h-full"
+                            ></div>
+                            <button
+                                onclick="moveSlide(this, -1)"
+                                class="absolute left-3 top-1/2 -translate-y-1/2 focus:outline-none"
+                                style="
+                                    width: 36px;
+                                    height: 36px;
+                                    border-radius: 50%;
+                                    background: rgba(255, 255, 255, 0.2);
+                                    backdrop-filter: blur(4px);
+                                    border: 1px solid rgba(255, 255, 255, 0.3);
+                                    color: #fff;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                "
+                            >
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M15 19l-7-7 7-7"
+                                    />
+                                </svg>
+                            </button>
+                            <button
+                                onclick="moveSlide(this, 1)"
+                                class="absolute right-3 top-1/2 -translate-y-1/2 focus:outline-none"
+                                style="
+                                    width: 36px;
+                                    height: 36px;
+                                    border-radius: 50%;
+                                    background: rgba(255, 255, 255, 0.2);
+                                    backdrop-filter: blur(4px);
+                                    border: 1px solid rgba(255, 255, 255, 0.3);
+                                    color: #fff;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                "
+                            >
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 5l7 7-7 7"
+                                    />
+                                </svg>
+                            </button>
+                            <div
+                                class="absolute bottom-2 left-0 right-0 flex justify-center space-x-2"
+                            ></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="card-heading mb-4 text-center">
+                                <span data-lang-inline="en" class="active"
+                                    >Van Tour – Discover Arrábida in
+                                    Comfort</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Tour en Furgoneta – Descubra Arrábida con
+                                    Comodidad</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Tour de Van – Descubra a Arrábida com
+                                    Conforto</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Circuit en Van – Découvrez l'Arrábida en
+                                    Tout Confort</span
+                                >
+                            </h3>
+                            <div class="text-center">
+                                <a
+                                    href="https://cal.com/joao-vieira-ut5hrh"
+                                    target="_blank"
+                                    class="btn btn-brand"
+                                    style="
+                                        padding: 10px 28px;
+                                        font-size: 0.875rem;
+                                    "
+                                >
+                                    <span data-lang-inline="en" class="active"
+                                        >Book Now</span
+                                    >
+                                    <span data-lang-inline="es"
+                                        >Reservar</span
+                                    >
+                                    <span data-lang-inline="pt"
+                                        >Reservar</span
+                                    >
+                                    <span data-lang-inline="fr"
+                                        >Réserver</span
+                                    >
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- /tab-panel-van -->
 
                 <!--
         <h4 class="text-xl font-semibold mt-8 mb-4">

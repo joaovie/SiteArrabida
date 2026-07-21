@@ -17,6 +17,12 @@ const tourImages = {
         'Tours/Arrabida/terras-do-cabo-espichel/Img_terras_do_cabo_espichel/IMG_3.webp',
         'Tours/Arrabida/terras-do-cabo-espichel/Img_terras_do_cabo_espichel/P1510701.webp',
         'Tours/Arrabida/terras-do-cabo-espichel/Img_terras_do_cabo_espichel/IMG_1249.webp',
+    ],
+    // Placeholder stock photos (Mercedes-Benz Vito) until real van tour photos are available
+    'van_arrabida': [
+        'Imagens/van/van_tourer.webp',
+        'Imagens/van/van_front.webp',
+        'Imagens/van/van_rear.webp',
     ]
 };
 

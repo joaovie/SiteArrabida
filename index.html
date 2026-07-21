@@ -617,14 +617,19 @@
 
         <!-- Hero Section -->
         <div class="relative" style="height: 100svh; min-height: 560px;">
-            <!-- Hero Video Background -->
+            <!-- Hero Video Background (crossfades between clips, see initializeHeroVideoSequence) -->
             <video
-                autoplay muted playsinline loop
-                class="absolute inset-0 w-full h-full"
+                id="hero-video-a"
+                muted playsinline
+                class="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100"
                 style="object-fit: cover; z-index: 0;"
-            >
-                <source src="Videos/hero.mp4" type="video/mp4">
-            </video>
+            ></video>
+            <video
+                id="hero-video-b"
+                muted playsinline
+                class="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0"
+                style="object-fit: cover; z-index: 0;"
+            ></video>
 
             <!-- Hero Content -->
             <div

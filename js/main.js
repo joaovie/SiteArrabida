@@ -131,6 +131,63 @@ function switchTourTab(tab) {
 
 window.addEventListener('resize', updateTourTabIndicator);
 
+// Crossfades between the hero background videos instead of hard-cutting,
+// looping the sequence. The next clip is preloaded on the hidden video
+// element while the visible one plays, so there's no stall when it swaps in.
+const heroVideoPlaylist = ['Videos/site/hero.mp4', 'Videos/site/van.mp4', 'Videos/site/van2.mp4'];
+const heroCrossfadeMs = 1000;
+
+function initializeHeroVideoSequence() {
+    const videos = [
+        document.getElementById('hero-video-a'),
+        document.getElementById('hero-video-b'),
+    ];
+    if (!videos[0] || !videos[1]) return;
+
+    let activeIndex = 0;
+    let nextPlaylistIndex = 1 % heroVideoPlaylist.length;
+    let transitioning = false;
+
+    videos[0].src = heroVideoPlaylist[0];
+    videos[0].play();
+    videos[1].src = heroVideoPlaylist[nextPlaylistIndex];
+
+    function crossfade() {
+        if (transitioning) return;
+        transitioning = true;
+
+        const outgoing = videos[activeIndex];
+        const incoming = videos[activeIndex === 0 ? 1 : 0];
+
+        incoming.currentTime = 0;
+        const playPromise = incoming.play();
+        if (playPromise && playPromise.catch) playPromise.catch(() => {});
+
+        incoming.classList.remove('opacity-0');
+        incoming.classList.add('opacity-100');
+        outgoing.classList.remove('opacity-100');
+        outgoing.classList.add('opacity-0');
+
+        activeIndex = activeIndex === 0 ? 1 : 0;
+
+        setTimeout(function () {
+            outgoing.pause();
+            nextPlaylistIndex = (nextPlaylistIndex + 1) % heroVideoPlaylist.length;
+            outgoing.src = heroVideoPlaylist[nextPlaylistIndex];
+            transitioning = false;
+        }, heroCrossfadeMs);
+    }
+
+    videos.forEach(function (video) {
+        video.addEventListener('timeupdate', function () {
+            if (videos[activeIndex] !== video || transitioning) return;
+            if (video.duration && video.duration - video.currentTime < 1) {
+                crossfade();
+            }
+        });
+    });
+}
+
 let currentHeroSlide = 0;
 let heroInterval;
 
@@ -404,6 +461,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     initializeCarousels();
     initializeHeroCarousel();
+    initializeHeroVideoSequence();
     initializeDraggableRows();
 
     if (document.fonts && document.fonts.ready) {

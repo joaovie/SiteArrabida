@@ -264,6 +264,33 @@
                 color: var(--black);
             }
 
+            .experience-list {
+                list-style: none;
+                padding: 0;
+                display: inline-flex;
+                flex-direction: column;
+                gap: 10px;
+                text-align: left;
+            }
+
+            .experience-list li {
+                position: relative;
+                padding-left: 28px;
+            }
+
+            .experience-list li::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0.35em;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background: var(--brand);
+                -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / 60% no-repeat;
+                mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / 60% no-repeat;
+            }
+
             /* ─── Theme cards (Nature / Wine / Culture / Landscapes) ─ */
             .theme-card {
                 background: var(--white);
@@ -1008,70 +1035,61 @@
                                     >Vous pouvez ajouter :</span
                                 >
                             </p>
-                            <ul
-                                style="
-                                    list-style: none;
-                                    padding: 0;
-                                    display: inline-flex;
-                                    flex-direction: column;
-                                    gap: 6px;
-                                    text-align: left;
-                                "
-                            >
+                            <ul class="experience-list">
                                 <li>
                                     <span data-lang-inline="en" class="active"
-                                        >— Interpretive hike</span
+                                        >Interpretive hike</span
                                     >
                                     <span data-lang-inline="es"
-                                        >— Caminata interpretativa</span
+                                        >Caminata interpretativa</span
                                     >
                                     <span data-lang-inline="pt"
-                                        >— Caminhada interpretativa</span
+                                        >Caminhada interpretativa</span
                                     >
                                     <span data-lang-inline="fr"
-                                        >— Randonnée interprétative</span
+                                        >Randonnée interprétative</span
                                     >
                                 </li>
                                 <li>
                                     <span data-lang-inline="en" class="active"
-                                        >— Winery visit</span
+                                        >Winery visit</span
                                     >
                                     <span data-lang-inline="es"
-                                        >— Visita a una bodega</span
+                                        >Visita a una bodega</span
                                     >
                                     <span data-lang-inline="pt"
-                                        >— Visita a uma adega</span
+                                        >Visita a uma adega</span
                                     >
                                     <span data-lang-inline="fr"
-                                        >— Visite d'un domaine viticole</span
+                                        >Visite d'un domaine viticole</span
                                     >
                                 </li>
                                 <li>
                                     <span data-lang-inline="en" class="active"
-                                        >— Tile-painting workshop</span
+                                        >Tile-painting workshop</span
                                     >
                                     <span data-lang-inline="es"
-                                        >— Taller de azulejos</span
+                                        >Taller de azulejos</span
                                     >
                                     <span data-lang-inline="pt"
-                                        >— Oficina de azulejos</span
+                                        >Oficina de azulejos</span
                                     >
                                     <span data-lang-inline="fr"
-                                        >— Atelier d'azulejos</span
+                                        >Atelier d'azulejos</span
                                     >
                                 </li>
                                 <li>
                                     <span data-lang-inline="en" class="active"
-                                        >— Gastronomic experience</span
+                                        >Gastronomic experience</span
                                     >
                                     <span data-lang-inline="es"
-                                        >— Experiencia gastronómica</span
+                                        >Experiencia gastronómica</span
                                     >
                                     <span data-lang-inline="pt"
-                                        >— Experiência gastronómica</span
+                                        >Experiência gastronómica</span
                                     >
                                     <span data-lang-inline="fr"
-                                        >— Expérience gastronomique</span
+                                        >Expérience gastronomique</span
                                     >
                                 </li>
                             </ul>
@@ -1203,88 +1221,79 @@
                                     >Peut inclure :</span
                                 >
                             </p>
-                            <ul
-                                style="
-                                    list-style: none;
-                                    padding: 0;
-                                    display: inline-flex;
-                                    flex-direction: column;
-                                    gap: 6px;
-                                    text-align: left;
-                                "
-                            >
+                            <ul class="experience-list">
                                 <li>
                                     <span data-lang-inline="en" class="active"
-                                        >— Interpretive trails</span
+                                        >Interpretive trails</span
                                     >
                                     <span data-lang-inline="es"
-                                        >— Senderos interpretativos</span
+                                        >Senderos interpretativos</span
                                     >
                                     <span data-lang-inline="pt"
-                                        >— Trilhos interpretativos</span
+                                        >Trilhos interpretativos</span
                                     >
                                     <span data-lang-inline="fr"
-                                        >— Sentiers interprétatifs</span
+                                        >Sentiers interprétatifs</span
                                     >
                                 </li>
                                 <li>
                                     <span data-lang-inline="en" class="active"
-                                        >— Lunch at a selected
+                                        >Lunch at a selected
                                         restaurant</span
                                     >
                                     <span data-lang-inline="es"
-                                        >— Almuerzo en un restaurante
+                                        >Almuerzo en un restaurante
                                         seleccionado</span
                                     >
                                     <span data-lang-inline="pt"
-                                        >— Almoço num restaurante
+                                        >Almoço num restaurante
                                         selecionado</span
                                     >
                                     <span data-lang-inline="fr"
-                                        >— Déjeuner dans un restaurant
+                                        >Déjeuner dans un restaurant
                                         sélectionné</span
                                     >
                                 </li>
                                 <li>
                                     <span data-lang-inline="en" class="active"
-                                        >— Livramento Market</span
+                                        >Livramento Market</span
                                     >
                                     <span data-lang-inline="es"
-                                        >— Mercado do Livramento</span
+                                        >Mercado do Livramento</span
                                     >
                                     <span data-lang-inline="pt"
-                                        >— Mercado do Livramento</span
+                                        >Mercado do Livramento</span
                                     >
                                     <span data-lang-inline="fr"
-                                        >— Marché do Livramento</span
+                                        >Marché do Livramento</span
                                     >
                                 </li>
                                 <li>
                                     <span data-lang-inline="en" class="active"
-                                        >— Wine tastings</span
+                                        >Wine tastings</span
                                     >
                                     <span data-lang-inline="es"
-                                        >— Catas de vino</span
+                                        >Catas de vino</span
                                     >
                                     <span data-lang-inline="pt"
-                                        >— Provas de vinho</span
+                                        >Provas de vinho</span
                                     >
                                     <span data-lang-inline="fr"
-                                        >— Dégustations de vin</span
+                                        >Dégustations de vin</span
                                     >
                                 </li>
                                 <li>
                                     <span data-lang-inline="en" class="active"
-                                        >— Cultural experiences</span
+                                        >Cultural experiences</span
                                     >
                                     <span data-lang-inline="es"
-                                        >— Experiencias culturales</span
+                                        >Experiencias culturales</span
                                     >
                                     <span data-lang-inline="pt"
-                                        >— Experiências culturais</span
+                                        >Experiências culturais</span
                                     >
                                     <span data-lang-inline="fr"
-                                        >— Expériences culturelles</span
+                                        >Expériences culturelles</span
                                     >
                                 </li>
                             </ul>

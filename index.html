@@ -238,6 +238,81 @@
                 width: min(82vw, 380px);
             }
 
+            /* ─── Experience panels (Discovery / Signature) ──────── */
+            .experience-duration {
+                display: inline-block;
+                border: 1.5px solid var(--border);
+                border-radius: 50px;
+                padding: 6px 18px;
+                font-family: var(--font-mono);
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--brand);
+                margin-bottom: 18px;
+            }
+
+            .experience-list-label {
+                font-weight: 600;
+                margin-top: 20px;
+                margin-bottom: 8px;
+            }
+
+            .experience-closing {
+                margin-top: 20px;
+                font-style: italic;
+                color: var(--black);
+            }
+
+            /* ─── Theme cards (Nature / Wine / Culture / Landscapes) ─ */
+            .theme-card {
+                background: var(--white);
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                padding: 28px 24px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                transition:
+                    box-shadow 0.25s ease,
+                    transform 0.25s ease,
+                    border-color 0.25s ease;
+            }
+
+            .theme-card:hover {
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+                transform: translateY(-3px);
+                border-color: transparent;
+            }
+
+            .theme-card-icon {
+                font-size: 1.75rem;
+                margin-bottom: 14px;
+            }
+
+            .theme-card-label {
+                font-family: var(--font-mono);
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: var(--brand);
+                margin-bottom: 8px;
+            }
+
+            .theme-card-text {
+                color: var(--muted);
+                font-size: 0.9rem;
+                line-height: 1.65;
+            }
+
+            .theme-card ul {
+                margin: 10px 0;
+                padding-left: 18px;
+                color: var(--muted);
+                font-size: 0.9rem;
+                line-height: 1.8;
+            }
+
             /* ─── Tour Tabs ──────────────────────────────────────── */
             .tour-tabs {
                 position: relative;
@@ -752,6 +827,924 @@
             </div>
         </div>
 
+        <!-- Choose Your Experience Section -->
+        <section id="experiences" style="padding: 80px 0">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-8">
+                    <p class="mono-label mb-3">
+                        <span data-lang-inline="en" class="active"
+                            >Our Experiences</span
+                        >
+                        <span data-lang-inline="es"
+                            >Nuestras Experiencias</span
+                        >
+                        <span data-lang-inline="pt"
+                            >As Nossas Experiências</span
+                        >
+                        <span data-lang-inline="fr">Nos Expériences</span>
+                    </p>
+                    <h2 class="section-heading mb-4">
+                        <span data-lang-inline="en" class="active"
+                            >Choose Your Experience</span
+                        >
+                        <span data-lang-inline="es"
+                            >Elija su Experiencia</span
+                        >
+                        <span data-lang-inline="pt"
+                            >Escolha a sua Experiência</span
+                        >
+                        <span data-lang-inline="fr"
+                            >Choisissez votre Expérience</span
+                        >
+                    </h2>
+                    <p
+                        class="max-w-2xl mx-auto"
+                        style="
+                            color: var(--muted);
+                            font-size: 1rem;
+                            font-weight: 350;
+                            letter-spacing: -0.01em;
+                            line-height: 1.65;
+                        "
+                    >
+                        <span data-lang-inline="en" class="active"
+                            >We've created two main experiences that can be
+                            personalized with different themes and
+                            activities.</span
+                        >
+                        <span data-lang-inline="es"
+                            >Hemos creado dos experiencias principales que se
+                            pueden personalizar con diferentes temas y
+                            actividades.</span
+                        >
+                        <span data-lang-inline="pt"
+                            >Criámos duas experiências principais que podem
+                            ser personalizadas com diferentes temas e
+                            atividades.</span
+                        >
+                        <span data-lang-inline="fr"
+                            >Nous avons créé deux expériences principales qui
+                            peuvent être personnalisées avec différents
+                            thèmes et activités.</span
+                        >
+                    </p>
+                </div>
+
+                <div
+                    class="tour-tabs"
+                    role="tablist"
+                    data-group="experience"
+                    data-active="discovery"
+                    style="max-width: 480px; margin: 0 auto 40px"
+                >
+                    <button
+                        type="button"
+                        class="tour-tab active"
+                        data-tab="discovery"
+                        role="tab"
+                        aria-selected="true"
+                        onclick="switchTourTab(this, 'discovery')"
+                    >
+                        Arrábida Discovery
+                    </button>
+                    <button
+                        type="button"
+                        class="tour-tab"
+                        data-tab="signature"
+                        role="tab"
+                        aria-selected="false"
+                        onclick="switchTourTab(this, 'signature')"
+                    >
+                        Arrábida Signature
+                    </button>
+                    <span class="tour-tab-indicator"></span>
+                </div>
+
+                <div data-panels="experience">
+                    <div
+                        id="tab-panel-discovery"
+                        data-panel="discovery"
+                        class="tab-panel"
+                    >
+                        <div
+                            class="max-w-2xl mx-auto text-center"
+                            style="
+                                color: var(--muted);
+                                font-size: 0.9375rem;
+                                font-weight: 350;
+                                letter-spacing: -0.01em;
+                                line-height: 1.65;
+                            "
+                        >
+                            <span class="experience-duration">
+                                <span data-lang-inline="en" class="active"
+                                    >4 hours</span
+                                >
+                                <span data-lang-inline="es">4 horas</span>
+                                <span data-lang-inline="pt">4 horas</span>
+                                <span data-lang-inline="fr">4 heures</span>
+                            </span>
+                            <h3
+                                class="card-heading mb-4"
+                                style="color: var(--black)"
+                            >
+                                <span data-lang-inline="en" class="active"
+                                    >Your first connection with
+                                    Arrábida</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Su primera conexión con Arrábida</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >A primeira ligação com a Arrábida</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Votre première connexion avec
+                                    l'Arrábida</span
+                                >
+                            </h3>
+                            <p>
+                                <span data-lang-inline="en" class="active"
+                                    >An experience designed to discover the
+                                    region's most iconic places. We travel
+                                    through coastal landscapes, panoramic
+                                    viewpoints, and places where nature and
+                                    history meet.</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Una experiencia pensada para conocer los
+                                    lugares más emblemáticos de la región.
+                                    Recorremos paisajes costeros, miradores
+                                    panorámicos y lugares donde la naturaleza
+                                    y la historia se encuentran.</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Uma experiência pensada para conhecer os
+                                    lugares mais emblemáticos da região.
+                                    Percorremos paisagens costeiras,
+                                    miradouros panorâmicos e locais onde a
+                                    natureza e a história se encontram.</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Une expérience pensée pour découvrir les
+                                    lieux les plus emblématiques de la
+                                    région. Nous parcourons des paysages
+                                    côtiers, des points de vue panoramiques
+                                    et des lieux où la nature et l'histoire
+                                    se rencontrent.</span
+                                >
+                            </p>
+                            <p class="experience-list-label">
+                                <span data-lang-inline="en" class="active"
+                                    >You can add:</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Puede añadir:</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Pode adicionar:</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Vous pouvez ajouter :</span
+                                >
+                            </p>
+                            <ul
+                                style="
+                                    list-style: none;
+                                    padding: 0;
+                                    display: inline-flex;
+                                    flex-direction: column;
+                                    gap: 6px;
+                                    text-align: left;
+                                "
+                            >
+                                <li>
+                                    <span data-lang-inline="en" class="active"
+                                        >— Interpretive hike</span
+                                    >
+                                    <span data-lang-inline="es"
+                                        >— Caminata interpretativa</span
+                                    >
+                                    <span data-lang-inline="pt"
+                                        >— Caminhada interpretativa</span
+                                    >
+                                    <span data-lang-inline="fr"
+                                        >— Randonnée interprétative</span
+                                    >
+                                </li>
+                                <li>
+                                    <span data-lang-inline="en" class="active"
+                                        >— Winery visit</span
+                                    >
+                                    <span data-lang-inline="es"
+                                        >— Visita a una bodega</span
+                                    >
+                                    <span data-lang-inline="pt"
+                                        >— Visita a uma adega</span
+                                    >
+                                    <span data-lang-inline="fr"
+                                        >— Visite d'un domaine viticole</span
+                                    >
+                                </li>
+                                <li>
+                                    <span data-lang-inline="en" class="active"
+                                        >— Tile-painting workshop</span
+                                    >
+                                    <span data-lang-inline="es"
+                                        >— Taller de azulejos</span
+                                    >
+                                    <span data-lang-inline="pt"
+                                        >— Oficina de azulejos</span
+                                    >
+                                    <span data-lang-inline="fr"
+                                        >— Atelier d'azulejos</span
+                                    >
+                                </li>
+                                <li>
+                                    <span data-lang-inline="en" class="active"
+                                        >— Gastronomic experience</span
+                                    >
+                                    <span data-lang-inline="es"
+                                        >— Experiencia gastronómica</span
+                                    >
+                                    <span data-lang-inline="pt"
+                                        >— Experiência gastronómica</span
+                                    >
+                                    <span data-lang-inline="fr"
+                                        >— Expérience gastronomique</span
+                                    >
+                                </li>
+                            </ul>
+                            <p class="experience-closing">
+                                <span data-lang-inline="en" class="active"
+                                    >Ideal for those visiting Arrábida for the
+                                    first time.</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Ideal para quienes visitan Arrábida por
+                                    primera vez.</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Ideal para quem visita a Arrábida pela
+                                    primeira vez.</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Idéal pour ceux qui découvrent
+                                    l'Arrábida pour la première fois.</span
+                                >
+                            </p>
+                            <div class="mt-8">
+                                <a
+                                    href="https://cal.com/joao-vieira-ut5hrh"
+                                    target="_blank"
+                                    class="btn btn-brand"
+                                    style="padding: 10px 28px; font-size: 0.875rem"
+                                >
+                                    <span data-lang-inline="en" class="active"
+                                        >Book Now</span
+                                    >
+                                    <span data-lang-inline="es"
+                                        >Reservar</span
+                                    >
+                                    <span data-lang-inline="pt"
+                                        >Reservar</span
+                                    >
+                                    <span data-lang-inline="fr"
+                                        >Réserver</span
+                                    >
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        id="tab-panel-signature"
+                        data-panel="signature"
+                        class="tab-panel tab-hidden"
+                    >
+                        <div
+                            class="max-w-2xl mx-auto text-center"
+                            style="
+                                color: var(--muted);
+                                font-size: 0.9375rem;
+                                font-weight: 350;
+                                letter-spacing: -0.01em;
+                                line-height: 1.65;
+                            "
+                        >
+                            <span class="experience-duration">
+                                <span data-lang-inline="en" class="active"
+                                    >8 hours</span
+                                >
+                                <span data-lang-inline="es">8 horas</span>
+                                <span data-lang-inline="pt">8 horas</span>
+                                <span data-lang-inline="fr">8 heures</span>
+                            </span>
+                            <h3
+                                class="card-heading mb-4"
+                                style="color: var(--black)"
+                            >
+                                <span data-lang-inline="en" class="active"
+                                    >A full day to experience Arrábida</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Un día entero para vivir Arrábida</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Um dia inteiro para viver a
+                                    Arrábida</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Une journée entière pour vivre
+                                    l'Arrábida</span
+                                >
+                            </h3>
+                            <p>
+                                <span data-lang-inline="en" class="active"
+                                    >The most complete way to discover this
+                                    territory. An exclusive experience
+                                    combining nature, culture, wine, and
+                                    gastronomy, with time to explore
+                                    unhurried.</span
+                                >
+                                <span data-lang-inline="es"
+                                    >La forma más completa de descubrir este
+                                    territorio. Una experiencia exclusiva que
+                                    combina naturaleza, cultura, vino y
+                                    gastronomía, con tiempo para explorar sin
+                                    prisa.</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >A forma mais completa de descobrir este
+                                    território. Uma experiência exclusiva que
+                                    combina natureza, cultura, vinho e
+                                    gastronomia, com tempo para explorar sem
+                                    pressa.</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >La façon la plus complète de découvrir
+                                    ce territoire. Une expérience exclusive
+                                    qui combine nature, culture, vin et
+                                    gastronomie, avec du temps pour explorer
+                                    sans hâte.</span
+                                >
+                            </p>
+                            <p class="experience-list-label">
+                                <span data-lang-inline="en" class="active"
+                                    >Can include:</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Puede incluir:</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Pode incluir:</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Peut inclure :</span
+                                >
+                            </p>
+                            <ul
+                                style="
+                                    list-style: none;
+                                    padding: 0;
+                                    display: inline-flex;
+                                    flex-direction: column;
+                                    gap: 6px;
+                                    text-align: left;
+                                "
+                            >
+                                <li>
+                                    <span data-lang-inline="en" class="active"
+                                        >— Interpretive trails</span
+                                    >
+                                    <span data-lang-inline="es"
+                                        >— Senderos interpretativos</span
+                                    >
+                                    <span data-lang-inline="pt"
+                                        >— Trilhos interpretativos</span
+                                    >
+                                    <span data-lang-inline="fr"
+                                        >— Sentiers interprétatifs</span
+                                    >
+                                </li>
+                                <li>
+                                    <span data-lang-inline="en" class="active"
+                                        >— Lunch at a selected
+                                        restaurant</span
+                                    >
+                                    <span data-lang-inline="es"
+                                        >— Almuerzo en un restaurante
+                                        seleccionado</span
+                                    >
+                                    <span data-lang-inline="pt"
+                                        >— Almoço num restaurante
+                                        selecionado</span
+                                    >
+                                    <span data-lang-inline="fr"
+                                        >— Déjeuner dans un restaurant
+                                        sélectionné</span
+                                    >
+                                </li>
+                                <li>
+                                    <span data-lang-inline="en" class="active"
+                                        >— Livramento Market</span
+                                    >
+                                    <span data-lang-inline="es"
+                                        >— Mercado do Livramento</span
+                                    >
+                                    <span data-lang-inline="pt"
+                                        >— Mercado do Livramento</span
+                                    >
+                                    <span data-lang-inline="fr"
+                                        >— Marché do Livramento</span
+                                    >
+                                </li>
+                                <li>
+                                    <span data-lang-inline="en" class="active"
+                                        >— Wine tastings</span
+                                    >
+                                    <span data-lang-inline="es"
+                                        >— Catas de vino</span
+                                    >
+                                    <span data-lang-inline="pt"
+                                        >— Provas de vinho</span
+                                    >
+                                    <span data-lang-inline="fr"
+                                        >— Dégustations de vin</span
+                                    >
+                                </li>
+                                <li>
+                                    <span data-lang-inline="en" class="active"
+                                        >— Cultural experiences</span
+                                    >
+                                    <span data-lang-inline="es"
+                                        >— Experiencias culturales</span
+                                    >
+                                    <span data-lang-inline="pt"
+                                        >— Experiências culturais</span
+                                    >
+                                    <span data-lang-inline="fr"
+                                        >— Expériences culturelles</span
+                                    >
+                                </li>
+                            </ul>
+                            <p class="experience-closing">
+                                <span data-lang-inline="en" class="active"
+                                    >More than a route. An experience made to
+                                    your measure.</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Más que un recorrido. Una experiencia
+                                    creada a su medida.</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Mais do que um percurso. Uma experiência
+                                    criada à sua medida.</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Plus qu'un itinéraire. Une expérience
+                                    créée sur mesure.</span
+                                >
+                            </p>
+                            <div class="mt-8">
+                                <a
+                                    href="https://cal.com/joao-vieira-ut5hrh"
+                                    target="_blank"
+                                    class="btn btn-brand"
+                                    style="padding: 10px 28px; font-size: 0.875rem"
+                                >
+                                    <span data-lang-inline="en" class="active"
+                                        >Book Now</span
+                                    >
+                                    <span data-lang-inline="es"
+                                        >Reservar</span
+                                    >
+                                    <span data-lang-inline="pt"
+                                        >Reservar</span
+                                    >
+                                    <span data-lang-inline="fr"
+                                        >Réserver</span
+                                    >
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalize Your Experience Section (theme cards) -->
+        <section id="themes" style="padding: 80px 0; background: var(--surface); box-shadow: inset 0 8px 16px rgba(0,0,0,0.06);">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-14">
+                    <p class="mono-label mb-3">
+                        <span data-lang-inline="en" class="active"
+                            >Personalize</span
+                        >
+                        <span data-lang-inline="es">Personalice</span>
+                        <span data-lang-inline="pt">Personalize</span>
+                        <span data-lang-inline="fr">Personnalisez</span>
+                    </p>
+                    <h2 class="section-heading mb-4">
+                        <span data-lang-inline="en" class="active"
+                            >Personalize Your Experience</span
+                        >
+                        <span data-lang-inline="es"
+                            >Personalice su Experiencia</span
+                        >
+                        <span data-lang-inline="pt"
+                            >Personalize a sua Experiência</span
+                        >
+                        <span data-lang-inline="fr"
+                            >Personnalisez votre Expérience</span
+                        >
+                    </h2>
+                    <p
+                        class="max-w-2xl mx-auto"
+                        style="
+                            color: var(--muted);
+                            font-size: 1rem;
+                            font-weight: 350;
+                            letter-spacing: -0.01em;
+                            line-height: 1.65;
+                        "
+                    >
+                        <span data-lang-inline="en" class="active"
+                            >No two experiences are the same. Choose the
+                            themes that suit you best.</span
+                        >
+                        <span data-lang-inline="es"
+                            >No existen dos experiencias iguales. Elija los
+                            temas que más le combinen.</span
+                        >
+                        <span data-lang-inline="pt"
+                            >Não existem duas experiências iguais. Escolha os
+                            temas que mais combinam consigo.</span
+                        >
+                        <span data-lang-inline="fr"
+                            >Il n'existe pas deux expériences identiques.
+                            Choisissez les thèmes qui vous correspondent le
+                            mieux.</span
+                        >
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Nature -->
+                    <div class="theme-card">
+                        <div class="theme-card-icon">🌿</div>
+                        <p class="theme-card-label">
+                            <span data-lang-inline="en" class="active"
+                                >Nature</span
+                            >
+                            <span data-lang-inline="es">Naturaleza</span>
+                            <span data-lang-inline="pt">Natureza</span>
+                            <span data-lang-inline="fr">Nature</span>
+                        </p>
+                        <h3 class="card-heading mb-2">
+                            <span data-lang-inline="en" class="active"
+                                >Interpretive Hikes</span
+                            >
+                            <span data-lang-inline="es"
+                                >Caminatas Interpretativas</span
+                            >
+                            <span data-lang-inline="pt"
+                                >Caminhadas Interpretativas</span
+                            >
+                            <span data-lang-inline="fr"
+                                >Randonnées Interprétatives</span
+                            >
+                        </h3>
+                        <p class="theme-card-text">
+                            <span data-lang-inline="en" class="active"
+                                >Much more than walking. It's learning to
+                                observe. Along the trails we discover the
+                                mountain's geology, Mediterranean
+                                biodiversity, natural habitats, and the
+                                relationship between people and nature.
+                                Every path tells a story.</span
+                            >
+                            <span data-lang-inline="es"
+                                >Mucho más que caminar. Es aprender a
+                                observar. A lo largo de los senderos
+                                descubrimos la geología de la sierra, la
+                                biodiversidad mediterránea, los hábitats
+                                naturales y la relación entre el hombre y la
+                                naturaleza. Cada camino cuenta una
+                                historia.</span
+                            >
+                            <span data-lang-inline="pt"
+                                >Muito mais do que caminhar. É aprender a
+                                observar. Ao longo dos trilhos descobrimos a
+                                geologia da serra, a biodiversidade
+                                mediterrânica, os habitats naturais e a
+                                relação entre o Homem e a natureza. Cada
+                                caminho conta uma história.</span
+                            >
+                            <span data-lang-inline="fr"
+                                >Bien plus que marcher. C'est apprendre à
+                                observer. Le long des sentiers, nous
+                                découvrons la géologie de la montagne, la
+                                biodiversité méditerranéenne, les habitats
+                                naturels et la relation entre l'homme et la
+                                nature. Chaque chemin raconte une
+                                histoire.</span
+                            >
+                        </p>
+                    </div>
+
+                    <!-- Wine & Gastronomy -->
+                    <div class="theme-card">
+                        <div class="theme-card-icon">🍷</div>
+                        <p class="theme-card-label">
+                            <span data-lang-inline="en" class="active"
+                                >Wine &amp; Gastronomy</span
+                            >
+                            <span data-lang-inline="es"
+                                >Vino y Gastronomía</span
+                            >
+                            <span data-lang-inline="pt"
+                                >Vinho e Gastronomia</span
+                            >
+                            <span data-lang-inline="fr"
+                                >Vin et Gastronomie</span
+                            >
+                        </p>
+                        <h3 class="card-heading mb-2">
+                            <span data-lang-inline="en" class="active"
+                                >The flavors that reveal a territory</span
+                            >
+                            <span data-lang-inline="es"
+                                >Los sabores que revelan un territorio</span
+                            >
+                            <span data-lang-inline="pt"
+                                >Os sabores que revelam um território</span
+                            >
+                            <span data-lang-inline="fr"
+                                >Les saveurs qui révèlent un territoire</span
+                            >
+                        </h3>
+                        <p class="theme-card-text">
+                            <span data-lang-inline="en" class="active"
+                                >Arrábida is also discovered at the table. We
+                                visit local producers, wineries, and
+                                characterful spaces where you can get to
+                                know the winemaking tradition of the Setúbal
+                                Peninsula, with partners such as José Maria
+                                da Fonseca and Quinta de Catralvos. The
+                                gastronomy completes this discovery through
+                                fresh fish, seafood, regional products, and
+                                traditional restaurants.</span
+                            >
+                            <span data-lang-inline="es"
+                                >Arrábida también se descubre a través de la
+                                mesa. Visitamos productores locales, bodegas
+                                y espacios con identidad, donde podrá
+                                conocer la tradición vitivinícola de la
+                                Península de Setúbal, con socios como José
+                                Maria da Fonseca y Quinta de Catralvos. La
+                                gastronomía completa este descubrimiento a
+                                través del pescado fresco, el marisco, los
+                                productos regionales y los restaurantes
+                                tradicionales.</span
+                            >
+                            <span data-lang-inline="pt"
+                                >A Arrábida também se descobre através da
+                                mesa. Visitamos produtores locais, adegas e
+                                espaços com identidade, onde poderá conhecer
+                                a tradição vitivinícola da Península de
+                                Setúbal, com parceiros como José Maria da
+                                Fonseca e Quinta de Catralvos. A gastronomia
+                                completa esta descoberta através do peixe
+                                fresco, marisco, produtos regionais e
+                                restaurantes tradicionais.</span
+                            >
+                            <span data-lang-inline="fr"
+                                >L'Arrábida se découvre aussi à table. Nous
+                                visitons des producteurs locaux, des
+                                domaines viticoles et des lieux au caractère
+                                authentique, où vous pourrez découvrir la
+                                tradition viticole de la péninsule de
+                                Setúbal, avec des partenaires tels que José
+                                Maria da Fonseca et Quinta de Catralvos. La
+                                gastronomie complète cette découverte à
+                                travers le poisson frais, les fruits de mer,
+                                les produits régionaux et les restaurants
+                                traditionnels.</span
+                            >
+                        </p>
+                    </div>
+
+                    <!-- Art & Culture -->
+                    <div class="theme-card">
+                        <div class="theme-card-icon">🏛</div>
+                        <p class="theme-card-label">
+                            <span data-lang-inline="en" class="active"
+                                >Art &amp; Culture</span
+                            >
+                            <span data-lang-inline="es">Arte y Cultura</span>
+                            <span data-lang-inline="pt">Arte e Cultura</span>
+                            <span data-lang-inline="fr">Art et Culture</span>
+                        </p>
+                        <h3 class="card-heading mb-2">
+                            <span data-lang-inline="en" class="active"
+                                >Stories preserved by the hands of the
+                                people</span
+                            >
+                            <span data-lang-inline="es"
+                                >Historias preservadas por las manos de las
+                                personas</span
+                            >
+                            <span data-lang-inline="pt"
+                                >Histórias preservadas pelas mãos das
+                                pessoas</span
+                            >
+                            <span data-lang-inline="fr"
+                                >Des histoires préservées par les mains des
+                                gens</span
+                            >
+                        </h3>
+                        <p class="theme-card-text">
+                            <span data-lang-inline="en" class="active"
+                                >Arrábida is also a territory of
+                                creation.</span
+                            >
+                            <span data-lang-inline="es"
+                                >Arrábida es también un territorio de
+                                creación.</span
+                            >
+                            <span data-lang-inline="pt"
+                                >A Arrábida é também um território de
+                                criação.</span
+                            >
+                            <span data-lang-inline="fr"
+                                >L'Arrábida est aussi un territoire de
+                                création.</span
+                            >
+                        </p>
+                        <ul>
+                            <li>
+                                <span data-lang-inline="en" class="active"
+                                    >Traditional tiles</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Azulejos tradicionales</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Azulejos tradicionais</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Azulejos traditionnels</span
+                                >
+                            </li>
+                            <li>
+                                <span data-lang-inline="en" class="active"
+                                    >Artisan workshops</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Talleres artesanales</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Oficinas artesanais</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Ateliers artisanaux</span
+                                >
+                            </li>
+                            <li>
+                                <span data-lang-inline="en" class="active"
+                                    >Historical heritage</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Patrimonio histórico</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Património histórico</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Patrimoine historique</span
+                                >
+                            </li>
+                            <li>
+                                <span data-lang-inline="en" class="active"
+                                    >Convents and fortifications</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Conventos y fortificaciones</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Conventos e fortificações</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Couvents et fortifications</span
+                                >
+                            </li>
+                        </ul>
+                        <p class="theme-card-text">
+                            <span data-lang-inline="en" class="active"
+                                >More than visiting places, we seek to
+                                reveal the stories that give them
+                                meaning.</span
+                            >
+                            <span data-lang-inline="es"
+                                >Más que visitar lugares, buscamos revelar
+                                las historias que les dan significado.</span
+                            >
+                            <span data-lang-inline="pt"
+                                >Mais do que visitar lugares, procuramos
+                                revelar as histórias que lhes dão
+                                significado.</span
+                            >
+                            <span data-lang-inline="fr"
+                                >Plus que visiter des lieux, nous cherchons
+                                à révéler les histoires qui leur donnent du
+                                sens.</span
+                            >
+                        </p>
+                    </div>
+
+                    <!-- Landscapes & Beaches -->
+                    <div class="theme-card">
+                        <div class="theme-card-icon">🌊</div>
+                        <p class="theme-card-label">
+                            <span data-lang-inline="en" class="active"
+                                >Landscapes &amp; Beaches</span
+                            >
+                            <span data-lang-inline="es"
+                                >Paisajes y Playas</span
+                            >
+                            <span data-lang-inline="pt"
+                                >Paisagens e Praias</span
+                            >
+                            <span data-lang-inline="fr"
+                                >Paysages et Plages</span
+                            >
+                        </p>
+                        <h3 class="card-heading mb-2">
+                            <span data-lang-inline="en" class="active"
+                                >Between the mountain and the ocean</span
+                            >
+                            <span data-lang-inline="es"
+                                >Entre la sierra y el océano</span
+                            >
+                            <span data-lang-inline="pt"
+                                >Entre a montanha e o oceano</span
+                            >
+                            <span data-lang-inline="fr"
+                                >Entre la montagne et l'océan</span
+                            >
+                        </h3>
+                        <p class="theme-card-text">
+                            <span data-lang-inline="en" class="active"
+                                >Discover some of the most iconic
+                                scenery:</span
+                            >
+                            <span data-lang-inline="es"
+                                >Descubra algunos de los escenarios más
+                                emblemáticos:</span
+                            >
+                            <span data-lang-inline="pt"
+                                >Descubra alguns dos cenários mais
+                                emblemáticos:</span
+                            >
+                            <span data-lang-inline="fr"
+                                >Découvrez quelques-uns des paysages les plus
+                                emblématiques :</span
+                            >
+                        </p>
+                        <ul>
+                            <li>Portinho da Arrábida</li>
+                            <li>Creiro</li>
+                            <li>Galápos</li>
+                            <li>Galapinhos</li>
+                            <li>Coelhos</li>
+                            <li>Figueirinha</li>
+                        </ul>
+                        <p class="theme-card-text">
+                            <span data-lang-inline="en" class="active"
+                                >Every stop is an opportunity to contemplate,
+                                photograph, and feel the landscape.</span
+                            >
+                            <span data-lang-inline="es"
+                                >Cada parada es una oportunidad para
+                                contemplar, fotografiar y sentir el
+                                paisaje.</span
+                            >
+                            <span data-lang-inline="pt"
+                                >Cada paragem é uma oportunidade para
+                                contemplar, fotografar e sentir a
+                                paisagem.</span
+                            >
+                            <span data-lang-inline="fr"
+                                >Chaque arrêt est une occasion de contempler,
+                                photographier et ressentir le paysage.</span
+                            >
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Tours Section -->
         <section id="tours" style="padding: 80px 0">
             <div class="max-w-6xl mx-auto px-4">
@@ -775,14 +1768,19 @@
                 </div>
 
                 <!-- Tour Type Tabs -->
-                <div class="tour-tabs" role="tablist">
+                <div
+                    class="tour-tabs"
+                    role="tablist"
+                    data-group="tours"
+                    data-active="jeep"
+                >
                     <button
                         type="button"
                         class="tour-tab active"
                         data-tab="jeep"
                         role="tab"
                         aria-selected="true"
-                        onclick="switchTourTab('jeep')"
+                        onclick="switchTourTab(this, 'jeep')"
                     >
                         <span data-lang-inline="en" class="active"
                             >Jeep Tours</span
@@ -797,7 +1795,7 @@
                         data-tab="van"
                         role="tab"
                         aria-selected="false"
-                        onclick="switchTourTab('van')"
+                        onclick="switchTourTab(this, 'van')"
                     >
                         <span data-lang-inline="en" class="active"
                             >Van Tours</span
@@ -809,7 +1807,8 @@
                     <span class="tour-tab-indicator"></span>
                 </div>
 
-                <div id="tab-panel-jeep" class="tab-panel">
+                <div data-panels="tours">
+                <div id="tab-panel-jeep" data-panel="jeep" class="tab-panel">
                     <div class="mb-12">
                         <h3
                             style="
@@ -1303,7 +2302,7 @@
                 </div>
                 <!-- /tab-panel-jeep -->
 
-                <div id="tab-panel-van" class="tab-panel tab-hidden">
+                <div id="tab-panel-van" data-panel="van" class="tab-panel tab-hidden">
                     <div class="mb-12">
                         <h3
                             style="
@@ -1570,6 +2569,8 @@
                 </div>
                 </div>
                 <!-- /tab-panel-van -->
+                </div>
+                <!-- /data-panels="tours" -->
 
                 <!--
         <h4 class="text-xl font-semibold mt-8 mb-4">

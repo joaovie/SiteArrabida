@@ -89,31 +89,40 @@ function changeLanguage(lang) {
     updateTourTabIndicator();
 }
 
-// ─── Tour type tabs (Jeep / Van) ────────────────────────────
-let currentTourTab = 'jeep';
+// ─── Tabs (generic — supports multiple independent tab groups) ─
+// Each `.tour-tabs` bar carries a `data-group`; its panels live
+// anywhere under an element with a matching `data-panels`.
+function updateTourTabIndicator(groupEl) {
+    if (!groupEl) {
+        document.querySelectorAll('.tour-tabs').forEach(el => updateTourTabIndicator(el));
+        return;
+    }
 
-function updateTourTabIndicator() {
-    const activeBtn = document.querySelector('.tour-tab.active');
-    const indicator = document.querySelector('.tour-tab-indicator');
+    const activeBtn = groupEl.querySelector('.tour-tab.active');
+    const indicator = groupEl.querySelector('.tour-tab-indicator');
     if (!activeBtn || !indicator) return;
 
     indicator.style.width = `${activeBtn.offsetWidth}px`;
     indicator.style.transform = `translateX(${activeBtn.offsetLeft}px)`;
 }
 
-function switchTourTab(tab) {
-    if (tab === currentTourTab) return;
-    currentTourTab = tab;
+function switchTourTab(button, tab) {
+    const groupEl = button.closest('.tour-tabs');
+    if (!groupEl || groupEl.dataset.active === tab) return;
+    groupEl.dataset.active = tab;
 
-    document.querySelectorAll('.tour-tab').forEach(btn => {
+    groupEl.querySelectorAll('.tour-tab').forEach(btn => {
         const isActive = btn.dataset.tab === tab;
         btn.classList.toggle('active', isActive);
         btn.setAttribute('aria-selected', String(isActive));
     });
-    updateTourTabIndicator();
+    updateTourTabIndicator(groupEl);
 
-    const nextPanel = document.getElementById(`tab-panel-${tab}`);
-    const currentPanel = document.querySelector('.tab-panel:not(.tab-hidden)');
+    const panelsContainer = document.querySelector(`[data-panels="${groupEl.dataset.group}"]`);
+    if (!panelsContainer) return;
+
+    const nextPanel = panelsContainer.querySelector(`[data-panel="${tab}"]`);
+    const currentPanel = panelsContainer.querySelector('.tab-panel:not(.tab-hidden)');
 
     if (currentPanel && currentPanel !== nextPanel) {
         currentPanel.classList.add('tab-fade');
@@ -129,7 +138,7 @@ function switchTourTab(tab) {
     }
 }
 
-window.addEventListener('resize', updateTourTabIndicator);
+window.addEventListener('resize', () => updateTourTabIndicator());
 
 // Crossfades between the hero background videos instead of hard-cutting,
 // looping the sequence. The next clip is preloaded on the hidden video
@@ -465,7 +474,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeDraggableRows();
 
     if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(updateTourTabIndicator);
+        document.fonts.ready.then(() => updateTourTabIndicator());
     }
 });
 

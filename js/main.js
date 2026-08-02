@@ -121,8 +121,11 @@ function switchTourTab(button, tab) {
     const panelsContainer = document.querySelector(`[data-panels="${groupEl.dataset.group}"]`);
     if (!panelsContainer) return;
 
-    const nextPanel = panelsContainer.querySelector(`[data-panel="${tab}"]`);
-    const currentPanel = panelsContainer.querySelector('.tab-panel:not(.tab-hidden)');
+    // Scoped to direct children only — a tab group's panel can itself contain
+    // a nested tab group (e.g. Discovery/Signature inside "Our Experiences"),
+    // and an unscoped querySelector would match those inner panels instead.
+    const nextPanel = panelsContainer.querySelector(`:scope > [data-panel="${tab}"]`);
+    const currentPanel = panelsContainer.querySelector(':scope > .tab-panel:not(.tab-hidden)');
 
     if (currentPanel && currentPanel !== nextPanel) {
         currentPanel.classList.add('tab-fade');
@@ -139,6 +142,45 @@ function switchTourTab(button, tab) {
 }
 
 window.addEventListener('resize', () => updateTourTabIndicator());
+
+// Activates whichever tabs (outermost first) hide `target`, so anchor links
+// into tab content (e.g. nav "#about" reaching into the Compromisso tab)
+// land on visible content instead of a display:none element.
+function revealAnchorTarget(target) {
+    const hiddenPanels = [];
+    let el = target.parentElement;
+    while (el) {
+        if (el.classList.contains('tab-panel') && el.classList.contains('tab-hidden')) {
+            hiddenPanels.unshift(el);
+        }
+        el = el.parentElement;
+    }
+
+    hiddenPanels.forEach(panel => {
+        const group = panel.closest('[data-panels]');
+        if (!group) return;
+        const tabsBar = document.querySelector(`.tour-tabs[data-group="${group.dataset.panels}"]`);
+        const tabBtn = tabsBar && tabsBar.querySelector(`.tour-tab[data-tab="${panel.dataset.panel}"]`);
+        if (tabBtn) switchTourTab(tabBtn, panel.dataset.panel);
+    });
+
+    return hiddenPanels.length > 0;
+}
+
+document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const id = link.getAttribute('href').slice(1);
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    if (revealAnchorTarget(target)) {
+        e.preventDefault();
+        // Wait for the tab-switch fade (220ms) before scrolling.
+        setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 260);
+    }
+});
 
 // Crossfades between the hero background videos instead of hard-cutting,
 // looping the sequence. The next clip is preloaded on the hidden video
@@ -486,20 +528,6 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     mobileMenu.classList.toggle('hidden');
 });
 
-// Function to toggle main terms and conditions
-function toggleMainTerms() {
-    const content = document.getElementById('mainTermsContent');
-    const arrow = content.parentElement.querySelector('button svg');
-
-    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-        content.style.maxHeight = '0px';
-        arrow.classList.remove('rotate-180');
-    } else {
-        content.style.maxHeight = content.scrollHeight + 2000 + 'px'; // Adding extra space for nested content
-        arrow.classList.add('rotate-180');
-    }
-}
-
 // Function to toggle individual sections
 function toggleTermsSection(button) {
     const content = button.nextElementSibling;
@@ -522,42 +550,45 @@ const form = document.getElementById('contactForm');
 const successMessage = document.querySelector('.success-message');
 const errorMessage = document.querySelector('.error-message');
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+// Pages other than index.html (e.g. the Terms page) don't have this form.
+if (form) {
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    try {
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: {
-                'Accept': 'application/json'
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Show success message
+                form.reset();
+                successMessage.classList.remove('hidden');
+                errorMessage.classList.add('hidden');
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000);
+            } else {
+                throw new Error('Network response was not ok');
             }
-        });
+        } catch (error) {
+            // Show error message
+            errorMessage.classList.remove('hidden');
+            successMessage.classList.add('hidden');
 
-        if (response.ok) {
-            // Show success message
-            form.reset();
-            successMessage.classList.remove('hidden');
-            errorMessage.classList.add('hidden');
-
-            // Hide success message after 5 seconds
+            // Hide error message after 5 seconds
             setTimeout(() => {
-                successMessage.classList.add('hidden');
+                errorMessage.classList.add('hidden');
             }, 5000);
-        } else {
-            throw new Error('Network response was not ok');
         }
-    } catch (error) {
-        // Show error message
-        errorMessage.classList.remove('hidden');
-        successMessage.classList.add('hidden');
-
-        // Hide error message after 5 seconds
-        setTimeout(() => {
-            errorMessage.classList.add('hidden');
-        }, 5000);
-    }
-});
+    });
+}
 
 //function responsible for the dropdown feature of the cards
 function reinitializeTourCards() {

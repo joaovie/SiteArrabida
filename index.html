@@ -385,6 +385,47 @@
                     width 0.32s cubic-bezier(0.65, 0, 0.35, 1);
             }
 
+            /* ─── Main Section Tabs (icon + label pill) ─────────── */
+            .main-tabs {
+                display: inline-flex;
+                justify-content: center;
+                gap: 6px;
+                background: var(--white);
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                margin-bottom: 0;
+                padding: 8px;
+                box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            }
+
+            .main-tab {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 6px;
+                padding: 12px 22px;
+                border-radius: 14px;
+                font-size: 0.8125rem;
+                font-weight: 500;
+                color: var(--muted);
+                background: transparent;
+            }
+
+            .main-tab svg {
+                width: 22px;
+                height: 22px;
+                stroke-width: 1.75;
+            }
+
+            .main-tab:hover {
+                color: var(--black);
+            }
+
+            .main-tab.active {
+                background: rgba(22, 163, 74, 0.1);
+                color: var(--brand-dark);
+            }
+
             .tab-panel {
                 opacity: 1;
                 transform: translateY(0);
@@ -571,6 +612,17 @@
                             <span data-lang-inline="fr">Contact</span>
                         </a>
                         <a
+                            href="Terms_and_conditions/Terms.html"
+                            class="nav-link"
+                        >
+                            <span data-lang-inline="en" class="active"
+                                >Terms</span
+                            >
+                            <span data-lang-inline="es">Términos</span>
+                            <span data-lang-inline="pt">Termos</span>
+                            <span data-lang-inline="fr">Conditions</span>
+                        </a>
+                        <a
                             href="https://cal.com/joao-vieira-ut5hrh"
                             target="_blank"
                             class="btn btn-brand"
@@ -685,6 +737,17 @@
                         <span data-lang-inline="es">Contacto</span>
                         <span data-lang-inline="pt">Contactos</span>
                         <span data-lang-inline="fr">Contact</span>
+                    </a>
+                    <a
+                        href="Terms_and_conditions/Terms.html"
+                        class="nav-link block px-2 py-2.5"
+                    >
+                        <span data-lang-inline="en" class="active"
+                            >Terms</span
+                        >
+                        <span data-lang-inline="es">Términos</span>
+                        <span data-lang-inline="pt">Termos</span>
+                        <span data-lang-inline="fr">Conditions</span>
                     </a>
                     <div class="pt-2">
                         <a
@@ -853,6 +916,106 @@
                 </div>
             </div>
         </div>
+
+        <!-- Main Section Tabs -->
+        <section id="main-tabs" style="padding: 56px 0 0">
+            <div class="max-w-6xl mx-auto px-4" style="text-align: center">
+                <div
+                    class="tour-tabs main-tabs"
+                    role="tablist"
+                    data-group="main"
+                    data-active="experiencias"
+                >
+                    <button
+                        type="button"
+                        class="tour-tab main-tab"
+                        data-tab="compromisso"
+                        role="tab"
+                        aria-selected="false"
+                        onclick="switchTourTab(this, 'compromisso')"
+                    >
+                        <svg
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                            />
+                        </svg>
+                        <span data-lang-inline="en" class="active"
+                            >Our Commitment</span
+                        >
+                        <span data-lang-inline="es">Nuestro Compromiso</span>
+                        <span data-lang-inline="pt">O Nosso Compromisso</span>
+                        <span data-lang-inline="fr">Notre Engagement</span>
+                    </button>
+                    <button
+                        type="button"
+                        class="tour-tab main-tab"
+                        data-tab="como-funciona"
+                        role="tab"
+                        aria-selected="false"
+                        onclick="switchTourTab(this, 'como-funciona')"
+                    >
+                        <svg
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            viewBox="0 0 24 24"
+                        >
+                            <circle cx="12" cy="12" r="9" />
+                            <polygon
+                                points="15.5 8.5 13.25 13.25 8.5 15.5 10.75 10.75 15.5 8.5"
+                            />
+                        </svg>
+                        <span data-lang-inline="en" class="active"
+                            >How It Works</span
+                        >
+                        <span data-lang-inline="es">Cómo Funciona</span>
+                        <span data-lang-inline="pt">Como Funciona</span>
+                        <span data-lang-inline="fr">Comment Ça Marche</span>
+                    </button>
+                    <button
+                        type="button"
+                        class="tour-tab main-tab active"
+                        data-tab="experiencias"
+                        role="tab"
+                        aria-selected="true"
+                        onclick="switchTourTab(this, 'experiencias')"
+                    >
+                        <svg
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"
+                            />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <span data-lang-inline="en" class="active"
+                            >Our Experiences</span
+                        >
+                        <span data-lang-inline="es"
+                            >Nuestras Experiencias</span
+                        >
+                        <span data-lang-inline="pt"
+                            >As Nossas Experiências</span
+                        >
+                        <span data-lang-inline="fr">Nos Expériences</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div data-panels="main">
+        <div id="tab-panel-experiencias" data-panel="experiencias" class="tab-panel">
 
         <!-- Choose Your Experience Section -->
         <section id="experiences" style="padding: 80px 0">
@@ -1339,33 +1502,35 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Personalize Your Experience Section (theme cards) -->
-        <section id="themes" style="padding: 80px 0; background: var(--surface); box-shadow: inset 0 8px 16px rgba(0,0,0,0.06);">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="text-center mb-14">
-                    <p class="mono-label mb-3">
+                <div
+                    class="text-center"
+                    style="
+                        margin-top: 64px;
+                        padding-top: 56px;
+                        border-top: 1px solid var(--border);
+                    "
+                >
+                    <p class="mono-label mb-3" style="color: var(--brand)">
                         <span data-lang-inline="en" class="active"
-                            >Personalize</span
+                            >Make It Yours</span
                         >
-                        <span data-lang-inline="es">Personalice</span>
-                        <span data-lang-inline="pt">Personalize</span>
-                        <span data-lang-inline="fr">Personnalisez</span>
+                        <span data-lang-inline="es">Hágala Suya</span>
+                        <span data-lang-inline="pt">Torne-a Sua</span>
+                        <span data-lang-inline="fr">Faites-la Vôtre</span>
                     </p>
                     <h2 class="section-heading mb-4">
                         <span data-lang-inline="en" class="active"
-                            >Personalize Your Experience</span
+                            >Now, Personalize Your Trip</span
                         >
                         <span data-lang-inline="es"
-                            >Personalice su Experiencia</span
+                            >Ahora, Personalice su Viaje</span
                         >
                         <span data-lang-inline="pt"
-                            >Personalize a sua Experiência</span
+                            >Agora, Personalize a sua Viagem</span
                         >
                         <span data-lang-inline="fr"
-                            >Personnalisez votre Expérience</span
+                            >Maintenant, Personnalisez votre Voyage</span
                         >
                     </h2>
                     <p
@@ -1379,25 +1544,34 @@
                         "
                     >
                         <span data-lang-inline="en" class="active"
-                            >No two experiences are the same. Choose the
-                            themes that suit you best.</span
+                            >Pick your experience above, then explore the
+                            themes and special extras below to shape it
+                            around you.</span
                         >
                         <span data-lang-inline="es"
-                            >No existen dos experiencias iguales. Elija los
-                            temas que más le combinen.</span
+                            >Elija su experiencia arriba y luego explore los
+                            temas y extras especiales para adaptarla a
+                            usted.</span
                         >
                         <span data-lang-inline="pt"
-                            >Não existem duas experiências iguais. Escolha os
-                            temas que mais combinam consigo.</span
+                            >Escolha a sua experiência acima e depois
+                            explore os temas e extras especiais para a
+                            moldar à sua medida.</span
                         >
                         <span data-lang-inline="fr"
-                            >Il n'existe pas deux expériences identiques.
-                            Choisissez les thèmes qui vous correspondent le
-                            mieux.</span
+                            >Choisissez votre expérience ci-dessus, puis
+                            découvrez les thèmes et extras spéciaux pour la
+                            façonner selon vos envies.</span
                         >
                     </p>
                 </div>
+            </div>
+        </section>
 
+        <div id="experience-extra">
+        <!-- Personalize Your Experience Section (theme cards) -->
+        <section id="themes" style="padding: 80px 0; background: var(--surface); box-shadow: inset 0 8px 16px rgba(0,0,0,0.06);">
+            <div class="max-w-6xl mx-auto px-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Nature -->
                     <div class="theme-card">
@@ -1930,6 +2104,11 @@
                 </ul>
             </div>
         </section>
+        </div>
+        </div>
+        <!-- /tab-panel-experiencias -->
+
+        <div id="tab-panel-compromisso" data-panel="compromisso" class="tab-panel tab-hidden">
 
         <!-- Our Commitment Section -->
         <section id="commitment" style="padding: 80px 0">
@@ -2016,8 +2195,145 @@
             </div>
         </section>
 
+        <!-- Who We Are Section -->
+        <section id="about" style="padding: 80px 0; background: var(--surface); position: relative; z-index: 1; box-shadow: inset 0 8px 16px rgba(0,0,0,0.06);">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <p class="mono-label mb-3">
+                    <span data-lang-inline="en" class="active">Who we are</span>
+                    <span data-lang-inline="es">Quiénes somos</span>
+                    <span data-lang-inline="pt">Quem somos</span>
+                    <span data-lang-inline="fr">Qui sommes-nous</span>
+                </p>
+                <h2 class="section-heading">
+                    <span data-lang-inline="en" class="active">You don't visit a territory. You discover it.</span>
+                    <span data-lang-inline="es">Un territorio no se visita. Se descubre.</span>
+                    <span data-lang-inline="pt">Um território não se visita. Descobre-se.</span>
+                    <span data-lang-inline="fr">Un territoire ne se visite pas. Il se découvre.</span>
+                </h2>
+            </div>
+
+            <div class="max-w-3xl mx-auto" style="color: var(--muted); font-size: 1rem; font-weight: 350; letter-spacing: -0.01em; line-height: 1.75;">
+                <p class="mb-4">
+                    <span data-lang-inline="en" class="active">At Arrábida Land Stories, we believe a territory isn't visited. It's discovered — by walking its trails, listening to the stories of those who live here, tasting its flavors, and respecting the rhythms of nature.</span>
+                    <span data-lang-inline="es">En Arrábida Land Stories creemos que un territorio no se visita. Se descubre caminando por sus senderos, escuchando las historias de quienes viven aquí, probando sus sabores y respetando los ritmos de la naturaleza.</span>
+                    <span data-lang-inline="pt">Na Arrábida Land Stories acreditamos que um território não se visita. Descobre-se caminhando pelos seus trilhos, ouvindo as histórias de quem aqui vive, provando os seus sabores e respeitando os ritmos da natureza.</span>
+                    <span data-lang-inline="fr">Chez Arrábida Land Stories, nous croyons qu'un territoire ne se visite pas. Il se découvre en marchant sur ses sentiers, en écoutant les histoires de ceux qui y vivent, en goûtant ses saveurs et en respectant les rythmes de la nature.</span>
+                </p>
+                <p class="mb-4">
+                    <span data-lang-inline="en" class="active">It was this desire to reveal an authentic Arrábida that gave rise to Arrábida Land Stories. We create hikes, jeep tours, and van experiences that go beyond the best-known spots, taking you to discover viewpoints, fishing villages, beaches, family-run wineries, local producers, and landscapes where nature and culture remain genuinely connected.</span>
+                    <span data-lang-inline="es">De este deseo de revelar una Arrábida auténtica nació Arrábida Land Stories. Creamos caminatas, paseos en jeep y experiencias en furgoneta que van más allá de los lugares más conocidos, llevándole a descubrir miradores, aldeas de pescadores, playas, bodegas familiares, productores locales y paisajes donde la naturaleza y la cultura siguen unidas de forma genuina.</span>
+                    <span data-lang-inline="pt">Foi desta vontade de revelar uma Arrábida autêntica que nasceu a Arrábida Land Stories. Criamos caminhadas, passeios de jipe e experiências em van que vão além dos locais mais conhecidos, levando-o a descobrir miradouros, aldeias piscatórias, praias, adegas familiares, produtores locais e paisagens onde natureza e cultura continuam ligadas de forma genuína.</span>
+                    <span data-lang-inline="fr">C'est de cette volonté de révéler une Arrábida authentique qu'est née Arrábida Land Stories. Nous créons des randonnées, des excursions en jeep et des expériences en van qui vont au-delà des lieux les plus connus, en vous emmenant découvrir des points de vue, des villages de pêcheurs, des plages, des domaines viticoles familiaux, des producteurs locaux et des paysages où nature et culture restent liées de façon authentique.</span>
+                </p>
+
+                <h3 class="card-heading" style="color: var(--black); margin-top: 2.25rem; margin-bottom: 0.75rem;">
+                    <span data-lang-inline="en" class="active">Our way of exploring</span>
+                    <span data-lang-inline="es">Nuestra forma de explorar</span>
+                    <span data-lang-inline="pt">A nossa forma de explorar</span>
+                    <span data-lang-inline="fr">Notre façon d'explorer</span>
+                </h3>
+                <p class="mb-4">
+                    <span data-lang-inline="en" class="active">Some prefer maps. We follow the land. We take inspiration from the fox, one of the most emblematic animals of the Serra da Arrábida — it observes before moving forward, knows every trail, and moves with respect for the place it calls home. That's how we explore Arrábida: getting to know it throughout the year and adapting each experience to the moment, the people, and nature. More than following an itinerary, we seek to reveal the essence of the land.</span>
+                    <span data-lang-inline="es">Hay quien sigue mapas. Nosotros seguimos el territorio. Nos inspiramos en el zorro, uno de los animales más emblemáticos de la Sierra de Arrábida: observa antes de avanzar, conoce cada sendero y se mueve con respeto por el lugar donde vive. Así es como exploramos Arrábida: la conocemos a lo largo de todo el año y adaptamos cada experiencia al momento, a las personas y a la naturaleza. Más que seguir un itinerario, buscamos revelar la esencia del territorio.</span>
+                    <span data-lang-inline="pt">Há quem siga mapas. Nós seguimos o território. Inspiramo-nos na raposa, um dos animais mais emblemáticos da Serra da Arrábida: observa antes de avançar, conhece cada trilho e move-se com respeito pelo lugar onde vive. É assim que exploramos a Arrábida: conhecemo-la ao longo de todo o ano e adaptamos cada experiência ao momento, às pessoas e à natureza. Mais do que seguir um itinerário, procuramos revelar a essência do território.</span>
+                    <span data-lang-inline="fr">Certains suivent des cartes. Nous suivons le territoire. Nous nous inspirons du renard, l'un des animaux les plus emblématiques de la Serra da Arrábida : il observe avant d'avancer, connaît chaque sentier et se déplace avec respect pour le lieu où il vit. C'est ainsi que nous explorons l'Arrábida : nous la connaissons tout au long de l'année et adaptons chaque expérience au moment, aux personnes et à la nature. Plus que suivre un itinéraire, nous cherchons à révéler l'essence du territoire.</span>
+                </p>
+
+                <h3 class="card-heading" style="color: var(--black); margin-top: 2.25rem; margin-bottom: 0.75rem;">
+                    <span data-lang-inline="en" class="active">More than a guide</span>
+                    <span data-lang-inline="es">Más que un guía</span>
+                    <span data-lang-inline="pt">Mais do que um guia</span>
+                    <span data-lang-inline="fr">Plus qu'un guide</span>
+                </h3>
+                <p class="mb-4">
+                    <span data-lang-inline="en" class="active">We don't just want to show you places — we want to help you understand Arrábida. We share stories about the Natural Park, the fishing communities, the winemaking tradition, the gastronomy, and the people who preserve this region's identity. Every experience is personalized, because we believe every visitor discovers Arrábida differently.</span>
+                    <span data-lang-inline="es">No queremos solo mostrarle lugares: queremos ayudarle a comprender Arrábida. Compartimos historias sobre el Parque Natural, las comunidades de pescadores, la tradición vinícola, la gastronomía y las personas que preservan la identidad de esta región. Cada experiencia es personalizada, porque creemos que cada visitante descubre Arrábida de forma diferente.</span>
+                    <span data-lang-inline="pt">Não queremos apenas mostrar lugares: queremos ajudá-lo a compreender a Arrábida. Partilhamos histórias sobre o Parque Natural, as comunidades piscatórias, a tradição vinícola, a gastronomia e as pessoas que preservam a identidade desta região. Cada experiência é personalizada, porque acreditamos que cada visitante descobre a Arrábida de forma diferente.</span>
+                    <span data-lang-inline="fr">Nous ne voulons pas seulement vous montrer des lieux : nous voulons vous aider à comprendre l'Arrábida. Nous partageons des histoires sur le Parc Naturel, les communautés de pêcheurs, la tradition viticole, la gastronomie et les personnes qui préservent l'identité de cette région. Chaque expérience est personnalisée, car nous croyons que chaque visiteur découvre l'Arrábida différemment.</span>
+                </p>
+
+                <h3 class="card-heading" style="color: var(--black); margin-top: 2.25rem; margin-bottom: 0.75rem;">
+                    <span data-lang-inline="en" class="active">Our values</span>
+                    <span data-lang-inline="es">Nuestros valores</span>
+                    <span data-lang-inline="pt">Os nossos valores</span>
+                    <span data-lang-inline="fr">Nos valeurs</span>
+                </h3>
+                <p class="mb-4">
+                    <span data-lang-inline="en" class="active">Everything we do is built on six principles:</span>
+                    <span data-lang-inline="es">Todo lo que hacemos se basa en seis principios:</span>
+                    <span data-lang-inline="pt">Tudo o que fazemos assenta em seis princípios:</span>
+                    <span data-lang-inline="fr">Tout ce que nous faisons repose sur six principes :</span>
+                </p>
+                <ul class="mb-4" style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <li style="border: 1.5px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.875rem; color: var(--black);">
+                        <span data-lang-inline="en" class="active">Curiosity</span>
+                        <span data-lang-inline="es">Curiosidad</span>
+                        <span data-lang-inline="pt">Curiosidade</span>
+                        <span data-lang-inline="fr">Curiosité</span>
+                    </li>
+                    <li style="border: 1.5px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.875rem; color: var(--black);">
+                        <span data-lang-inline="en" class="active">Knowledge</span>
+                        <span data-lang-inline="es">Conocimiento</span>
+                        <span data-lang-inline="pt">Conhecimento</span>
+                        <span data-lang-inline="fr">Connaissance</span>
+                    </li>
+                    <li style="border: 1.5px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.875rem; color: var(--black);">
+                        <span data-lang-inline="en" class="active">Observation</span>
+                        <span data-lang-inline="es">Observación</span>
+                        <span data-lang-inline="pt">Observação</span>
+                        <span data-lang-inline="fr">Observation</span>
+                    </li>
+                    <li style="border: 1.5px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.875rem; color: var(--black);">
+                        <span data-lang-inline="en" class="active">Adaptation</span>
+                        <span data-lang-inline="es">Adaptación</span>
+                        <span data-lang-inline="pt">Adaptação</span>
+                        <span data-lang-inline="fr">Adaptation</span>
+                    </li>
+                    <li style="border: 1.5px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.875rem; color: var(--black);">
+                        <span data-lang-inline="en" class="active">Respect</span>
+                        <span data-lang-inline="es">Respeto</span>
+                        <span data-lang-inline="pt">Respeito</span>
+                        <span data-lang-inline="fr">Respect</span>
+                    </li>
+                    <li style="border: 1.5px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.875rem; color: var(--black);">
+                        <span data-lang-inline="en" class="active">Discretion</span>
+                        <span data-lang-inline="es">Discreción</span>
+                        <span data-lang-inline="pt">Discrição</span>
+                        <span data-lang-inline="fr">Discrétion</span>
+                    </li>
+                </ul>
+
+                <h3 class="card-heading" style="color: var(--black); margin-top: 2.25rem; margin-bottom: 0.75rem;">
+                    <span data-lang-inline="en" class="active">Our commitment</span>
+                    <span data-lang-inline="es">Nuestro compromiso</span>
+                    <span data-lang-inline="pt">O nosso compromisso</span>
+                    <span data-lang-inline="fr">Notre engagement</span>
+                </h3>
+                <p class="mb-4">
+                    <span data-lang-inline="en" class="active">We want to create memorable experiences that also leave a positive impact. We value local producers, respect the land, and promote a more conscious and sustainable way of traveling — because we believe that those who truly get to know Arrábida also come to want to protect it.</span>
+                    <span data-lang-inline="es">Queremos crear experiencias memorables que también dejen un impacto positivo. Valoramos a los productores locales, respetamos el territorio y promovemos una forma de viajar más consciente y sostenible, porque creemos que quien conoce verdaderamente Arrábida también quiere protegerla.</span>
+                    <span data-lang-inline="pt">Queremos criar experiências memoráveis que deixem também um impacto positivo. Valorizamos os produtores locais, respeitamos o território e promovemos uma forma de viajar mais consciente e sustentável, porque acreditamos que quem conhece verdadeiramente a Arrábida passa também a querer protegê-la.</span>
+                    <span data-lang-inline="fr">Nous voulons créer des expériences mémorables qui laissent aussi un impact positif. Nous valorisons les producteurs locaux, respectons le territoire et promouvons une façon de voyager plus consciente et durable, car nous croyons que celui qui connaît vraiment l'Arrábida a aussi envie de la protéger.</span>
+                </p>
+
+                <p class="text-center mt-8" style="font-weight: 600; color: var(--black); font-size: 1.05rem;">
+                    <span data-lang-inline="en" class="active">We don't just show you Arrábida. We invite you to become part of it.</span>
+                    <span data-lang-inline="es">No solo le mostramos Arrábida. Le invitamos a formar parte de ella.</span>
+                    <span data-lang-inline="pt">Não mostramos apenas a Arrábida. Convidamo-lo a fazer parte dela.</span>
+                    <span data-lang-inline="fr">Nous ne vous montrons pas seulement l'Arrábida. Nous vous invitons à en faire partie.</span>
+                </p>
+            </div>
+        </div>
+        </section>
+
+        </div>
+        <!-- /tab-panel-compromisso -->
+
+        <div id="tab-panel-como-funciona" data-panel="como-funciona" class="tab-panel tab-hidden">
+
         <!-- How It Works Section -->
-        <section id="how-it-works" style="padding: 80px 0; background: var(--surface); box-shadow: inset 0 8px 16px rgba(0,0,0,0.06);">
+        <section id="how-it-works" style="padding: 80px 0">
             <div class="max-w-6xl mx-auto px-4">
                 <div class="text-center mb-14">
                     <p class="mono-label mb-3">
@@ -2162,106 +2478,130 @@
                     </p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" style="max-width: 720px; margin: 0 auto;">
-                    <div class="theme-card">
-                        <div class="theme-card-icon">🚙</div>
-                        <h3 class="card-heading mb-2">Jipe Privado</h3>
-                        <p
+                    <div class="theme-card" style="padding: 0; overflow: hidden">
+                        <img
+                            src="Imagens/Jipe/P1510576.webp"
+                            alt="Jipe privado na Serra da Arrábida"
                             style="
-                                font-family: var(--font-mono);
-                                font-size: 0.8rem;
-                                color: var(--brand);
-                                text-transform: uppercase;
-                                letter-spacing: 0.06em;
-                                margin-bottom: 10px;
+                                display: block;
+                                width: 100%;
+                                height: 240px;
+                                object-fit: cover;
+                                object-position: center 72%;
                             "
-                        >
-                            <span data-lang-inline="en" class="active"
-                                >Up to 6 participants</span
+                        />
+                        <div style="padding: 20px 24px 28px">
+                            <h3 class="card-heading mb-2">Jipe Privado</h3>
+                            <p
+                                style="
+                                    font-family: var(--font-mono);
+                                    font-size: 0.8rem;
+                                    color: var(--brand);
+                                    text-transform: uppercase;
+                                    letter-spacing: 0.06em;
+                                    margin-bottom: 10px;
+                                "
                             >
-                            <span data-lang-inline="es"
-                                >Hasta 6 participantes</span
-                            >
-                            <span data-lang-inline="pt"
-                                >Até 6 participantes</span
-                            >
-                            <span data-lang-inline="fr"
-                                >Jusqu'à 6 participants</span
-                            >
-                        </p>
-                        <p class="theme-card-text">
-                            <span data-lang-inline="en" class="active"
-                                >An experience closer to the landscape,
-                                ideal for discovering trails and viewpoints
-                                in Arrábida.</span
-                            >
-                            <span data-lang-inline="es"
-                                >Una experiencia más cercana al paisaje,
-                                ideal para descubrir caminos y miradores de
-                                Arrábida.</span
-                            >
-                            <span data-lang-inline="pt"
-                                >Uma experiência mais próxima da paisagem,
-                                ideal para descobrir caminhos e miradouros
-                                da Arrábida.</span
-                            >
-                            <span data-lang-inline="fr"
-                                >Une expérience plus proche du paysage,
-                                idéale pour découvrir les sentiers et
-                                points de vue de l'Arrábida.</span
-                            >
-                        </p>
+                                <span data-lang-inline="en" class="active"
+                                    >Up to 6 participants</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Hasta 6 participantes</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Até 6 participantes</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Jusqu'à 6 participants</span
+                                >
+                            </p>
+                            <p class="theme-card-text">
+                                <span data-lang-inline="en" class="active"
+                                    >An experience closer to the landscape,
+                                    ideal for discovering trails and
+                                    viewpoints in Arrábida.</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Una experiencia más cercana al paisaje,
+                                    ideal para descubrir caminos y miradores
+                                    de Arrábida.</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Uma experiência mais próxima da
+                                    paisagem, ideal para descobrir caminhos
+                                    e miradouros da Arrábida.</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Une expérience plus proche du paysage,
+                                    idéale pour découvrir les sentiers et
+                                    points de vue de l'Arrábida.</span
+                                >
+                            </p>
+                        </div>
                     </div>
-                    <div class="theme-card">
-                        <div class="theme-card-icon">🚐</div>
-                        <h3 class="card-heading mb-2">Mercedes Premium</h3>
-                        <p
+                    <div class="theme-card" style="padding: 0; overflow: hidden">
+                        <img
+                            src="Imagens/van/P1540164.webp"
+                            alt="Mercedes Premium junto a Vila Nogueira de Azeitão"
                             style="
-                                font-family: var(--font-mono);
-                                font-size: 0.8rem;
-                                color: var(--brand);
-                                text-transform: uppercase;
-                                letter-spacing: 0.06em;
-                                margin-bottom: 10px;
+                                display: block;
+                                width: 100%;
+                                height: 240px;
+                                object-fit: cover;
+                                object-position: center 72%;
                             "
-                        >
-                            <span data-lang-inline="en" class="active"
-                                >Up to 7 participants</span
+                        />
+                        <div style="padding: 20px 24px 28px">
+                            <h3 class="card-heading mb-2">Mercedes Premium</h3>
+                            <p
+                                style="
+                                    font-family: var(--font-mono);
+                                    font-size: 0.8rem;
+                                    color: var(--brand);
+                                    text-transform: uppercase;
+                                    letter-spacing: 0.06em;
+                                    margin-bottom: 10px;
+                                "
                             >
-                            <span data-lang-inline="es"
-                                >Hasta 7 participantes</span
-                            >
-                            <span data-lang-inline="pt"
-                                >Até 7 participantes</span
-                            >
-                            <span data-lang-inline="fr"
-                                >Jusqu'à 7 participants</span
-                            >
-                        </p>
-                        <p class="theme-card-text">
-                            <span data-lang-inline="en" class="active"
-                                >Comfort and space to explore the region at
-                                ease.</span
-                            >
-                            <span data-lang-inline="es"
-                                >Comodidad y espacio para explorar la región
-                                con tranquilidad.</span
-                            >
-                            <span data-lang-inline="pt"
-                                >Conforto e espaço para explorar a região
-                                com tranquilidade.</span
-                            >
-                            <span data-lang-inline="fr"
-                                >Confort et espace pour explorer la région
-                                en toute tranquillité.</span
-                            >
-                        </p>
+                                <span data-lang-inline="en" class="active"
+                                    >Up to 7 participants</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Hasta 7 participantes</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Até 7 participantes</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Jusqu'à 7 participants</span
+                                >
+                            </p>
+                            <p class="theme-card-text">
+                                <span data-lang-inline="en" class="active"
+                                    >Comfort and space to explore the
+                                    region at ease.</span
+                                >
+                                <span data-lang-inline="es"
+                                    >Comodidad y espacio para explorar la
+                                    región con tranquilidad.</span
+                                >
+                                <span data-lang-inline="pt"
+                                    >Conforto e espaço para explorar a
+                                    região com tranquilidade.</span
+                                >
+                                <span data-lang-inline="fr"
+                                    >Confort et espace pour explorer la
+                                    région en toute tranquillité.</span
+                                >
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Pricing Section -->
-        <section id="pricing" style="padding: 80px 0; background: var(--surface); box-shadow: inset 0 8px 16px rgba(0,0,0,0.06);">
+        <section id="pricing" style="padding: 80px 0">
             <div class="max-w-3xl mx-auto px-4 text-center">
                 <p class="mono-label mb-3">
                     <span data-lang-inline="en" class="active">Pricing</span>
@@ -2395,6 +2735,10 @@
                 </p>
             </div>
         </section>
+        </div>
+        <!-- /tab-panel-como-funciona -->
+        </div>
+        <!-- /data-panels="main" -->
 
         <!-- Final Booking CTA Section -->
         <section id="book-experience" style="padding: 96px 0; background: var(--black); color: var(--white);">
@@ -3324,826 +3668,6 @@
         </section>
         </template>
         <!-- /tours-section-disabled -->
-
-        <section id="about" style="padding: 80px 0; background: var(--surface); position: relative; z-index: 1; box-shadow: inset 0 8px 16px rgba(0,0,0,0.06);">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-14">
-                <p class="mono-label mb-3">
-                    <span data-lang-inline="en" class="active">Who we are</span>
-                    <span data-lang-inline="es">Quiénes somos</span>
-                    <span data-lang-inline="pt">Quem somos</span>
-                    <span data-lang-inline="fr">Qui sommes-nous</span>
-                </p>
-                <h2 class="section-heading">
-                    <span data-lang-inline="en" class="active">You don't visit a territory. You discover it.</span>
-                    <span data-lang-inline="es">Un territorio no se visita. Se descubre.</span>
-                    <span data-lang-inline="pt">Um território não se visita. Descobre-se.</span>
-                    <span data-lang-inline="fr">Un territoire ne se visite pas. Il se découvre.</span>
-                </h2>
-            </div>
-
-            <div class="max-w-3xl mx-auto" style="color: var(--muted); font-size: 1rem; font-weight: 350; letter-spacing: -0.01em; line-height: 1.75;">
-                <p class="mb-4">
-                    <span data-lang-inline="en" class="active">At Arrábida Land Stories, we believe a territory isn't visited. It's discovered — by walking its trails, listening to the stories of those who live here, tasting its flavors, and respecting the rhythms of nature.</span>
-                    <span data-lang-inline="es">En Arrábida Land Stories creemos que un territorio no se visita. Se descubre caminando por sus senderos, escuchando las historias de quienes viven aquí, probando sus sabores y respetando los ritmos de la naturaleza.</span>
-                    <span data-lang-inline="pt">Na Arrábida Land Stories acreditamos que um território não se visita. Descobre-se caminhando pelos seus trilhos, ouvindo as histórias de quem aqui vive, provando os seus sabores e respeitando os ritmos da natureza.</span>
-                    <span data-lang-inline="fr">Chez Arrábida Land Stories, nous croyons qu'un territoire ne se visite pas. Il se découvre en marchant sur ses sentiers, en écoutant les histoires de ceux qui y vivent, en goûtant ses saveurs et en respectant les rythmes de la nature.</span>
-                </p>
-                <p class="mb-4">
-                    <span data-lang-inline="en" class="active">It was this desire to reveal an authentic Arrábida that gave rise to Arrábida Land Stories. We create hikes, jeep tours, and van experiences that go beyond the best-known spots, taking you to discover viewpoints, fishing villages, beaches, family-run wineries, local producers, and landscapes where nature and culture remain genuinely connected.</span>
-                    <span data-lang-inline="es">De este deseo de revelar una Arrábida auténtica nació Arrábida Land Stories. Creamos caminatas, paseos en jeep y experiencias en furgoneta que van más allá de los lugares más conocidos, llevándole a descubrir miradores, aldeas de pescadores, playas, bodegas familiares, productores locales y paisajes donde la naturaleza y la cultura siguen unidas de forma genuina.</span>
-                    <span data-lang-inline="pt">Foi desta vontade de revelar uma Arrábida autêntica que nasceu a Arrábida Land Stories. Criamos caminhadas, passeios de jipe e experiências em van que vão além dos locais mais conhecidos, levando-o a descobrir miradouros, aldeias piscatórias, praias, adegas familiares, produtores locais e paisagens onde natureza e cultura continuam ligadas de forma genuína.</span>
-                    <span data-lang-inline="fr">C'est de cette volonté de révéler une Arrábida authentique qu'est née Arrábida Land Stories. Nous créons des randonnées, des excursions en jeep et des expériences en van qui vont au-delà des lieux les plus connus, en vous emmenant découvrir des points de vue, des villages de pêcheurs, des plages, des domaines viticoles familiaux, des producteurs locaux et des paysages où nature et culture restent liées de façon authentique.</span>
-                </p>
-
-                <h3 class="card-heading" style="color: var(--black); margin-top: 2.25rem; margin-bottom: 0.75rem;">
-                    <span data-lang-inline="en" class="active">Our way of exploring</span>
-                    <span data-lang-inline="es">Nuestra forma de explorar</span>
-                    <span data-lang-inline="pt">A nossa forma de explorar</span>
-                    <span data-lang-inline="fr">Notre façon d'explorer</span>
-                </h3>
-                <p class="mb-4">
-                    <span data-lang-inline="en" class="active">Some prefer maps. We follow the land. We take inspiration from the fox, one of the most emblematic animals of the Serra da Arrábida — it observes before moving forward, knows every trail, and moves with respect for the place it calls home. That's how we explore Arrábida: getting to know it throughout the year and adapting each experience to the moment, the people, and nature. More than following an itinerary, we seek to reveal the essence of the land.</span>
-                    <span data-lang-inline="es">Hay quien sigue mapas. Nosotros seguimos el territorio. Nos inspiramos en el zorro, uno de los animales más emblemáticos de la Sierra de Arrábida: observa antes de avanzar, conoce cada sendero y se mueve con respeto por el lugar donde vive. Así es como exploramos Arrábida: la conocemos a lo largo de todo el año y adaptamos cada experiencia al momento, a las personas y a la naturaleza. Más que seguir un itinerario, buscamos revelar la esencia del territorio.</span>
-                    <span data-lang-inline="pt">Há quem siga mapas. Nós seguimos o território. Inspiramo-nos na raposa, um dos animais mais emblemáticos da Serra da Arrábida: observa antes de avançar, conhece cada trilho e move-se com respeito pelo lugar onde vive. É assim que exploramos a Arrábida: conhecemo-la ao longo de todo o ano e adaptamos cada experiência ao momento, às pessoas e à natureza. Mais do que seguir um itinerário, procuramos revelar a essência do território.</span>
-                    <span data-lang-inline="fr">Certains suivent des cartes. Nous suivons le territoire. Nous nous inspirons du renard, l'un des animaux les plus emblématiques de la Serra da Arrábida : il observe avant d'avancer, connaît chaque sentier et se déplace avec respect pour le lieu où il vit. C'est ainsi que nous explorons l'Arrábida : nous la connaissons tout au long de l'année et adaptons chaque expérience au moment, aux personnes et à la nature. Plus que suivre un itinéraire, nous cherchons à révéler l'essence du territoire.</span>
-                </p>
-
-                <h3 class="card-heading" style="color: var(--black); margin-top: 2.25rem; margin-bottom: 0.75rem;">
-                    <span data-lang-inline="en" class="active">More than a guide</span>
-                    <span data-lang-inline="es">Más que un guía</span>
-                    <span data-lang-inline="pt">Mais do que um guia</span>
-                    <span data-lang-inline="fr">Plus qu'un guide</span>
-                </h3>
-                <p class="mb-4">
-                    <span data-lang-inline="en" class="active">We don't just want to show you places — we want to help you understand Arrábida. We share stories about the Natural Park, the fishing communities, the winemaking tradition, the gastronomy, and the people who preserve this region's identity. Every experience is personalized, because we believe every visitor discovers Arrábida differently.</span>
-                    <span data-lang-inline="es">No queremos solo mostrarle lugares: queremos ayudarle a comprender Arrábida. Compartimos historias sobre el Parque Natural, las comunidades de pescadores, la tradición vinícola, la gastronomía y las personas que preservan la identidad de esta región. Cada experiencia es personalizada, porque creemos que cada visitante descubre Arrábida de forma diferente.</span>
-                    <span data-lang-inline="pt">Não queremos apenas mostrar lugares: queremos ajudá-lo a compreender a Arrábida. Partilhamos histórias sobre o Parque Natural, as comunidades piscatórias, a tradição vinícola, a gastronomia e as pessoas que preservam a identidade desta região. Cada experiência é personalizada, porque acreditamos que cada visitante descobre a Arrábida de forma diferente.</span>
-                    <span data-lang-inline="fr">Nous ne voulons pas seulement vous montrer des lieux : nous voulons vous aider à comprendre l'Arrábida. Nous partageons des histoires sur le Parc Naturel, les communautés de pêcheurs, la tradition viticole, la gastronomie et les personnes qui préservent l'identité de cette région. Chaque expérience est personnalisée, car nous croyons que chaque visiteur découvre l'Arrábida différemment.</span>
-                </p>
-
-                <h3 class="card-heading" style="color: var(--black); margin-top: 2.25rem; margin-bottom: 0.75rem;">
-                    <span data-lang-inline="en" class="active">Our values</span>
-                    <span data-lang-inline="es">Nuestros valores</span>
-                    <span data-lang-inline="pt">Os nossos valores</span>
-                    <span data-lang-inline="fr">Nos valeurs</span>
-                </h3>
-                <p class="mb-4">
-                    <span data-lang-inline="en" class="active">Everything we do is built on six principles:</span>
-                    <span data-lang-inline="es">Todo lo que hacemos se basa en seis principios:</span>
-                    <span data-lang-inline="pt">Tudo o que fazemos assenta em seis princípios:</span>
-                    <span data-lang-inline="fr">Tout ce que nous faisons repose sur six principes :</span>
-                </p>
-                <ul class="mb-4" style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                    <li style="border: 1.5px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.875rem; color: var(--black);">
-                        <span data-lang-inline="en" class="active">Curiosity</span>
-                        <span data-lang-inline="es">Curiosidad</span>
-                        <span data-lang-inline="pt">Curiosidade</span>
-                        <span data-lang-inline="fr">Curiosité</span>
-                    </li>
-                    <li style="border: 1.5px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.875rem; color: var(--black);">
-                        <span data-lang-inline="en" class="active">Knowledge</span>
-                        <span data-lang-inline="es">Conocimiento</span>
-                        <span data-lang-inline="pt">Conhecimento</span>
-                        <span data-lang-inline="fr">Connaissance</span>
-                    </li>
-                    <li style="border: 1.5px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.875rem; color: var(--black);">
-                        <span data-lang-inline="en" class="active">Observation</span>
-                        <span data-lang-inline="es">Observación</span>
-                        <span data-lang-inline="pt">Observação</span>
-                        <span data-lang-inline="fr">Observation</span>
-                    </li>
-                    <li style="border: 1.5px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.875rem; color: var(--black);">
-                        <span data-lang-inline="en" class="active">Adaptation</span>
-                        <span data-lang-inline="es">Adaptación</span>
-                        <span data-lang-inline="pt">Adaptação</span>
-                        <span data-lang-inline="fr">Adaptation</span>
-                    </li>
-                    <li style="border: 1.5px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.875rem; color: var(--black);">
-                        <span data-lang-inline="en" class="active">Respect</span>
-                        <span data-lang-inline="es">Respeto</span>
-                        <span data-lang-inline="pt">Respeito</span>
-                        <span data-lang-inline="fr">Respect</span>
-                    </li>
-                    <li style="border: 1.5px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.875rem; color: var(--black);">
-                        <span data-lang-inline="en" class="active">Discretion</span>
-                        <span data-lang-inline="es">Discreción</span>
-                        <span data-lang-inline="pt">Discrição</span>
-                        <span data-lang-inline="fr">Discrétion</span>
-                    </li>
-                </ul>
-
-                <h3 class="card-heading" style="color: var(--black); margin-top: 2.25rem; margin-bottom: 0.75rem;">
-                    <span data-lang-inline="en" class="active">Our commitment</span>
-                    <span data-lang-inline="es">Nuestro compromiso</span>
-                    <span data-lang-inline="pt">O nosso compromisso</span>
-                    <span data-lang-inline="fr">Notre engagement</span>
-                </h3>
-                <p class="mb-4">
-                    <span data-lang-inline="en" class="active">We want to create memorable experiences that also leave a positive impact. We value local producers, respect the land, and promote a more conscious and sustainable way of traveling — because we believe that those who truly get to know Arrábida also come to want to protect it.</span>
-                    <span data-lang-inline="es">Queremos crear experiencias memorables que también dejen un impacto positivo. Valoramos a los productores locales, respetamos el territorio y promovemos una forma de viajar más consciente y sostenible, porque creemos que quien conoce verdaderamente Arrábida también quiere protegerla.</span>
-                    <span data-lang-inline="pt">Queremos criar experiências memoráveis que deixem também um impacto positivo. Valorizamos os produtores locais, respeitamos o território e promovemos uma forma de viajar mais consciente e sustentável, porque acreditamos que quem conhece verdadeiramente a Arrábida passa também a querer protegê-la.</span>
-                    <span data-lang-inline="fr">Nous voulons créer des expériences mémorables qui laissent aussi un impact positif. Nous valorisons les producteurs locaux, respectons le territoire et promouvons une façon de voyager plus consciente et durable, car nous croyons que celui qui connaît vraiment l'Arrábida a aussi envie de la protéger.</span>
-                </p>
-
-                <p class="text-center mt-8" style="font-weight: 600; color: var(--black); font-size: 1.05rem;">
-                    <span data-lang-inline="en" class="active">We don't just show you Arrábida. We invite you to become part of it.</span>
-                    <span data-lang-inline="es">No solo le mostramos Arrábida. Le invitamos a formar parte de ella.</span>
-                    <span data-lang-inline="pt">Não mostramos apenas a Arrábida. Convidamo-lo a fazer parte dela.</span>
-                    <span data-lang-inline="fr">Nous ne vous montrons pas seulement l'Arrábida. Nous vous invitons à en faire partie.</span>
-                </p>
-            </div>
-        </div>
-        </section>
-
-        <!-- Terms and Conditions Section (inlined) -->
-        <section style="padding: 64px 0; background: var(--surface); position: relative; z-index: 1; box-shadow: inset 0 8px 16px rgba(0,0,0,0.06);">
-            <div class="max-w-6xl mx-auto px-4">
-                <!-- Main Terms and Conditions Button -->
-                <button
-                    onclick="toggleMainTerms()"
-                    class="w-full bg-white rounded-lg shadow-md px-6 py-4 mb-4 flex justify-between items-center hover:bg-gray-50 focus:outline-none"
-                >
-                    <h2 class="text-2xl font-bold">
-                        <span data-lang-inline="en" class="active"
-                            >General Terms and Conditions</span
-                        >
-                        <span data-lang-inline="es"
-                            >Términos y Condiciones Generales</span
-                        >
-                        <span data-lang-inline="pt"
-                            >Termos e Condições Gerais</span
-                        >
-                        <span data-lang-inline="fr">Conditions Générales</span>
-                    </h2>
-                    <svg
-                        class="w-6 h-6 transform transition-transform duration-200"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 9l-7 7-7-7"
-                        />
-                    </svg>
-                </button>
-                <div
-                    id="mainTermsContent"
-                    class="max-h-0 overflow-hidden transition-all duration-500"
-                >
-                    <div class="space-y-4">
-                        <div
-                            class="bg-white rounded-lg shadow-md overflow-hidden"
-                        >
-                            <button
-                                class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none"
-                                onclick="toggleTermsSection(this)"
-                            >
-                                <span
-                                    ><span data-lang-inline="en" class="active"
-                                        >1. Introduction</span
-                                    ><span data-lang-inline="es"
-                                        >1. Introducción</span
-                                    ><span data-lang-inline="pt"
-                                        >1. Introdução</span
-                                    ><span data-lang-inline="fr"
-                                        >1. Introduction</span
-                                    ></span
-                                >
-                                <svg
-                                    class="w-5 h-5 transform transition-transform duration-200"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 9l-7 7-7-7"
-                                    />
-                                </svg>
-                            </button>
-                            <div
-                                class="max-h-0 overflow-hidden transition-all duration-300"
-                            >
-                                <div class="px-6 pb-4 text-gray-600">
-                                    <p class="mb-3">
-                                        <span
-                                            data-lang-inline="en"
-                                            class="active"
-                                            >This document sets out the Terms
-                                            and Conditions governing the use of
-                                            the services offered by Arrábida Land Stories. By contracting our services,
-                                            the Traveler agrees to comply with
-                                            these Terms.</span
-                                        ><span data-lang-inline="es"
-                                            >Este documento establece los
-                                            Términos y Condiciones que rigen el
-                                            uso de los servicios ofrecidos por
-                                            Arrábida Land Stories. Al contratar
-                                            nuestros servicios, el Viajero
-                                            acepta cumplir con estos
-                                            Términos.</span
-                                        ><span data-lang-inline="pt"
-                                            >Este documento estabelece os Termos
-                                            e Condições que regem a utilização
-                                            dos serviços oferecidos pela Arrábida Land Stories. Ao contratar os nossos
-                                            serviços, o Viajante concorda em
-                                            cumprir estes Termos.</span
-                                        ><span data-lang-inline="fr"
-                                            >Ce document établit les Termes et
-                                            Conditions régissant l'utilisation
-                                            des services proposés par Arrábida Land Stories. En contractant nos
-                                            services, le Voyageur accepte de se
-                                            conformer à ces Conditions.</span
-                                        >
-                                    </p>
-                                    <p class="mb-3">
-                                        <span
-                                            data-lang-inline="pt"
-                                            class="active"
-                                            >A Arrábida Land Stories está registada
-                                            no Turismo de Portugal IP como
-                                            agente de animação turística de
-                                            natureza.</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white rounded-lg shadow-md overflow-hidden"
-                        >
-                            <button
-                                class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none"
-                                onclick="toggleTermsSection(this)"
-                            >
-                                <span
-                                    ><span data-lang-inline="en" class="active"
-                                        >2. Services Offered</span
-                                    ><span data-lang-inline="es"
-                                        >2. Servicios Ofrecidos</span
-                                    ><span data-lang-inline="pt"
-                                        >2. Serviços Oferecidos</span
-                                    ><span data-lang-inline="fr"
-                                        >2. Services Proposés</span
-                                    ></span
-                                >
-                                <svg
-                                    class="w-5 h-5 transform transition-transform duration-200"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 9l-7 7-7-7"
-                                    />
-                                </svg>
-                            </button>
-                            <div
-                                class="max-h-0 overflow-hidden transition-all duration-300"
-                            >
-                                <div class="px-6 pb-4 text-gray-600">
-                                    <p class="mb-3">
-                                        <span
-                                            data-lang-inline="en"
-                                            class="active"
-                                            >Arrábida Land Stories organizes group
-                                            travel experiences to destinations
-                                            that highlight nature, history and
-                                            culture. Services include travel
-                                            arrangements, transport, scheduled
-                                            activities and assistance throughout
-                                            the trip.</span
-                                        ><span data-lang-inline="es"
-                                            >Arrábida Land Stories organiza
-                                            experiencias de viaje en grupo a
-                                            destinos que destacan la naturaleza,
-                                            la historia y la cultura. Los
-                                            servicios incluyen arreglos de
-                                            viaje, transporte, actividades
-                                            programadas y asistencia durante
-                                            todo el viaje.</span
-                                        ><span data-lang-inline="pt"
-                                            >A Arrábida Land Stories organiza
-                                            experiências de viagem em grupo para
-                                            destinos que destacam a natureza,
-                                            história e cultura. Os serviços
-                                            incluem organização de viagens,
-                                            transporte, atividades programadas e
-                                            assistência durante toda a
-                                            viagem.</span
-                                        ><span data-lang-inline="fr"
-                                            >Arrábida Land Stories organise des
-                                            expériences de voyage en groupe vers
-                                            des destinations qui mettent en
-                                            valeur la nature, l'histoire et la
-                                            culture. Les services comprennent
-                                            l'organisation du voyage, le
-                                            transport, les activités programmées
-                                            et l'assistance tout au long du
-                                            voyage.</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white rounded-lg shadow-md overflow-hidden"
-                        >
-                            <button
-                                class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none"
-                                onclick="toggleTermsSection(this)"
-                            >
-                                <span
-                                    ><span data-lang-inline="en" class="active"
-                                        >3. Reservations, Price and
-                                        Payments</span
-                                    ><span data-lang-inline="es"
-                                        >3. Reservas, Precio y Pagos</span
-                                    ><span data-lang-inline="pt"
-                                        >3. Reservas, Preço e Pagamentos</span
-                                    ><span data-lang-inline="fr"
-                                        >3. Réservations, Prix et
-                                        Paiements</span
-                                    ></span
-                                >
-                                <svg
-                                    class="w-5 h-5 transform transition-transform duration-200"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 9l-7 7-7-7"
-                                    />
-                                </svg>
-                            </button>
-                            <div
-                                class="max-h-0 overflow-hidden transition-all duration-300"
-                            >
-                                <div class="px-6 pb-4 text-gray-600">
-                                    <p class="mb-3">
-                                        <span
-                                            data-lang-inline="en"
-                                            class="active"
-                                            >3.1 All reservations are subject to
-                                            availability and confirmation by
-                                            Arrábida Land Stories.</span
-                                        ><span data-lang-inline="es"
-                                            >3.1 Todas las reservas están
-                                            sujetas a disponibilidad y
-                                            confirmación por parte de Arrábida Land Stories.</span
-                                        ><span data-lang-inline="pt"
-                                            >3.1 Todas as reservas estão
-                                            sujeitas a disponibilidade e
-                                            confirmação por parte da Arrábida Land Stories.</span
-                                        ><span data-lang-inline="fr"
-                                            >3.1 Toutes les réservations sont
-                                            soumises à disponibilité et
-                                            confirmation par Arrábida Land Stories.</span
-                                        >
-                                    </p>
-                                    <p class="mb-3">
-                                        <span
-                                            data-lang-inline="pt"
-                                            class="active"
-                                            >3.2 O pagamento pode ser efetuado
-                                            por referência bancária, MB WAY ou
-                                            outros métodos acordados
-                                            previamente.</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white rounded-lg shadow-md overflow-hidden"
-                        >
-                            <button
-                                class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none"
-                                onclick="toggleTermsSection(this)"
-                            >
-                                <span
-                                    ><span data-lang-inline="en" class="active"
-                                        >4. Cancellations and Changes</span
-                                    ><span data-lang-inline="es"
-                                        >4. Cancelaciones y Cambios</span
-                                    ><span data-lang-inline="pt"
-                                        >4. Cancelamentos e Alterações</span
-                                    ><span data-lang-inline="fr"
-                                        >4. Annulations et Modifications</span
-                                    ></span
-                                >
-                                <svg
-                                    class="w-5 h-5 transform transition-transform duration-200"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 9l-7 7-7-7"
-                                    />
-                                </svg>
-                            </button>
-                            <div
-                                class="max-h-0 overflow-hidden transition-all duration-300"
-                            >
-                                <div class="px-6 pb-4 text-gray-600">
-                                    <p class="mb-2">
-                                        <strong
-                                            ><span
-                                                data-lang-inline="en"
-                                                class="active"
-                                                >4.1 Cancellations by the
-                                                Traveler:</span
-                                            ><span data-lang-inline="es"
-                                                >4.1 Cancelaciones por parte del
-                                                Viajero:</span
-                                            ><span data-lang-inline="pt"
-                                                >4.1 Cancelamentos pelo
-                                                Viajante:</span
-                                            ><span data-lang-inline="fr"
-                                                >4.1 Annulations par le
-                                                Voyageur:</span
-                                            ></strong
-                                        >
-                                    </p>
-                                    <p class="mb-3">
-                                        <span
-                                            data-lang-inline="en"
-                                            class="active"
-                                            >• Cancellations must be notified in
-                                            writing. Cancellations made up to 8
-                                            days before trips without organised
-                                            transport are entitled to a full
-                                            refund.</span
-                                        ><span data-lang-inline="es"
-                                            >• Las cancelaciones deben ser
-                                            notificadas por escrito. Las
-                                            cancelaciones realizadas hasta 8
-                                            días antes tendrán derecho a un
-                                            reembolso completo.</span
-                                        ><span data-lang-inline="pt"
-                                            >• Os cancelamentos devem ser
-                                            notificados por escrito.
-                                            Cancelamentos até 8 dias antes terão
-                                            direito a reembolso integral.</span
-                                        ><span data-lang-inline="fr"
-                                            >• Les annulations doivent être
-                                            notifiées par écrit. Les annulations
-                                            jusqu'à 8 jours avant donnent droit
-                                            à un remboursement intégral.</span
-                                        >
-                                    </p>
-                                    <p class="mb-2">
-                                        <strong
-                                            ><span
-                                                data-lang-inline="en"
-                                                class="active"
-                                                >4.2 Company
-                                                Cancellations:</span
-                                            ><span data-lang-inline="es"
-                                                >4.2 Cancelaciones de la
-                                                Empresa:</span
-                                            ><span data-lang-inline="pt"
-                                                >4.2 Cancelamentos pela
-                                                Empresa:</span
-                                            ><span data-lang-inline="fr"
-                                                >4.2 Annulations par
-                                                l'Entreprise:</span
-                                            ></strong
-                                        >
-                                    </p>
-                                    <p class="mb-3">
-                                        <span
-                                            data-lang-inline="en"
-                                            class="active"
-                                            >• We reserve the right to cancel
-                                            the trip at any time for any reason,
-                                            including lack of participants or
-                                            safety concerns.</span
-                                        ><span data-lang-inline="es"
-                                            >• Nos reservamos el derecho de
-                                            cancelar el viaje en cualquier
-                                            momento por cualquier motivo.</span
-                                        ><span data-lang-inline="pt"
-                                            >• Reservamos o direito de cancelar
-                                            a viagem a qualquer momento por
-                                            qualquer motivo.</span
-                                        ><span data-lang-inline="fr"
-                                            >• Nous nous réservons le droit
-                                            d'annuler le voyage à tout moment
-                                            pour quelque raison que ce
-                                            soit.</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white rounded-lg shadow-md overflow-hidden"
-                        >
-                            <button
-                                class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none"
-                                onclick="toggleTermsSection(this)"
-                            >
-                                <span
-                                    ><span data-lang-inline="en" class="active"
-                                        >5. Traveler Responsibilities</span
-                                    ><span data-lang-inline="es"
-                                        >5. Responsabilidades del Viajero</span
-                                    ><span data-lang-inline="pt"
-                                        >5. Responsabilidades do Viajante</span
-                                    ><span data-lang-inline="fr"
-                                        >5. Responsabilités du Voyageur</span
-                                    ></span
-                                >
-                                <svg
-                                    class="w-5 h-5 transform transition-transform duration-200"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 9l-7 7-7-7"
-                                    />
-                                </svg>
-                            </button>
-                            <div
-                                class="max-h-0 overflow-hidden transition-all duration-300"
-                            >
-                                <div class="px-6 pb-4 text-gray-600">
-                                    <p class="mb-2">
-                                        <span
-                                            data-lang-inline="en"
-                                            class="active"
-                                            >5.1 The Traveler is responsible for
-                                            ensuring they have all necessary and
-                                            valid documentation.</span
-                                        ><span data-lang-inline="es"
-                                            >5.1 El Viajero es responsable de
-                                            asegurarse de tener toda la
-                                            documentación necesaria y
-                                            válida.</span
-                                        ><span data-lang-inline="pt"
-                                            >5.1 O Viajante é responsável por
-                                            garantir que possui toda a
-                                            documentação necessária e
-                                            válida.</span
-                                        ><span data-lang-inline="fr"
-                                            >5.1 Le Voyageur est responsable de
-                                            s'assurer qu'il dispose de tous les
-                                            documents nécessaires et
-                                            valides.</span
-                                        >
-                                    </p>
-                                    <p class="mb-2">
-                                        <span
-                                            data-lang-inline="en"
-                                            class="active"
-                                            >5.2 The Traveler must inform us of
-                                            any medical conditions or special
-                                            needs at booking.</span
-                                        ><span data-lang-inline="es"
-                                            >5.2 El Viajero debe informarnos de
-                                            cualquier condición médica o
-                                            necesidad especial al momento de la
-                                            reserva.</span
-                                        ><span data-lang-inline="pt"
-                                            >5.2 O Viajante deve informar-nos
-                                            sobre quaisquer condições médicas ou
-                                            necessidades especiais no momento da
-                                            reserva.</span
-                                        ><span data-lang-inline="fr"
-                                            >5.2 Le Voyageur doit nous informer
-                                            de toute condition médicale ou
-                                            besoin spécial lors de la
-                                            réservation.</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white rounded-lg shadow-md overflow-hidden"
-                        >
-                            <button
-                                class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none"
-                                onclick="toggleTermsSection(this)"
-                            >
-                                <span
-                                    ><span data-lang-inline="en" class="active"
-                                        >6. Insurance</span
-                                    ><span data-lang-inline="es">6. Seguro</span
-                                    ><span data-lang-inline="pt">6. Seguro</span
-                                    ><span data-lang-inline="fr"
-                                        >6. Assurance</span
-                                    ></span
-                                >
-                                <svg
-                                    class="w-5 h-5 transform transition-transform duration-200"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 9l-7 7-7-7"
-                                    />
-                                </svg>
-                            </button>
-                            <div
-                                class="max-h-0 overflow-hidden transition-all duration-300"
-                            >
-                                <div class="px-6 pb-4 text-gray-600">
-                                    <p class="mb-3">
-                                        <span
-                                            data-lang-inline="en"
-                                            class="active"
-                                            >6.1 We maintain all compulsory
-                                            insurance required by national
-                                            legislation, including civil
-                                            liability and personal accident
-                                            insurance.</span
-                                        ><span data-lang-inline="es"
-                                            >6.1 Mantenemos todos los seguros
-                                            obligatorios requeridos por la
-                                            legislación nacional.</span
-                                        ><span data-lang-inline="pt"
-                                            >6.1 Mantemos todos os seguros
-                                            obrigatórios exigidos pela
-                                            legislação nacional, incluindo
-                                            seguros de responsabilidade civil e
-                                            acidentes pessoais.</span
-                                        ><span data-lang-inline="fr"
-                                            >6.1 Nous maintenons toutes les
-                                            assurances obligatoires requises par
-                                            la législation nationale.</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white rounded-lg shadow-md overflow-hidden"
-                        >
-                            <button
-                                class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none"
-                                onclick="toggleTermsSection(this)"
-                            >
-                                <span
-                                    ><span data-lang-inline="en" class="active"
-                                        >7. Image and Privacy</span
-                                    ><span data-lang-inline="es"
-                                        >7. Imagen y Privacidad</span
-                                    ><span data-lang-inline="pt"
-                                        >7. Imagem e Privacidade</span
-                                    ><span data-lang-inline="fr"
-                                        >7. Image et Confidentialité</span
-                                    ></span
-                                >
-                                <svg
-                                    class="w-5 h-5 transform transition-transform duration-200"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 9l-7 7-7-7"
-                                    />
-                                </svg>
-                            </button>
-                            <div
-                                class="max-h-0 overflow-hidden transition-all duration-300"
-                            >
-                                <div class="px-6 pb-4 text-gray-600">
-                                    <p class="mb-3">
-                                        <span
-                                            data-lang-inline="en"
-                                            class="active"
-                                            >7.1 The Traveler assigns to us the
-                                            rights to use their image for
-                                            professional purposes.</span
-                                        ><span data-lang-inline="es"
-                                            >7.1 El Viajero nos cede los
-                                            derechos de uso de su imagen con
-                                            fines profesionales.</span
-                                        ><span data-lang-inline="pt"
-                                            >7.1 O Viajante cede-nos os direitos
-                                            de utilização da sua imagem para
-                                            fins profissionais.</span
-                                        ><span data-lang-inline="fr"
-                                            >7.1 Le Voyageur nous cède les
-                                            droits d'utilisation de son image à
-                                            des fins professionnelles.</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white rounded-lg shadow-md overflow-hidden"
-                        >
-                            <button
-                                class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none"
-                                onclick="toggleTermsSection(this)"
-                            >
-                                <span
-                                    ><span data-lang-inline="en" class="active"
-                                        >8. Complaints and Disputes</span
-                                    ><span data-lang-inline="es"
-                                        >8. Quejas y Disputas</span
-                                    ><span data-lang-inline="pt"
-                                        >8. Reclamações e Disputas</span
-                                    ><span data-lang-inline="fr"
-                                        >8. Réclamations et Litiges</span
-                                    ></span
-                                >
-                                <svg
-                                    class="w-5 h-5 transform transition-transform duration-200"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 9l-7 7-7-7"
-                                    />
-                                </svg>
-                            </button>
-                            <div
-                                class="max-h-0 overflow-hidden transition-all duration-300"
-                            >
-                                <div class="px-6 pb-4 text-gray-600">
-                                    <p class="mb-3">
-                                        <span
-                                            data-lang-inline="en"
-                                            class="active"
-                                            >8.1 The Traveler may submit written
-                                            complaints within 20 days of the end
-                                            of the trip.</span
-                                        ><span data-lang-inline="es"
-                                            >8.1 El Viajero puede presentar
-                                            quejas por escrito dentro de los 20
-                                            días posteriores al final del
-                                            viaje.</span
-                                        ><span data-lang-inline="pt"
-                                            >8.1 O Viajante pode apresentar
-                                            reclamações por escrito no prazo de
-                                            20 dias após o final da
-                                            viagem.</span
-                                        ><span data-lang-inline="fr"
-                                            >8.1 Le Voyageur peut soumettre des
-                                            réclamations écrites dans les 20
-                                            jours suivant la fin du
-                                            voyage.</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8 text-center text-sm text-gray-500">
-                        <span data-lang-inline="en" class="active"
-                            >Last updated: April 10, 2025</span
-                        >
-                        <span data-lang-inline="es"
-                            >Última actualización: 10 de abril de 2025</span
-                        >
-                        <span data-lang-inline="pt"
-                            >Última atualização: 10 de abril de 2025</span
-                        >
-                        <span data-lang-inline="fr"
-                            >Dernière mise à jour : 10 avril 2025</span
-                        >
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Contact Section -->
         <section

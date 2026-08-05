@@ -1,5 +1,19 @@
 // HTML includes are now inlined — includeHTML() is no longer needed
 
+// The page always renders with "O Nosso Compromisso" as the default active
+// tab, but browsers restore the last scroll position on reload/back-forward
+// nav by default, which can land you deep inside whatever tab was open
+// last time even though a different tab is now the one actually showing.
+// Forcing manual restoration plus a scroll-to-top keeps reloads landing on
+// the default tab's content.
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.addEventListener('load', () => window.scrollTo(0, 0));
+window.addEventListener('pageshow', (e) => {
+    if (e.persisted) window.scrollTo(0, 0);
+});
+
 function setupMoreDetailsLinks() {
     // Select all links that have "details_rota_castelos.html" in the href
     document.querySelectorAll('a[href*="details_rota_castelos.html"]').forEach(link => {
@@ -350,6 +364,35 @@ function initializeDraggableRows() {
     });
 }
 
+// Auto-rotating photo carousels inside the "Personalize" theme cards —
+// each .theme-carousel just crossfades through whatever <img>s it contains.
+function initializeThemeCarousels() {
+    document.querySelectorAll('.theme-carousel').forEach(carousel => {
+        const images = carousel.querySelectorAll('img');
+        const dots = carousel.querySelectorAll('.theme-carousel-dot');
+        if (images.length <= 1) return;
+
+        let current = 0;
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                images[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = index;
+                images[current].classList.add('active');
+                dots[current].classList.add('active');
+            });
+        });
+
+        setInterval(() => {
+            images[current].classList.remove('active');
+            dots[current]?.classList.remove('active');
+            current = (current + 1) % images.length;
+            images[current].classList.add('active');
+            dots[current]?.classList.add('active');
+        }, 4000);
+    });
+}
+
 // Function to initialize carousels
 function initializeCarousels() {
     // For each tour in tourImages
@@ -511,6 +554,7 @@ document.addEventListener('DOMContentLoaded', function () {
         option.textContent = option.getAttribute('data-pt');
     });
     initializeCarousels();
+    initializeThemeCarousels();
     initializeHeroCarousel();
     initializeHeroVideoSequence();
     initializeDraggableRows();

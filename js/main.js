@@ -591,6 +591,7 @@ function toggleTermsSection(button) {
 
 //email
 const form = document.getElementById('contactForm');
+const submitMessage = document.getElementById('submitMessage');
 const successMessage = document.querySelector('.success-message');
 const errorMessage = document.querySelector('.error-message');
 
@@ -611,11 +612,13 @@ if (form) {
             if (response.ok) {
                 // Show success message
                 form.reset();
+                submitMessage.classList.remove('hidden');
                 successMessage.classList.remove('hidden');
                 errorMessage.classList.add('hidden');
 
                 // Hide success message after 5 seconds
                 setTimeout(() => {
+                    submitMessage.classList.add('hidden');
                     successMessage.classList.add('hidden');
                 }, 5000);
             } else {
@@ -623,11 +626,13 @@ if (form) {
             }
         } catch (error) {
             // Show error message
+            submitMessage.classList.remove('hidden');
             errorMessage.classList.remove('hidden');
             successMessage.classList.add('hidden');
 
             // Hide error message after 5 seconds
             setTimeout(() => {
+                submitMessage.classList.add('hidden');
                 errorMessage.classList.add('hidden');
             }, 5000);
         }

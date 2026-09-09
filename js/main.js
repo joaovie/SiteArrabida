@@ -567,11 +567,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-document.getElementById('mobile-menu-button').addEventListener('click', function () {
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenu.classList.toggle('hidden');
-});
-
 // Function to toggle individual sections
 function toggleTermsSection(button) {
     const content = button.nextElementSibling;
